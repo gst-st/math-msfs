@@ -16,8 +16,17 @@
 
 VERUM           ?= verum
 # Stdlib resolution: the corpus tracks the live language stdlib (sibling
-# repo). Without this, the CLI silently falls back to a possibly-stale
-# ~/.verum/core snapshot and every core.math.* mount fails to resolve.
+# repo). Two env vars, two subsystems:
+#   VERUM_STDLIB_PATH — module-registry population for `verum check`
+#       (Normal mode otherwise uses the binary's embedded archive, which
+#       bakes only the runtime prelude — core.math.* file modules like
+#       absolute_layer / s_definable.lemma_3_4 are NOT in it, so every
+#       corpus mount would fail with E402).  First source-driven run is
+#       slow (full stdlib parse), later runs hit the disk cache.
+#   VERUM_CORE_PATH — kernel/prove-path core source resolution.
+# Point both at the live tree; without them the CLI falls back to
+# embedded/stale snapshots and the corpus silently drops out of check.
+export VERUM_STDLIB_PATH ?= $(abspath $(CURDIR)/../../verum-lang/verum/core)
 export VERUM_CORE_PATH ?= $(abspath $(CURDIR)/../../verum-lang/verum/core)
 PYTHON          ?= python3
 AUDIT_DIR       ?= audit-reports

@@ -9,6 +9,42 @@
 // `core.math.frameworks.msfs.{baseline, key_symbols, strcat}`. This
 // file is the corpus-side import surface; downstream theorems pull
 // the §1 vocabulary through this module.
+//
+// -----------------------------------------------------------------------------
+// ASSUMPTION REGISTER (paper §1.2, label sec:assumption-register)
+// -----------------------------------------------------------------------------
+// The paper's trusted surface, made enumerable. Every corpus theorem
+// is proved FROM this package; downstream extensions that claim any
+// form of limit status (e.g. Diakrisis) inherit or discharge these
+// entries — never escape them.
+//
+//   A1  Foundational base: ZFC + 2 strongly inaccessible cardinals
+//       (κ₁ < κ₂). Status: axiom package; Gödel-II ceiling —
+//       equiconsistency is the best any extension can certify.
+//   A2  Scope of "metatheory": \RS = (R1)-(R5) (r.e., interprets Q,
+//       model in U₂, StrCat-compatible, R5a accessibility).
+//       Status: definitional scope — the no-go is universal over \RS,
+//       not over an informal totality of "all foundations".
+//   A3  "Absolute foundation" := (F_S) ∧ (Π_4) ∧ (Π_3-max)
+//       (Definition 4.4). Status: interpretive adequacy assumption.
+//   A4  Comparison relation = Morita-reducibility in StrCat_{S,n}
+//       via the pointing construction. Status: structural convention.
+//   A5  Escape axes = (S, n, μ, ξ, π), exhaustive BY DEFINITION of
+//       scope, not by theorem. Status: definitional scope.
+//   A6  Classifier axioms (M1)-(M5), (Max-1)-(Max-4) incl. Max-4
+//       joint conservativity of (Cl_F, 𝕀_F). Status: axioms.
+//   A7  Equivalence read through gauge_ℰ = 2-localization at
+//       reflection morphisms (Pronk BF1-BF5). Status: semantic
+//       convention (ring-Morita analogy).
+//   A8  Intensional structure measured against the canonical MINIMAL
+//       display class 𝒟_F = (D1)-(D4)-generation; display grade is
+//       relative to it. Status: canonical-minimality convention.
+//
+// Corpus enforcement: A1 is carried by @arch_module(foundation:
+// Foundation.ZfcTwoInacc) on every module + the self-containment
+// endpoint in mod.vr; A2-A8 are carried by the protocol signatures
+// of the mounted stdlib modules (rich_s, absolute_layer, meta_cls,
+// dual_absolute_layer, s_definable).
 // =============================================================================
 
 @arch_module(

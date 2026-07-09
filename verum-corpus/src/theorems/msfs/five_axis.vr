@@ -32,7 +32,7 @@ module lib.theorems.msfs.five_axis;
 mount core.math.rich_s.conditions.{RichS};
 mount core.math.absolute_layer.{LAbsCandidate};
 mount core.math.s_definable.lemma_3_4.{FormallySDefinable};
-mount super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
+mount lib.theorems.msfs.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
 // =============================================================================
 // Five-axis absoluteness — every axis reduces to Theorem 5.1

@@ -30,7 +30,7 @@ mount core.math.strata.{
     msfs_cls_not_in_l_abs,
 };
 mount core.math.absolute_layer.{LAbsCandidate};
-mount super.afnt_alpha.{msfs_corollary_5_2_l_abs_empty};
+mount lib.theorems.msfs.afnt_alpha.{msfs_corollary_5_2_l_abs_empty};
 
 // =============================================================================
 // MSFS Proposition 2.2 (iv) — L_Abs == ∅

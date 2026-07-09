@@ -61,7 +61,7 @@ mount core.math.s_definable.class_s_s.{
     msfs_s_s_global_kappa_1_accessible,
 };
 mount core.math.absolute_layer.{ConditionPi4, LAbsCandidate};
-mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
+mount lib.theorems.msfs.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
 // =============================================================================
 // Carrier protocol — transfinite tower of S-definable objects

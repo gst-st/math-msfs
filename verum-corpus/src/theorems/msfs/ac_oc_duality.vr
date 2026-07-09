@@ -61,8 +61,8 @@ mount core.math.dual_absolute_layer.{
     msfs_lemma_10_3_enactment_syntax_semantics_witness,
     msfs_corollary_10_5_conservativity_anchor,
 };
-mount super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
-mount super.super.strata.{msfs_proposition_2_2_iv_l_abs_empty};
+mount lib.theorems.msfs.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
+mount lib.theorems.msfs.strata.{msfs_proposition_2_2_iv_l_abs_empty};
 
 // =============================================================================
 // Definition / lemma layer — kept as paper-citation @axiom anchors
@@ -108,7 +108,7 @@ public axiom msfs_lemma_10_3_enactment_syntax_semantics(m: &SSMembership) -> Boo
 requires true
 ensures m.closure_depth() >= 0;
 
-/// **MSFS Theorem 10.4 — AC/OC Morita Duality (paper.tex line 1158).**
+/// **MSFS Theorem 10.4 — AC/OC Morita Duality (paper label `thm:ac-oc-duality`).**
 ///
 /// `𝔐 ≃_{(∞,∞)} 𝔐_\cE`. The adjoint pair `α ⊣ ε` induces an
 /// `(∞,∞)`-equivalence of classifying 2-stacks. Four-step proof:

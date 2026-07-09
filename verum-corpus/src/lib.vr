@@ -32,7 +32,7 @@
 // Mount the full MSFS theorem corpus so that project-level `verum check`,
 // `verum verify`, and `verum audit` operate on the actual proof content —
 // without this mount the project closure contained only this probe file.
-mount lib.theorems.msfs;
+mount lib.theorems.{};
 
 public fn corpus_probe() -> Bool {
     true

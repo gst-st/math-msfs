@@ -29,7 +29,7 @@ module lib.theorems.msfs.no_go_subsumption;
 
 mount core.math.rich_s.conditions.{RichS};
 mount core.math.absolute_layer.{LAbsCandidate};
-mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
+mount lib.theorems.msfs.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
 // =============================================================================
 // Per-row subsumption-reduction citation — paper §11 7-row table

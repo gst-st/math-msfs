@@ -1,0 +1,17 @@
+// =============================================================================
+// lib.theorems — theorem-corpus umbrella
+// =============================================================================
+//
+// Intermediate module between the crate root (`lib`) and the per-paper
+// corpora (`lib.theorems.msfs`). The loader resolves every mount
+// segment against the filesystem, so this file must exist for
+// `mount lib.theorems.msfs;` in src/lib.vr to resolve: it maps to
+// src/theorems/mod.vr (directory form).
+//
+// Add future corpora (e.g. lib.theorems.diakrisis) as sibling
+// directories with their own mod.vr, mounted here.
+// =============================================================================
+
+module lib.theorems;
+
+mount lib.theorems.msfs.{};

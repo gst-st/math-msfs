@@ -2,7 +2,9 @@
 // MSFS §9 — L_Cls Meta-Classification (Theorems 9.3, 9.4, 9.6)
 // =============================================================================
 //
-// Source: A. Sereda, MSFS preprint, §9 (paper.tex lines 863–1023).
+// Source: A. Sereda, MSFS preprint, §9 Meta-classification (labels
+// `def:meta`, `def:maximality`, `thm:meta-cat`, `thm:meta-mult`,
+// `cor:plurality`, `thm:meta-stab`).
 //
 // Five results + 2 definitions on the structure of L_Cls
 // (classifiers of Rich-foundations):
@@ -54,7 +56,7 @@ mount core.math.meta_cls.{
     msfs_theorem_9_4_structural_multiplicity_full,
     msfs_theorem_9_6_meta_classification_stabilization_full,
 };
-mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
+mount lib.theorems.msfs.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
 // =============================================================================
 // Definitions 9.1 / 9.2 — Meta_Cls and Meta_Cls^⊤ membership
@@ -107,7 +109,7 @@ ensures w.max_1_full_classification()
 // Theorem 9.3 — Meta-Categoricity
 // =============================================================================
 
-/// **MSFS Theorem 9.3 — Meta-Categoricity (paper.tex line 924).**
+/// **MSFS Theorem 9.3 — Meta-Categoricity (paper label `thm:meta-cat`).**
 ///
 /// Let `F_1, F_2 ∈ Meta_Cls^⊤` be parametrised by the same `S ∈ \RS`.
 /// Then `F_1 ≃_{(∞,∞)} F_2` via a canonical equivalence constructed
@@ -154,7 +156,7 @@ public theorem msfs_theorem_9_3_meta_categoricity(
 // Theorem 9.4 — Structural Multiplicity
 // =============================================================================
 
-/// **MSFS Theorem 9.4 — Structural multiplicity (paper.tex line 964).**
+/// **MSFS Theorem 9.4 — Structural multiplicity (paper label `thm:meta-mult`).**
 ///
 /// `Meta_Cls \ Meta_Cls^⊤` contains at least three pairwise non-2-
 /// equivalent meta-structures: Univalent Foundations / ∞-cosmoi /
@@ -198,7 +200,7 @@ public theorem msfs_corollary_9_5_plurality(
 // =============================================================================
 
 /// **MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilisation
-/// (paper.tex line 1006).**
+/// (paper label `thm:meta-stab`).**
 ///
 /// (a) `𝔐^(Cls) := Meta_Cls / meta_gauge` is itself in Meta_Cls.
 /// (b) Theory-level idempotence: `𝔐^(Cls·2) ≃_2 𝔐^(Cls)` as

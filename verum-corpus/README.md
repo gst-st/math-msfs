@@ -2,7 +2,7 @@
 
 Machine-verified formalization of:
 
-- **MSFS** — *The Moduli Space of Formal Systems: Classification, Stabilization, and a No-Go Theorem for Absolute Foundations*, A. Sereda 2026 ([Zenodo](https://zenodo.org/records/19755781), source [`paper-en/paper.tex`](../paper-en/paper.tex)) — 46 pages, 53 structural results (12 def, 8 lemma, 16 thm, 10 cor, 5 prop, 2 conv).
+- **MSFS** — *The Moduli Space of Formal Systems: Classification, Stabilization, and a No-Go Theorem for Absolute Foundations*, A. Sereda 2026 ([Zenodo](https://zenodo.org/records/19755781), source [`paper-en/paper.tex`](../paper-en/paper.tex)) — 44 pages (post-audit 2026-07), 65 structural results (21 def, 7 lemma, 20 thm, 9 cor, 6 prop, 2 conv).
 
 Written in [Verum](https://github.com/verum-lang/verum), a foundation-neutral proof assistant.  Every theorem is checked by Verum's trusted kernel and exported to Lean / Coq / Agda / Dedukti / Metamath for independent re-checking.
 
@@ -186,12 +186,34 @@ Legend:
 | M.6   | §6 AFN-T β — Theorem 6.1                      | 2 / 2      | ✅ | ✅ | ✅ | ✅ |
 | M.7   | §7 Five-axis absoluteness                     | 5 / 5      | ✅ | ✅ | ✅ | ✅ |
 | M.8   | §8 Three bypass paths                         | 3 / 3      | ✅ | ✅ | ✅ | ✅ |
+| M.8a  | §8.1 Intensional Grading (2026-07)            | 1 / 1      | ✅ | ✅ | 🟡 | 🟡 |
 | M.9   | §9 Meta-classification                        | 7 / 7      | ✅ | ✅ | ✅ | ✅ |
 | M.10  | §10 **AC/OC duality**                         | 5 / 5      | ✅ | ✅ | ✅ | ✅ |
 | M.11  | §11 No-go subsumption                         | 1 / 1      | ✅ | ✅ | ✅ | ✅ |
 | M.12  | §12 Consequences + open questions             | 4 / 4      | ✅ | ✅ | ✅ | ✅ |
 | M.13  | App. A Categorical preliminaries              | 1 / 1      | ✅ | ✅ | ✅ | ✅ |
 | M.14  | App. B Paraconsistent extension               | 0 / 0      | ✅ | 📋 | 📋 | 📋 |
+
+> **Closure regression, found + fixed 2026-07-09.** Until this date the theorem
+> corpus was **not in the `verum check` closure at all**: the crate root never
+> mounted `lib.theorems.msfs`, the numbered chapter directories
+> (`05_afnt_alpha/theorem_5_1.vr`, …) could not be resolved by the loader's
+> path-derived mount resolution, and several cross-section mounts used
+> `super.`-relative paths at the wrong depth — so `verum check` compiled
+> exactly one file (`src/lib.vr`) and reported success. Fixed by flattening
+> each section to `src/theorems/msfs/<canonical_name>.vr` (file name ==
+> module segment), adding the `lib.theorems` umbrella, mounting all 15
+> section modules from `mod.vr`, and rewriting relative mounts to absolute
+> paths. Note the stdlib-registry env var for `verum check` is
+> `VERUM_STDLIB_PATH` (the embedded archive bakes only the runtime prelude —
+> `core.math.*` file modules are not in it); the Makefile now exports it.
+> L1 columns above are honest only from this fix onward.
+>
+> **M.8a (Intensional Grading)** carries the paper's new §8.1: the
+> `DisplayGradeWitness` protocol, the structural grading proposition as a
+> `@framework`-cited MSFS-internal axiom, and `msfs_corollary_grade_collapse`
+> proven from it. 🟡 at L3/L4 until the proposition's three clauses are
+> re-derived through kernel bridges instead of the structural axiom.
 
 **Aggregate honest counts** (live-recomputable via `verum audit --apply-graph` with stdlib-walker enabled — see *Verification methodology* below):
 

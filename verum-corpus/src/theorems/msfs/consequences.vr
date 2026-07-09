@@ -39,7 +39,7 @@ module lib.theorems.msfs.consequences;
 
 mount core.math.absolute_layer.{LAbsCandidate};
 mount core.math.open_question.{OpenQuestion, OpenQuestionStatus};
-mount super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
+mount lib.theorems.msfs.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
 // =============================================================================
 // Diagnostics 12.1-12.4 — L_Cls meta-structure obstruction analysis

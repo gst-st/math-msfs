@@ -35,7 +35,7 @@ module lib.theorems.msfs.bypass_paths;
 
 mount core.math.s_definable.class_s_s.{SSMembership};
 mount core.math.absolute_layer.{ConditionPi4, LAbsCandidate};
-mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
+mount lib.theorems.msfs.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
 // =============================================================================
 // Per-bypass-path reduction citations — paper §8 paths
@@ -380,13 +380,14 @@ public theorem msfs_corollary_8_8_intensional_no_new_axis(
 
 // =============================================================================
 // Intensional Grading — Definition display-grade, Proposition grading,
-// Corollary grade-collapse (paper §8, sec:intensional-grading)
+// Corollary grade-collapse (paper §8 bypass-paths, `sec:intensional-grading`)
 // =============================================================================
 //
 // Source: MSFS preprint, §8 "The Intensional Grading":
-//   Definition (Display grade), paper.tex line 869;
-//   Proposition (The grading is structural), paper.tex line 875;
-//   Corollary (Extensionality is grade-blindness), paper.tex line 887.
+//   Definition (Display grade)              — label `def:display-grade`;
+//   Proposition (The grading is structural) — label `prop:grading`;
+//   Corollary (Extensionality is grade-blindness) — label `cor:grade-collapse`.
+//   (Labels, not line numbers: the paper is line-churny, labels are stable.)
 //
 // The canonical minimal display class D_F is generated inductively
 // (Theorem 8.6, Step 1): D_F^(0) = 1-equivalences; D_F^(n+1) adds
@@ -399,7 +400,7 @@ public theorem msfs_corollary_8_8_intensional_no_new_axis(
 // =============================================================================
 
 /// Witness for the display-grade structure on a display 2-category
-/// triple (paper Definition display-grade, line 869): the generation
+/// triple (paper `def:display-grade`): the generation
 /// ladder D_F^(0) ⊆ D_F^(1) ⊆ ⋯ with gr(d) = min{ n : d ∈ D_F^(n) }.
 public type DisplayGradeWitness is protocol {
     /// gr(d) = 0 exactly on 1-equivalences (the base of the ladder).
@@ -422,7 +423,7 @@ public type DisplayGradeWitness is protocol {
     fn underlying_triple(self) -> &Display2CategoryTriple;
 };
 
-/// **MSFS Proposition (The grading is structural), paper.tex line 875.**
+/// **MSFS Proposition (The grading is structural), paper `prop:grading`.**
 ///
 /// (a) exhaustive filtration; (b) functoriality — grade non-increase
 /// under the pullback component of I(f), so I(f) restricts to each
@@ -446,8 +447,8 @@ public axiom msfs_proposition_grading_structural(
           && grading.grade_nonincreasing_under_pullback()
           && grading.grade_subadditive();
 
-/// **MSFS Corollary (Extensionality is grade-blindness), paper.tex
-/// line 887.** The Morita 2-localization of (I-4) inverts exactly the
+/// **MSFS Corollary (Extensionality is grade-blindness), paper
+/// `cor:grade-collapse`.** The Morita 2-localization of (I-4) inverts exactly the
 /// grade-0 layer; the extensional quotient S_int[W_U⁻¹] ≃ 𝔐
 /// identifies all grades. The intensional content of a foundation is
 /// precisely the tower { Int^(n)([F]) }_n that the extensional
