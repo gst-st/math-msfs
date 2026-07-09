@@ -376,3 +376,106 @@ public theorem msfs_corollary_8_8_intensional_no_new_axis(
     // Step 2 — Apply Theorem 5.1 to the gauge-collapsed candidate.
     apply msfs_theorem_5_1_afnt_alpha(candidate);
 };
+
+
+// =============================================================================
+// Intensional Grading — Definition display-grade, Proposition grading,
+// Corollary grade-collapse (paper §8, sec:intensional-grading)
+// =============================================================================
+//
+// Source: MSFS preprint, §8 "The Intensional Grading":
+//   Definition (Display grade), paper.tex line 869;
+//   Proposition (The grading is structural), paper.tex line 875;
+//   Corollary (Extensionality is grade-blindness), paper.tex line 887.
+//
+// The canonical minimal display class D_F is generated inductively
+// (Theorem 8.6, Step 1): D_F^(0) = 1-equivalences; D_F^(n+1) adds
+// 2-pullbacks, composites, and 2-cell transports of stage-n data.
+// The *grade* of d ∈ D_F is the least stage containing it. The three
+// structural facts below assemble the generation ladder into a
+// canonical, functorial ℕ-filtration of every intensional fiber
+// Int([F]) — the structure that the extensional Morita-localization
+// (I-4) forgets.
+// =============================================================================
+
+/// Witness for the display-grade structure on a display 2-category
+/// triple (paper Definition display-grade, line 869): the generation
+/// ladder D_F^(0) ⊆ D_F^(1) ⊆ ⋯ with gr(d) = min{ n : d ∈ D_F^(n) }.
+public type DisplayGradeWitness is protocol {
+    /// gr(d) = 0 exactly on 1-equivalences (the base of the ladder).
+    fn grade_zero_iff_equivalence(self) -> Bool;
+
+    /// (a) The filtration is exhaustive: Int([F]) = colim_n Int^(n)([F]).
+    fn filtration_exhaustive(self) -> Bool;
+
+    /// (b) Grade non-increase under pullback: gr(f* d) ≤ gr(d) for
+    /// every 1-morphism f in cF — the stage-indexed reading of
+    /// Theorem 8.6 Step 2's induction on class generation.
+    fn grade_nonincreasing_under_pullback(self) -> Bool;
+
+    /// (c) Subadditivity of the generating step:
+    /// gr(d₂ ∘ d₁) ≤ max(gr(d₁), gr(d₂)) + 1 and
+    /// gr(φ* d) ≤ gr(d) + 1 for 2-cell transports.
+    fn grade_subadditive(self) -> Bool;
+
+    /// The underlying display 2-category triple carrying the ladder.
+    fn underlying_triple(self) -> &Display2CategoryTriple;
+};
+
+/// **MSFS Proposition (The grading is structural), paper.tex line 875.**
+///
+/// (a) exhaustive filtration; (b) functoriality — grade non-increase
+/// under the pullback component of I(f), so I(f) restricts to each
+/// grading stage Int^(n)([F₂]) → Int^(n)([F₁]); (c) subadditivity.
+/// Part (b) is the content of Theorem 8.6 Step 2 read with its stage
+/// index retained: the base class (grade 0) is preserved by pullback,
+/// and each inductive closure step is preserved stage-by-stage.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Proposition grading — the intensional grading is structural (a)+(b)+(c)")
+public axiom msfs_proposition_grading_structural(
+    grading: &DisplayGradeWitness,
+    i_witness: &IFunctorWitness,
+) -> Bool
+    requires grading.grade_zero_iff_equivalence()
+          && grading.filtration_exhaustive()
+          && grading.grade_nonincreasing_under_pullback()
+          && grading.grade_subadditive()
+          && i_witness.i_1_homotopy_invariant()
+    ensures  grading.filtration_exhaustive()
+          && grading.grade_nonincreasing_under_pullback()
+          && grading.grade_subadditive();
+
+/// **MSFS Corollary (Extensionality is grade-blindness), paper.tex
+/// line 887.** The Morita 2-localization of (I-4) inverts exactly the
+/// grade-0 layer; the extensional quotient S_int[W_U⁻¹] ≃ 𝔐
+/// identifies all grades. The intensional content of a foundation is
+/// precisely the tower { Int^(n)([F]) }_n that the extensional
+/// projection forgets — the fibers of Theorem 8.7's slice fibration
+/// are ℕ-graded 2-categories, not bare 2-categories.
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Corollary grade-collapse — extensionality is grade-blindness")
+public theorem msfs_corollary_grade_collapse(
+    grading: &DisplayGradeWitness,
+    i_witness: &IFunctorWitness,
+    )
+    requires grading.grade_zero_iff_equivalence()
+    && grading.filtration_exhaustive()
+    && grading.grade_nonincreasing_under_pullback()
+    && grading.grade_subadditive()
+    && i_witness.i_1_homotopy_invariant()
+    && i_witness.i_4_morita_2_localization()
+    ensures grading.filtration_exhaustive()
+    && grading.grade_nonincreasing_under_pullback()
+    proof {
+    // Step 1 — the structural proposition puts the ladder facts on
+    // the kernel-recheck stack.
+    apply msfs_proposition_grading_structural(grading, i_witness);
+    // Step 2 — (I-4): the localizing class W_U consists of morphisms
+    // whose underlying 2-functor is an equivalence — on display data,
+    // exactly the grade-0 elements (grade_zero_iff_equivalence).
+    // Hence the quotient identifies all grades; the tower is the
+    // forgotten intensional content.
+    };

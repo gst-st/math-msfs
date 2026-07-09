@@ -108,13 +108,19 @@ public axiom msfs_lemma_10_3_enactment_syntax_semantics(m: &SSMembership) -> Boo
 requires true
 ensures m.closure_depth() >= 0;
 
-/// **MSFS Theorem 10.4 — AC/OC Morita Duality (paper.tex line 1120).**
+/// **MSFS Theorem 10.4 — AC/OC Morita Duality (paper.tex line 1158).**
 ///
 /// `𝔐 ≃_{(∞,∞)} 𝔐_\cE`. The adjoint pair `α ⊣ ε` induces an
 /// `(∞,∞)`-equivalence of classifying 2-stacks. Four-step proof:
 /// (a) ε is fully faithful (Hom-cat equivalence + Syn 2-functoriality).
-/// (b) ε is essentially surjective at the gauge level (reflector
-/// counit invertible up to gauge).
+/// (b) ε is essentially surjective after gauge_ℰ-localization
+/// (paper Definition gauge-E: 𝔐_ℰ := ℰ[ℛ_ℰ⁻¹], the 2-localization at
+/// reflection morphisms via Pronk BF1–BF5). The reflector counit is
+/// invertible outright; the unit is inverted *by the localization* —
+/// the equivalence is created by inverting reflections, exactly as
+/// ring-Morita equivalence is created by inverting bimodule
+/// equivalences. `gauge_equivalent_to_identity()` below asserts
+/// precisely this localized invertibility, not invertibility in ℰ.
 /// (c) lift to (∞,∞) via Theorem A.7 stabilisation.
 /// (d) strata correspondence preserved (Cls/Gen + bijection).
 @verify(coherent)

@@ -15,6 +15,10 @@
 # =============================================================================
 
 VERUM           ?= verum
+# Stdlib resolution: the corpus tracks the live language stdlib (sibling
+# repo). Without this, the CLI silently falls back to a possibly-stale
+# ~/.verum/core snapshot and every core.math.* mount fails to resolve.
+export VERUM_CORE_PATH ?= $(abspath $(CURDIR)/../../verum-lang/verum/core)
 PYTHON          ?= python3
 AUDIT_DIR       ?= audit-reports
 JSON_FORMAT     := --format json

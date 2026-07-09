@@ -29,6 +29,11 @@
 /// Probe used by smoke tests to confirm the cog is type-checkable.
 /// Returns the corpus identifier as a stable boolean witness — the actual
 /// identification metadata travels through verum.toml.
+// Mount the full MSFS theorem corpus so that project-level `verum check`,
+// `verum verify`, and `verum audit` operate on the actual proof content —
+// without this mount the project closure contained only this probe file.
+mount lib.theorems.msfs;
+
 public fn corpus_probe() -> Bool {
     true
 }
