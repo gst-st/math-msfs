@@ -57,6 +57,7 @@
 \newcommand{\LCls}{\mathcal{L}_{\mathrm{Cls}}}
 \newcommand{\LClsMax}{\mathcal{L}_{\mathrm{Cls}}^{\top}}
 \newcommand{\LAbs}{\mathcal{L}_{\mathrm{Abs}}}
+\newcommand{\gr}{\operatorname{gr}}
 \newcommand{\Sint}{\cS_{\mathrm{int}}}
 \newcommand{\Ob}{\mathrm{Ob}}
 \newcommand{\Mor}{\mathrm{Mor}}
@@ -151,6 +152,7 @@ This paper studies the \emph{moduli space of formal systems} $\fM$, the classify
 \item \textbf{Conditional categoricity of $\LClsMax$} (Theorem~\ref{thm:meta-cat}).
 \item \textbf{Theory-level stabilization with universe-ascent} (Theorem~\ref{thm:meta-stab}).
 \item \textbf{Slice-locality of intensional refinement} (Theorem~\ref{thm:slice-locality}).
+\item \textbf{Intensional grading of the slice fibers} (Definition~\ref{def:display-grade}, Proposition~\ref{prop:grading}): each fiber $\mathrm{Int}([F])$ carries a canonical functorial $\mathbb{N}$-filtration by display grade; extensionality is exactly grade-blindness (Corollary~\ref{cor:grade-collapse}).
 \item \textbf{Five-axis absoluteness} (\S\ref{sec:five-axis}).
 \item \textbf{AC/OC Morita duality} (Theorem~\ref{thm:ac-oc-duality}, Theorem~\ref{thm:dual-afnt}).
 \item \textbf{Outer boundary: $\LAbs = \emptyset$} --- the Absolute Foundation No-Go Theorem (Theorem~\ref{thm:afnt-alpha}, Theorem~\ref{thm:afnt-beta}).
@@ -181,7 +183,7 @@ I work throughout in $\ZFC$ augmented by two inaccessible cardinals $\kappa_1 < 
 \begin{definition}[The total $(\infty, n)$-category $\mathbf{StrCat}_{S, n}$]\label{def:strcat}
 For $S \in \RS$ and $n \in \mathbb{N} \cup \{\infty\}$, the \emph{total $(\infty, n)$-category of $S$-structured $(\infty, n)$-categories}, denoted $\mathbf{StrCat}_{S, n}$, has:
 \begin{itemize}
-\item \textbf{Objects}: pairs $(\cC, \mathrm{str}_\cC)$ where $\cC$ is a $\kappa_1$-accessible $(\infty, n)$-category and $\mathrm{str}_\cC$ is an $S$-model structure on $\cC$ (i.e., an interpretation of $S$-signature into $\cC$ satisfying the axioms of $S$).
+\item \textbf{Objects}: pairs $(\cC, \mathrm{str}_\cC)$ where $\cC$ is an $(\infty, n)$-category that is either essentially $\mathbf{U}_1$-small or $\kappa_1$-accessible (the two cases cover syntactic categories and model categories respectively; cf.\ (R5a)) and $\mathrm{str}_\cC$ is an $S$-model structure on $\cC$ (i.e., an interpretation of $S$-signature into $\cC$ satisfying the axioms of $S$).
 \item \textbf{$1$-morphisms}: $S$-preserving $(\infty, n)$-functors $\Phi : (\cC_1, \mathrm{str}_1) \to (\cC_2, \mathrm{str}_2)$, i.e., functors commuting with the respective $S$-model structures up to coherent $(\infty, n)$-isomorphism.
 \item \textbf{Higher morphisms}: coherent $(\infty, n)$-natural transformations between $S$-preserving functors.
 \end{itemize}
@@ -271,13 +273,13 @@ MK & 1955 & Morse, Kelley & Impredicative classes \\
 KP/KPU & 1965 & Kripke--Platek & Admissible sets \\
 ETCS & 1964 & Lawvere & Elementary category of sets \\
 ETCC & 1966 & Lawvere & Elementary theory of categories \\
-NFU, NF & 1937, 1988 & Quine, Jensen & Stratified comprehension \\
+NF; NFU & 1937; 1969 & Quine; Jensen & Stratified comprehension \\
 CZF & 1978 & Aczel & Constructive ZF \\
 IZF & 1970s & Friedman & Intuitionistic ZF \\
 PA & 1889 & Peano & First-order arithmetic \\
 $\mathsf{Z}_2$ & 20c & Hilbert--Bernays & Second-order arithmetic \\
 MLTT & 1984 & Martin-L\"of & Dependent types \\
-CIC & 1988 & Coquand--Huet & Inductive constructions \\
+CIC & 1988--90 & Coquand--Huet; Coquand--Paulin & Inductive constructions \\
 HoTT & 2005+ & Awodey, Voevodsky & Univalence + identity types \\
 Cubical HoTT & 2015+ & Cohen--Coquand et al. & Computational univalence \\
 Universe-poly.\ HoTT & 2013+ & Voevodsky & Universe polymorphism \\
@@ -348,7 +350,7 @@ A theory $S$ formulated in a first-order meta-syntax is a \textbf{reasonable Ric
 \item \textbf{(R4) G\"odel coding}: there exists a recursive injection $\ulcorner \cdot \urcorner : \mathrm{Formulas}(S) \to \mathbb{N}$ for which the predicates ``$n$ is the G\"odel number of a provable formula'' and ``$n$ is the G\"odel number of a well-formed formula'' are $S$-definable.
 \item \textbf{(R5) Categorical semantics}: there exists $n_S \in \mathbb{N} \cup \{\infty\}$, the \emph{intrinsic categorical depth} of $S$, such that
 \begin{itemize}
-\item[\textbf{(R5a)}] the syntactic category $\Syn(S)$ of $S$ (objects: contexts; $1$-morphisms: provable-from-context substitutions; higher morphisms: proofs of equality of substitutions) is a $\kappa_S$-accessible $(\infty, n_S)$-category, where $\kappa_S \in \{\kappa_1, \kappa_2\}$ is determined by $S$: for $S$ of consistency strength $\leq \kappa_1$ (e.g., $\ZFC$, $\PA$, $\HoTT$, $\MLTT$, $\CIC$) set $\kappa_S = \kappa_1$; for $S$ of consistency strength requiring the second inaccessible (e.g., $\ZFC$ + inaccessible) set $\kappa_S = \kappa_2$. The accessibility parameter follows the theory's consistency strength; all theorems below are stated uniformly for arbitrary $\kappa_S \in \{\kappa_1, \kappa_2\}$ unless a specific case is flagged;
+\item[\textbf{(R5a)}] the syntactic category $\Syn(S)$ of $S$ (objects: contexts; $1$-morphisms: provable-from-context substitutions; higher morphisms: proofs of equality of substitutions) is an essentially $\mathbf{U}_1$-small $(\infty, n_S)$-category whose category of models $\Mod(S) \simeq \Fun^{\mathrm{lex}}(\Syn(S), -)$ is $\kappa_S$-accessible --- equivalently, whose $\mathrm{Ind}_{\kappa_S}$-completion $\mathrm{Ind}_{\kappa_S}(\Syn(S))$ is a $\kappa_S$-accessible $(\infty, n_S)$-category (Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994} Thm.~2.26; all accessibility statements about $\Syn(S)$ below are to be read in this $\mathrm{Ind}$-completed sense, while size statements refer to $\Syn(S)$ itself) --- where $\kappa_S \in \{\kappa_1, \kappa_2\}$ is determined by $S$: for $S$ of consistency strength $\leq \kappa_1$ (e.g., $\ZFC$, $\PA$, $\HoTT$, $\MLTT$, $\CIC$) set $\kappa_S = \kappa_1$; for $S$ of consistency strength requiring the second inaccessible (e.g., $\ZFC$ + inaccessible) set $\kappa_S = \kappa_2$. The accessibility parameter follows the theory's consistency strength; all theorems below are stated uniformly for arbitrary $\kappa_S \in \{\kappa_1, \kappa_2\}$ unless a specific case is flagged;
 \item[\textbf{(R5b)}] the syntax-to-semantics evaluation $\ev : \Syn(S) \to \cM$ for every model $\cM \models S$ is an $S$-preserving $(\infty, n_S)$-functor, and the pair of functors $(\Syn, \Mod)$ constitutes a Lambek--Scott-type adjunction whose unit at $\Syn(S)$ is an $(\infty, n_S)$-equivalence onto the \emph{initial $S$-structured $(\infty, n_S)$-category}, i.e., the initial object in the $(\infty, n_S + 1)$-category of $S$-structured $(\infty, n_S)$-categories and $S$-preserving $(\infty, n_S)$-functors between them.
 \end{itemize}
 The Lambek--Scott adjunction of (R5a)--(R5b) at level $n_S$ is established by the composition: Lambek--Scott~\cite{LambekScott1986} for $n_S = 1$; Kapulkin--Lumsdaine~\cite{KapulkinLumsdaine2021} and Awodey--Warren~\cite{AwodeyWarren2009} for $n_S = \infty$ in the HoTT sense; Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021} unicity together with Bergner--Rezk~\cite{BergnerRezk2013} model comparison and Gagna--Harpaz--Lanari~\cite{GagnaHarpazLanari2021} $(\infty, 2)$-straightening for general $n_S \geq 2$. Only the structural consequences---$2$-functoriality of $\Syn$, uniqueness of the initial $S$-structured object up to canonical $(\infty, n_S)$-equivalence---are invoked below.
@@ -392,7 +394,7 @@ The five conditions (R1)--(R5) defining the class $\RS$ are pairwise independent
 \begin{itemize}[nosep]
 \item \emph{(R1)-failure with (R2)--(R5) holding}: \emph{affine logic without exponential $!$} satisfies r.e.-axiomatizability (R2), has consistent models in $\mathbf{U}_1$ (R3), admits G\"odel coding over its formula set (R4), and possesses a standard categorical semantics in symmetric-monoidal categories (R5 at $n_S = 1$); the failure is (R1): without contraction, full Peano induction on the induction hypothesis is unavailable, so Robinson's Q cannot be interpreted in the standard sense.
 \item \emph{(R2)-failure with (R1), (R3)--(R5) holding}: \emph{second-order arithmetic with full (Henkin-external) semantics}. It interprets Q trivially (R1), has full-semantic models (R3), admits G\"odel coding (R4), and has a categorical semantics in $2$-categories (R5). But (R2) fails: the set of theorems valid under full semantics is not r.e.\ (a consequence of second-order incompleteness).
-\item \emph{(R3)-failure with (R1), (R2), (R4), (R5) holding}: \emph{$\ZFC + \text{proper class of inaccessibles}$}. It interprets Q (R1), is r.e.-axiomatized (R2), admits G\"odel coding (R4), and its syntactic category is a $\kappa_1$-accessible $(\infty, 1)$-category with the standard Lambek--Scott adjunction (R5). But (R3) fails in the ambient meta-universe $\ZFC + 2\text{-inacc}$: models of this theory require proper-class-many inaccessibles, which cannot be accommodated within $\mathbf{U}_2 = V_{\kappa_2}$ (which contains only two inaccessibles, $\kappa_1 < \kappa_2$). A consistent theory whose consistency-strength exceeds the meta-universe's capacity is the canonical (R3)-failure mode; inconsistent theories, by contrast, also fail (R5b) vacuously and therefore do not cleanly isolate (R3).
+\item \emph{(R3)-failure with (R1), (R2), (R4), (R5) holding}: an \emph{inconsistent} r.e.\ extension of Q, e.g.\ $T_3 := \mathsf{Q} + (0 = 1)$. Over the ambient metatheory, (R3) is \emph{equivalent} to consistency for theories satisfying (R2): by the completeness theorem any consistent r.e.\ theory has a countable model, which lies in $\mathbf{U}_1 \subseteq \mathbf{U}_2$; conversely a model witnesses consistency. Hence no \emph{consistent} theory can serve as an (R3)-witness, and $T_3$ is the canonical failure mode. The remaining conditions hold for $T_3$: (R1), (R2), (R4) are syntactic and immediate; for (R5), the syntactic category $\Syn(T_3)$ is the terminal (provably-collapsed) structure, $\Mod(T_3) = \emptyset$, and the Lambek--Scott adjunction between them holds trivially (the universally-quantified clauses of (R5b) are satisfied vacuously, and the unit condition holds for the collapsed initial object). Thus $T_3$ isolates (R3) cleanly.
 \item \emph{(R4)-failure with (R1)--(R3), (R5) holding}: an artificial theory $T$ extending Q in a language whose G\"odel numbering is uncomputable (e.g., using a non-recursive bijection between formulas and natural numbers). (R1)--(R3) and (R5) hold after replaying the Q-interpretation; (R4) fails because the bijection is non-recursive.
 \item \emph{(R5)-failure with (R1)--(R4) holding}: \emph{pure first-order Peano arithmetic $\mathsf{PA}$ equipped with a non-standard comprehension schema} that renders the syntactic category non-accessible (e.g., by enlarging the context objects to a proper class via $\mathbf{U}_2$-sized quantifier domains without corresponding $(\infty, n)$-functorial semantics). (R1)--(R4) are inherited from $\mathsf{PA}$; (R5a) fails because $\Syn(T)$ is no longer $\kappa_1$-accessible. More canonically, any theory whose formal language permits comprehension outside the natural number stratum but fails to admit a Lambek--Scott adjunction to a model category constitutes a witness.
 \end{itemize}
@@ -417,7 +419,7 @@ where $\mathcal{O}$ is the closure under the following fixed list of $(\infty, n
 \begin{enumerate}[nosep,label=\textrm{(O\arabic*)}]
 \item Left and right Kan extensions along $\cS_S^{(k)}$-morphisms;
 \item Grothendieck constructions $\int F$ for Cartesian fibrations $F : I \to \cS_S^{(k)}$ with $I \in \cS_S^{(k)}$;
-\item Limits and colimits of $\cS_S^{(k)}$-small diagrams;
+\item Limits and colimits of small diagrams (throughout, ``small'' for a diagram means: indexed by an $(\infty, n)$-category that is $\mathbf{U}_2$-small) valued in $\cS_S^{(k)}$;
 \item Slice/comma/opposite categories built from $\cS_S^{(k)}$-data;
 \item Derived functors (Quillen sense) between $\cS_S^{(k)}$-objects equipped with model-category structure (when applicable; vacuous on objects without model structure);
 \item Symmetric monoidal tensor products and internal hom in closed monoidal $\cS_S^{(k)}$-objects.
@@ -432,7 +434,7 @@ If $X$ is a formally $S$-definable object --- meaning $X$ is specified by a form
 \end{lemma}
 
 \begin{proof}
-$\phi_X$ presents $X \in \Ob(\Syn(F))$ for some sub-theory $\iota_F : F \hookrightarrow S$ with $F \in \cF$ (using the Definition~\ref{def:F} sub-theory inclusion notation rather than a set-theoretic ``$F \subseteq S$'').  By (R2), (R5a), $\Syn(F)$ is the Grothendieck construction over $\Mod(F)$ (Lurie~\cite{LurieHTT} \S 5.1), a derived functor from $\cS_S^{\mathrm{local}}$-data, so $\Syn(F) \in \cS_S^{\mathrm{global}}$; hence $X \in \cS_S^{\mathrm{global}} \subseteq \cS_S$.
+By Convention~\ref{conv:notation} (Morita-reducibility clause), an object $X$ presented by a formula $\phi_X$ is viewed in $\mathbf{StrCat}_{S, n}$ as the pointed structure $(\Syn(S), [\phi_X])$. Since $[\phi_X] \in \Ob(\Syn(S))$, this pair lies in $\cS_S^{\mathrm{local}}$ \emph{by the first clause of Definition~\ref{def:SS}} --- no closure operation is required. Hence $X \in \cS_S^{\mathrm{local}} \subseteq \cS_S$. (If $\phi_X$ is native to a proper sub-theory $\iota_F : F \hookrightarrow S$, the induced interpretation functor $\Syn(\iota_F) : \Syn(F) \to \Syn(S)$ carries $[\phi_X]_F$ to $[\phi_X]$, so the pointing may equivalently be taken over $F$; the conclusion is unchanged.)
 \end{proof}
 
 \subsection{Size Stratification}\label{sec:size-stratification}
@@ -509,7 +511,7 @@ Then $A_\infty \in \cS_S^{\mathrm{global}}$, and therefore $A_\infty$ is Morita-
 \end{theorem}
 
 \begin{proof}
-Each $A_\kappa \in \cS_S$ by Lemma~\ref{lem:SS-membership}; $S$-definability of the transition functors makes $D : \lambda \to \cF$ an $S$-indexed diagram. By Definition~\ref{def:SS}, $\cS_S^{\mathrm{global}}$ is closed under Grothendieck constructions and Kan extensions along $S$-definable morphisms; hence $A_\infty = \colim D \in \cS_S^{\mathrm{global}}$. Accessibility: by the standard filtered-colimit closure properties of accessible categories (Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994}, particularly the closure of $\kappa$-accessible categories under $\lambda$-filtered colimits for regular $\lambda \leq \kappa$ and the preservation of accessibility under accessible reindexing), the colimit inherits $\kappa_1$-accessibility from the diagram. Morita-reduction to the canonical model-category colimit contradicts $(\Pi_4)$.
+Each $A_\kappa \in \cS_S$ by Lemma~\ref{lem:SS-membership}; $S$-definability of the transition functors makes $D : \lambda \to \cS_S$ (valued in the pointed structures of Definition~\ref{def:SS}) an $S$-indexed diagram. By Definition~\ref{def:SS}, $\cS_S^{\mathrm{global}}$ is closed under Grothendieck constructions and Kan extensions along $S$-definable morphisms; hence $A_\infty = \colim D \in \cS_S^{\mathrm{global}}$. Accessibility: by the standard filtered-colimit closure properties of accessible categories (Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994}, particularly the closure of $\kappa$-accessible categories under $\lambda$-filtered colimits for regular $\lambda \leq \kappa$ and the preservation of accessibility under accessible reindexing), the colimit inherits $\kappa_1$-accessibility from the diagram. Morita-reduction to the canonical model-category colimit contradicts $(\Pi_4)$.
 \end{proof}
 
 \subsection{Proper-Class Towers Do Not Provide an Escape}
@@ -542,14 +544,14 @@ In case (b), the tower falls outside the scope of Definition~\ref{def:level6}: t
 A subtler variant of the tower approach introduces a choice at each stage: $A_{\kappa+1}$ is not uniquely determined by $A_\kappa$, but depends on a structural choice. The space $\mathbb{T}$ of all possible trajectories is a large categorical object --- a tree, a simplicial set, or a path-groupoid.
 
 \begin{proposition}\label{prop:trajectory-space}
-The space $\mathbb{T}$ of trajectory choices is itself a derived construction over $\cS_S$:
+The space of trajectory choices admits (at least) four presentations at different categorical resolutions --- these are \emph{not} mutually equivalent objects, but each captures the trajectory data at its own truncation level, and \emph{each} lies in $\cS_S^{\mathrm{global}}$:
 \begin{itemize}
-\item As a path-groupoid: $\mathbb{T} = \Pi_1(\fM)$ where $\fM$ is the classifying $2$-stack of Rich-foundations.
-\item As a simplicial set: $\mathbb{T} = \Delta[\fM]$, the nerve of $\fM$.
-\item As a choice tree: $\mathbb{T}$ is the tree of refinement choices over $\fM$.
-\item As a relation category: $\mathbb{T} = \mathrm{Rel}(\fM)$.
+\item as a path-groupoid, $\Pi_1(\fM)$, where $\fM$ is the classifying $2$-stack of Rich-foundations;
+\item as a simplicial set, the nerve $\mathrm{N}(\fM)$;
+\item as a choice tree, the tree of refinement choices over $\fM$;
+\item as a relation category, $\mathrm{Rel}(\fM)$.
 \end{itemize}
-Each of these four presentations identifies $\mathbb{T}$ as an element of $\cS_S^{\mathrm{global}}$.
+Whichever resolution $\mathbb{T}$ is taken at, the conclusion below applies.
 \end{proposition}
 
 \begin{proof}[Proof (sketch)]
@@ -598,7 +600,7 @@ AFN-T (Theorem~\ref{thm:afnt-alpha}) holds for every $S \in \RS$ uniformly: ther
 \end{theorem}
 
 \begin{proof}
-The proof of Theorem~\ref{thm:afnt-alpha} consists of a single application of Lemma~\ref{lem:SS-membership} (syntax--semantics bridge) together with the observation that $\id_X : X \to X$ realizes a Morita reduction violating $(\Pi_{4, S, n})$. Lemma~\ref{lem:SS-membership} uses only (R1), (R2), (R5a) (for the Grothendieck-construction identification of $\Syn(F)$ as an $S$-definable $(\infty, n_F)$-category, where $n_F$ denotes the categorical level of the sub-foundation $F \in \cF$ in the sense of (R5) --- not to be confused with $n_S$, which is the metatheory's own level); the Morita-reduction observation uses only the categorical identity morphism. No datum from $S$ beyond (R1)--(R5) is invoked. Hence the proof applies uniformly to all $S \in \RS$.
+The proof of Theorem~\ref{thm:afnt-alpha} consists of a single application of Lemma~\ref{lem:SS-membership} (syntax--semantics bridge) together with the observation that $\id_X : X \to X$ realizes a Morita reduction violating $(\Pi_{4, S, n})$. Lemma~\ref{lem:SS-membership} uses only (R2) and (R5a) (the syntactic category exists and its objects support the pointing construction of Convention~\ref{conv:notation}); the Morita-reduction observation uses only the categorical identity morphism. No datum from $S$ beyond (R1)--(R5) is invoked. Hence the proof applies uniformly to all $S \in \RS$.
 \end{proof}
 
 \begin{theorem}[Vertical absoluteness]\label{thm:vertical}
@@ -668,7 +670,7 @@ Let $F \in \cL\cS$. By Definition~\ref{def:law-scope}, $F$ is characterized by a
 \item \textbf{(C) Meta-reflection}: iterations of G\"odel coding and reflection principles --- the \emph{meta-vertical axis}.
 \item \textbf{(D) Alternative semantics}: operadic, globular, cubical, opetopic, etc.\ --- the \emph{lateral axis}.
 \end{itemize}
-Thus any putative fifth axis $\eta$ must, by the Lawvere characterization, be a subcomponent of one of (A)--(D). Either $\eta \subseteq$ (A), in which case AFN-T for $\eta$ reduces to horizontal absoluteness (Theorem~\ref{thm:horizontal}); $\eta \subseteq$ (B), reducing to vertical (Theorem~\ref{thm:vertical}); $\eta \subseteq$ (C), reducing to meta-vertical (Theorem~\ref{thm:meta-vertical}); or $\eta \subseteq$ (D), reducing to lateral (Theorem~\ref{thm:lateral}). There is no independent fifth axis within $\cL\cS$.
+By Definition~\ref{def:law-scope}, membership in $\cL\cS$ \emph{means} that $F$ is presented exactly by the data (L1)--(L4), i.e.\ by the quadruple (A)--(D); this is where the conditionality of the theorem resides --- within $\cL\cS$, exhaustiveness of (A)--(D) holds by definition of the scope, not as an additional claim. Thus any putative fifth axis $\eta$ is a subcomponent of one of (A)--(D). Either $\eta \subseteq$ (A), in which case AFN-T for $\eta$ reduces to horizontal absoluteness (Theorem~\ref{thm:horizontal}); $\eta \subseteq$ (B), reducing to vertical (Theorem~\ref{thm:vertical}); $\eta \subseteq$ (C), reducing to meta-vertical (Theorem~\ref{thm:meta-vertical}); or $\eta \subseteq$ (D), reducing to lateral (Theorem~\ref{thm:lateral}). There is no independent fifth axis within $\cL\cS$.
 \end{proof}
 
 \section{Three Standard Bypass Paths}\label{sec:bypass}
@@ -682,7 +684,7 @@ In particular, $X \in \cS_S$, and universe-polymorphic structures satisfy $\neg 
 \end{theorem}
 
 \begin{proof}
-A universe-polymorphic structure $X = \prod_\ell F(\ell)$ is a section of the Grothendieck fibration $\pi : \int \cU \to \mathrm{Level}$, where $\cU_\ell$ is the universe at level $\ell$. By standard Grothendieck construction theory (Lurie HTT~\cite{LurieHTT} \S 3.2), sections of this fibration correspond to functors $\mathrm{Level} \to \int \cU$, and the space of such sections is
+A universe-polymorphic structure $X = \prod_\ell F(\ell)$ is a section of the Grothendieck fibration $\pi_{\mathrm{End}} : \int \mathrm{End}(\cU) \to \mathrm{Level}$ associated (Lurie HTT~\cite{LurieHTT} \S 3.2) to the \emph{endofunctor diagram} $\ell \mapsto \Fun(\cU_\ell, \cU_\ell)$, with transition maps given by restriction along the universe inclusions $\cU_\ell \hookrightarrow \cU_{\ell'}$. Sections of this fibration correspond to compatible families $\{F(\ell)\}_\ell$, and the space of such sections is
 \[ \Gamma(\pi) = \lim_\ell \Fun(\cU_\ell, \cU_\ell). \]
 This is a derived construction (an indexed limit), hence belongs to $\cS_S^{\mathrm{global}}$.
 
@@ -860,6 +862,36 @@ Intensional refinement adds no new structural axis to AFN-T: the base ($\fM$) is
 Five-axis absoluteness (Theorems~\ref{thm:horizontal}--\ref{thm:completeness}) concerns points of $\fM$. Theorem~\ref{thm:slice-locality}(c) shows intensional refinement acts only on fibers, not base points. No new axis of variation is introduced.
 \end{proof}
 
+\subsection{The Intensional Grading}\label{sec:intensional-grading}
+
+The slice-locality theorem presents each fiber $\mathrm{Int}([F])$ as a bare $2$-category. The inductive construction of the canonical display class in Theorem~\ref{thm:I-existence} (Step 1) in fact endows every fiber with finer, functorial structure: an $\mathbb{N}$-indexed grading measuring \emph{how far from an equivalence} a display datum is. This subsection records the grading and its two structural properties; both proofs are short because the generating induction of Theorem~\ref{thm:I-existence} already carries them implicitly.
+
+\begin{definition}[Display grade]\label{def:display-grade}
+Let $F \in \cF$ and let $\cD_F = \bigcup_{n < \omega} \cD_F^{(n)}$ be the canonical minimal display class with its generating filtration (Theorem~\ref{thm:I-existence}, Step 1). For $d \in \cD_F$ define the \emph{grade}
+\[ \gr(d) := \min\{\, n : d \in \cD_F^{(n)} \,\} \in \mathbb{N}. \]
+Thus $\gr(d) = 0$ iff $d$ is a $1$-equivalence, and $\gr(d) = n+1$ iff $d$ first arises at stage $n+1$, i.e.\ as a $2$-pullback, a composite, or a $2$-cell transport of data of grade $\leq n$, but is not itself of grade $\leq n$. For an object $\II(F) = (\cC_F, \cD_F, \iota_F) \in \Sint$, write $\mathrm{Int}^{(n)}([F]) \subseteq \mathrm{Int}([F])$ for the full sub-$2$-category of the fiber (Theorem~\ref{thm:slice-locality}(b)) on display data of grade $\leq n$.
+\end{definition}
+
+\begin{proposition}[The grading is structural]\label{prop:grading}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Exhaustive filtration}: $\mathrm{Int}^{(0)}([F]) \subseteq \mathrm{Int}^{(1)}([F]) \subseteq \cdots$ with $\mathrm{Int}([F]) = \colim_{n} \mathrm{Int}^{(n)}([F])$.
+\item \emph{Functoriality (grade non-increase)}: for every $1$-morphism $f : F_1 \to F_2$ in $\cF$, the pullback component $f^*|_{\cD}$ of $\II(f)$ satisfies $\gr(f^* d) \leq \gr(d)$ for all $d \in \cD_{F_2}$; hence $\II(f)$ restricts to each grading stage, $\II(f) : \mathrm{Int}^{(n)}([F_2]) \to \mathrm{Int}^{(n)}([F_1])$.
+\item \emph{Subadditivity}: $\gr(d_2 \circ d_1) \leq \max(\gr(d_1), \gr(d_2)) + 1$, and $\gr(\phi^* d) \leq \gr(d) + 1$ for $2$-cell transports $\phi$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) is immediate from $\cD_F = \bigcup_n \cD_F^{(n)}$. (b) is the content of Theorem~\ref{thm:I-existence}, Step 2: the preservation of display data under $f^*$ is proved there \emph{by induction on the class generation} --- the base class ($1$-equivalences, grade $0$) is preserved by pullback, and each inductive closure step is preserved stage-by-stage by the pullback-of-pullback property; reading that induction with its stage index retained yields $f^*(\cD_{F_2}^{(n)}) \subseteq \cD_{F_1}^{(n)}$ for every $n$, which is the claim. (c) is the definition of the generating step: composites and $2$-cell transports of data available at stage $\max(\gr(d_1), \gr(d_2))$ (resp.\ $\gr(d)$) are enrolled at the next stage.
+\end{proof}
+
+\begin{corollary}[Extensionality is grade-blindness]\label{cor:grade-collapse}
+The Morita $2$-localization of (I-4) inverts exactly the grade-$0$ layer: the localizing class $\mathcal{W}_\cU$ consists of morphisms whose underlying $2$-functor is an equivalence, and on display data these are the grade-$0$ elements. Consequently the extensional quotient $\Sint[\mathcal{W}_\cU^{-1}] \simeq \fM$ identifies all grades: the composite $\mathrm{Int}^{(n)}([F]) \hookrightarrow \mathrm{Int}([F]) \to \{[F]\}$ is constant in $n$. The intensional content of a foundation is precisely the tower $\{\mathrm{Int}^{(n)}([F])\}_{n}$ that the extensional projection forgets.
+\end{corollary}
+
+\begin{remark}[Reading, and an open question]\label{rem:grading-open}
+The grading gives the slice fibers of Theorem~\ref{thm:slice-locality} the structure that the extensional-collapse example (Theorem~\ref{thm:I-existence}, Step 7) implicitly exploits: the typing invariant $\tau$ is computed on display data of \emph{bounded grade}, and the $\MLTT$/$\ETT$ distinction is visible already at finite stages of the tower. Two natural questions remain open: (i) \emph{strictness} --- for which $F$ is the filtration $\mathrm{Int}^{(n)}([F])$ strictly increasing in $n$ (no grade collapse at a finite stage)? A collapse at stage $n_0$ would express a strong normal-form property of $F$'s display geometry; (ii) \emph{grade as a Morita-refinement invariant} --- whether the minimal collapse stage $n_0(F) \in \mathbb{N} \cup \{\infty\}$, which is invariant under $\Sint$-equivalence by Proposition~\ref{prop:grading}(b), separates Morita-equivalent foundations beyond the binary invariant $\tau$ of Step 7, providing a quantitative refinement scale between extensional identity and intensional distinctness.
+\end{remark}
+
 \section{\texorpdfstring{$\LCls$ Meta-Classification}{Classifier Meta-Classification}}\label{sec:meta}
 
 \subsection{\texorpdfstring{The Class $\Meta_{\mathrm{Cls}}$}{The Class Meta\_5+}}
@@ -882,7 +914,7 @@ A meta-structure $\mathbf{F} \in \Meta_{\mathrm{Cls}}$ is \textbf{maximal} if ad
 \item \textbf{(Max-1) Full classification}: $\image(\Cl_{\mathbf{F}}) = \fM$.
 \item \textbf{(Max-2) Gauge-fullness}: $\mathrm{Aut}_2(\mathbf{F})$ acts transitively on gauge classes in $\image(\Cl_{\mathbf{F}})$.
 \item \textbf{(Max-3) Depth stratification}: $\mathbf{F}$ admits a \emph{depth-indexed filtration} $\mathbf{F}^{(0)} \hookrightarrow \mathbf{F}^{(1)} \hookrightarrow \cdots \hookrightarrow \mathbf{F}^{(n)} \hookrightarrow \cdots$ of accessible $2$-subcategories with $\mathbf{F} \simeq_2 \colim_{n < \omega} \mathbf{F}^{(n)}$, equipped with a \emph{depth function} $\dep : \Ob(\mathbf{F}) \to \omega$ assigning to each object the least $n$ such that the object lies in $\mathbf{F}^{(n)}$, satisfying the following \emph{predicativity condition}: for every predicate $P$ appearing in a definition by comprehension of an object $A \in \mathbf{F}^{(n)}$ (i.e., the definition has the form ``$A :=$ the object classifying $\{x : P(x)\}$''), every object $Y$ that appears as the target of a sub-expression in $P$ --- in particular every target of $R_\mathbf{F}$, $\Cl_\mathbf{F}$, or subobject-classifier evaluations --- satisfies $\dep(Y) < n$.
-\item \textbf{(Max-4) Intensional completeness}: there exists a $2$-functor $\II_{\mathbf{F}} : \mathbf{F}^{\mathrm{op}} \to \Sint$ satisfying properties (I-1)--(I-4) of Theorem~\ref{thm:I-existence}.
+\item \textbf{(Max-4) Intensional completeness with conservativity}: there exists a $2$-functor $\II_{\mathbf{F}} : \mathbf{F}^{\mathrm{op}} \to \Sint$ satisfying properties (I-1)--(I-4) of Theorem~\ref{thm:I-existence}, and moreover the pair $(\Cl_{\mathbf{F}}, \II_{\mathbf{F}})$ is \emph{jointly conservative}: two parallel $1$-morphisms of $\mathbf{F}$ that are identified both by $\Cl_{\mathbf{F}}$ and by $\II_{\mathbf{F}}$ are equal (up to invertible $2$-cell). The canonical classifier $\mathbf{F}_S^*$ of Theorem~\ref{thm:meta-cat} satisfies this clause by construction (its morphisms are pairs of a base morphism and an intensional-fiber morphism), so the clause does not empty the class.
 \end{itemize}
 I denote the class of maximal meta-structures as $\Meta_{\mathrm{Cls}}^{\top}$.
 \end{definition}
@@ -912,7 +944,7 @@ preserving all four structures.
 \[ \Phi_\mathbf{F} : \Hom_\mathbf{F}(A, B) \longrightarrow \Hom_{\mathbf{F}_S^*}(\Phi_\mathbf{F}(A), \Phi_\mathbf{F}(B)) \]
 is an equivalence of Hom-spaces.
 
-\emph{Faithfulness}: suppose $f, g : A \to B$ in $\mathbf{F}$ have $\Phi_\mathbf{F}(f) = \Phi_\mathbf{F}(g)$. Applying $\Cl_\mathbf{F}$ to both sides yields $\Cl_\mathbf{F}(f) = \Cl_\mathbf{F}(g)$ in $\fM$, so $f$ and $g$ differ at most by gauge. Applying $\II_\mathbf{F}$ (which satisfies (I-1) homotopy invariance and (I-2) gauge covariance of Theorem~\ref{thm:I-existence}), $\II_\mathbf{F}(f) = \II_\mathbf{F}(g)$ in $\Sint$. By (I-3) strict refinement of Morita and (I-4) Morita-as-$2$-localization, $\II_\mathbf{F}$ is jointly faithful with $\Cl_\mathbf{F}$: the pair $(\Cl_\mathbf{F}, \II_\mathbf{F})$ separates morphisms in $\mathbf{F}$. Hence $f = g$.
+\emph{Faithfulness}: suppose $f, g : A \to B$ in $\mathbf{F}$ have $\Phi_\mathbf{F}(f) = \Phi_\mathbf{F}(g)$. Applying $\Cl_\mathbf{F}$ to both sides yields $\Cl_\mathbf{F}(f) = \Cl_\mathbf{F}(g)$ in $\fM$, so $f$ and $g$ differ at most by gauge. Applying $\II_\mathbf{F}$ (which satisfies (I-1) homotopy invariance and (I-2) gauge covariance of Theorem~\ref{thm:I-existence}), $\II_\mathbf{F}(f) = \II_\mathbf{F}(g)$ in $\Sint$. By the joint-conservativity clause of (Max-4), the pair $(\Cl_\mathbf{F}, \II_\mathbf{F})$ separates parallel morphisms of $\mathbf{F}$. Hence $f = g$. (Joint conservativity is an axiom of maximality, not a consequence of (I-3)--(I-4) alone: (I-3) is an object-level distinction and does not by itself separate morphisms.)
 
 \emph{Fullness}: given $h : \Phi_\mathbf{F}(A) \to \Phi_\mathbf{F}(B)$ in $\mathbf{F}_S^*$, I lift $h$ to $\mathbf{F}$. The morphism $h$ factors as $h_{\mathrm{ext}} \in \Hom_\fM(\Cl_\mathbf{F}(A), \Cl_\mathbf{F}(B))$ (extensional part, via the canonical projection $\mathbf{F}_S^* \to \fM$) together with $h_{\mathrm{int}} \in \Hom_{\Sint}(\II_{\mathbf{F}_S^*}(B), \II_{\mathbf{F}_S^*}(A))$ (intensional fiber, via $\II_{\mathbf{F}_S^*}$). By (Max-1), $h_{\mathrm{ext}}$ lifts to a gauge-class of morphisms $A \to B$ in $\cF$ at the classified level; (Max-2) transitivity picks a representative in $\mathbf{F}$. By (Max-4), $h_{\mathrm{int}}$ lifts uniquely to the intensional completion of $\mathbf{F}$, which by (I-4) Morita-as-$2$-localization coincides with the intensional data of $\II_\mathbf{F}$. Combining, I obtain a morphism $\tilde h : A \to B$ in $\mathbf{F}$ with $\Phi_\mathbf{F}(\tilde h) = h$.
 
@@ -960,7 +992,7 @@ In $\Meta_{\mathrm{Cls}} \setminus \Meta_{\mathrm{Cls}}^{\top}$, there exist at 
 \item $\mathbf{F}_{\mathrm{univalent}}$ vs.\ $\mathbf{F}_{\mathrm{cohesive}}$: standard HoTT without cohesion lies in $\image(\Cl_{\mathbf{F}_{\mathrm{univalent}}})$ but not $\image(\Cl_{\mathbf{F}_{\mathrm{cohesive}}})$.
 \item $\mathbf{F}_{\mathrm{cosmoi}}$ vs.\ $\mathbf{F}_{\mathrm{cohesive}}$: non-cohesive $(\infty, 1)$-theories lie in $\image(\Cl_{\mathbf{F}_{\mathrm{cosmoi}}})$ but not $\image(\Cl_{\mathbf{F}_{\mathrm{cohesive}}})$.
 \end{itemize}
-If any two were $2$-equivalent, their classification images would coincide, contradicting these observations.
+Non-equivalence is asserted in $\Meta_{\mathrm{Cls}}$ \emph{over} $\fM$: morphisms of meta-structures are required to commute with the classification functors (up to invertible $2$-cell). If any two of the three were $2$-equivalent over $\fM$, their classification images would coincide as sub-stacks of $\fM$, contradicting these observations. (As bare $2$-categories, abstract equivalences ignoring $\Cl$ are not excluded and are irrelevant to the plurality claim.)
 
 \textbf{Step 3} (none is maximal). None of the three satisfies (Max-1) (full classification), since their classification images are strict subsets of $\fM$. Therefore, $\mathbf{F}_{\mathrm{univalent}}, \mathbf{F}_{\mathrm{cosmoi}}, \mathbf{F}_{\mathrm{cohesive}} \notin \Meta_{\mathrm{Cls}}^{\top}$, and Theorem~\ref{thm:meta-cat} does not apply.
 \end{proof}
@@ -1097,6 +1129,12 @@ There is a canonical forgetful $2$-functor and a canonical section:
 By construction $\alpha \circ \varepsilon = \id_\cF$ strictly. For readability I occasionally write $(F, \cC, \iota)$ for $(F, \cC, \iota, r)$ when the reflector is understood.
 \end{definition}
 
+\begin{definition}[Enactment gauge]\label{def:gauge-E}
+Let $\mathcal{R}_\cE \subseteq \Mor_1(\cE)$ be the class of \emph{reflection morphisms}: $1$-morphisms of the form $(\tau, \Phi)$ in which $\tau$ is a gauge transformation in $\cF$ (Convention~\ref{conv:notation}) and the composite $r_2 \circ \Phi \circ \iota_1 : \Syn(F_1) \to \Syn(F_2)$ is an $(\infty, n)$-equivalence. The class $\mathcal{R}_\cE$ contains all identities and all $1$-equivalences, is closed under composition (reflectors compose along the invertible counits), is stable under the $2$-pullbacks existing in $\cE$ (componentwise, since gauge transformations and equivalences are pullback-stable), and is saturated; hence it satisfies the calculus-of-fractions conditions (BF1)--(BF5) of Lemma~\ref{lem:pronk}. Define
+\[ \mathrm{gauge}_\cE := \text{the $2$-localization class generated by } \mathcal{R}_\cE, \qquad \fM_\cE := \cE[\mathcal{R}_\cE^{-1}] \]
+via Pronk's bicategory of fractions (Lemma~\ref{lem:pronk}). Two enactments are \emph{gauge$_\cE$-equivalent} iff they are connected by a zig-zag of reflection morphisms. In particular the reflection $(\id_F, r) : (F, \cC, \iota, r) \to \varepsilon(F)$ is inverted in $\fM_\cE$ --- this, and only this, is what ``passing to gauge'' adds: the unit $\eta_r$ of a proper reflection is \emph{not} invertible in $\cE$ itself.
+\end{definition}
+
 \subsection{The Enactment Syntax--Semantics Lemma}
 
 \begin{definition}[The class $\SSE$]\label{def:SSE}
@@ -1132,21 +1170,17 @@ where the left-hand moduli stack is the classifying $2$-stack of $\cF$ from Conv
 \end{theorem}
 
 \begin{proof}
-\emph{(a) Full faithfulness of $\varepsilon$.} Let $F_1, F_2 \in \cF$. Unpacking Definition~\ref{def:enactments}, a $1$-morphism $\varepsilon(F_1) \to \varepsilon(F_2)$ is a pair $(\phi, \Phi)$ with $\phi : F_1 \to F_2$ in $\cF$ and $\Phi : \Syn(F_1) \to \Syn(F_2)$ an $S$-preserving $(\infty, n)$-functor equipped with an invertible $2$-cell $\Phi \Rightarrow \Syn(\phi)$. The $2$-functoriality of $\Syn : \cF \to \mathbf{StrCat}_{S, n}$, guaranteed by Lambek--Scott for $n = 1$ (Lurie HTT~\cite{LurieHTT} \S 5.1) and for general $n$ by the Kapulkin--Lumsdaine~\cite{KapulkinLumsdaine2021} assembly of $\Syn \dashv \Mod$ as a $2$-functor on syntactic $(\infty, n)$-categories, ensures that every $S$-preserving $(\infty, n)$-functor $\Syn(F_1) \to \Syn(F_2)$ arises, up to an invertible $2$-cell, from $\Syn(\phi)$ for a unique $\phi : F_1 \to F_2$. Hence the forgetful map of hom-$2$-categories
+\emph{(a) Full faithfulness of $\varepsilon$.} Let $F_1, F_2 \in \cF$. Unpacking Definition~\ref{def:enactments}, a $1$-morphism $\varepsilon(F_1) \to \varepsilon(F_2)$ is a pair $(\phi, \Phi)$ with $\phi : F_1 \to F_2$ in $\cF$ and $\Phi : \Syn(F_1) \to \Syn(F_2)$ an $S$-preserving $(\infty, n)$-functor equipped with an invertible $2$-cell $\Phi \Rightarrow \Syn(\phi)$. The \emph{classifying property} of syntactic categories (functorial semantics: $S$-preserving $(\infty, n)$-functors $\Syn(F_1) \to \cC$ correspond naturally to $F_1$-model structures on $\cC$; Lambek--Scott~\cite{LambekScott1986} for $n = 1$, Kapulkin--Lumsdaine~\cite{KapulkinLumsdaine2021} for the type-theoretic $(\infty, 1)$-case), applied with $\cC = \Syn(F_2)$, identifies $S$-preserving functors $\Syn(F_1) \to \Syn(F_2)$ with $F_1$-models in $\Syn(F_2)$, i.e.\ with interpretations $\phi : F_1 \to F_2$: every such functor arises, up to an invertible $2$-cell, as $\Syn(\phi)$ for a unique $\phi$. Hence the forgetful map of hom-$2$-categories
 \[
   \Hom_{\cE}(\varepsilon F_1, \varepsilon F_2) \longrightarrow \Hom_{\cF}(F_1, F_2), \qquad (\phi, \Phi) \mapsto \phi,
 \]
 is an $(\infty, 2)$-equivalence. This establishes full faithfulness of $\varepsilon$ at every hom-$2$-category.
 
-\emph{(b) Essential surjectivity at gauge level.} Let $(F, \cC, \iota, r) \in \cE$. The reflector $r$ is part of the object data and, being left adjoint to a fully faithful functor, has invertible counit $\varepsilon_r : r \circ \iota \Rightarrow \id_{\Syn(F)}$ (standard: Riehl--Verity~\cite{RiehlVerity2022} Prop.~2.1.11). Define an $\cE$-morphism $(\id_F, r) : (F, \cC, \iota, r) \to \varepsilon(F) = (F, \Syn(F), \id, \id)$ using $r$ as the underlying functor $\cC \to \Syn(F)$; its structure cell $r \circ \iota \Rightarrow \id \circ \Syn(\id_F) = \id_{\Syn(F)}$ is precisely $\varepsilon_r$. The reverse $(\id_F, \iota) : \varepsilon(F) \to (F, \cC, \iota, r)$ is the pointing. The composite
-\[
-  (\id_F, \iota) \circ (\id_F, r) = (\id_F, \iota \circ r)
-\]
-satisfies $\iota \circ r \simeq \id_\cC$ via the unit $\eta_r$ of the adjunction, hence is gauge-equivalent to $\id$ in $\cE$; conversely, $(\id_F, r) \circ (\id_F, \iota) = (\id_F, r \circ \iota) \simeq (\id_F, \id_{\Syn(F)}) = \id_{\varepsilon(F)}$ via $\varepsilon_r$. This yields a canonical gauge-equivalence
+\emph{(b) Essential surjectivity at gauge level.} Let $(F, \cC, \iota, r) \in \cE$. The reflection morphism $(\id_F, r) : (F, \cC, \iota, r) \to \varepsilon(F) = (F, \Syn(F), \id, \id)$ --- whose structure cell is the invertible counit $\varepsilon_r : r \circ \iota \Rightarrow \id_{\Syn(F)}$ (left adjoint to a fully faithful functor; Riehl--Verity~\cite{RiehlVerity2022} Prop.~2.1.11) --- lies in the class $\mathcal{R}_\cE$ of Definition~\ref{def:gauge-E} (here $r_2 \circ \Phi \circ \iota_1 = \id \circ r \circ \iota \simeq \id_{\Syn(F)}$). By construction of $\fM_\cE = \cE[\mathcal{R}_\cE^{-1}]$, this morphism becomes invertible in $\fM_\cE$, yielding a canonical gauge$_\cE$-equivalence
 \[
   (F, \cC, \iota, r) \;\simeq_{\mathrm{gauge}_\cE}\; \varepsilon(F) \quad\text{in } \fM_\cE.
 \]
-Uniqueness of $r$ up to unique invertible $2$-cell given $\iota$ makes this equivalence natural in the object. Hence $\varepsilon$ is essentially surjective after passing to gauge-classes.
+We emphasise what is \emph{not} claimed: the unit $\eta_r : \id_\cC \Rightarrow \iota \circ r$ is not invertible in $\cE$ unless $\iota$ is essentially surjective; the equivalence above is created by the localization, exactly as ring-Morita equivalence is created by inverting bimodule equivalences. Uniqueness of $r$ up to unique invertible $2$-cell given $\iota$ makes the equivalence natural in the object. Hence $\varepsilon$ is essentially surjective after passing to gauge-classes, and the theorem acquires its precise content: \emph{the enactment moduli, localized at reflections, is equivalent to the theory moduli}.
 
 Combined with (a), the pair $(\varepsilon, \alpha)$ induces an equivalence $\fM \simeq \fM_\cE$ at the $(\infty, 2)$-level.
 
@@ -1156,9 +1190,9 @@ Combined with (a), the pair $(\varepsilon, \alpha)$ induces an equivalence $\fM 
 \end{proof}
 
 \begin{corollary}[Conservativity; consistency strength]\label{cor:ac-oc-conservativity}
-The extension of the MSFS framework by $\cE$ and the structure maps $(\alpha, \varepsilon)$ is a conservative extension of the $\cF$-based framework. In particular,
+The extension of the MSFS framework by $\cE$ and the structure maps $(\alpha, \varepsilon)$ is a conservative extension of the $\cF$-based framework: every statement about $\fM_\cE$ is equivalent, via Theorem~\ref{thm:ac-oc-duality}, to a statement about $\fM$. In particular the ambient metatheory needed to construct and reason about $\cE$ is the same as for $\cF$:
 \[
-  \Con(\cF \cup \cE) \;=\; \Con(\cF) \;=\; \Con(\ZFC + 2\text{-inacc}).
+  \Con(\text{MSFS with } \cE) \;=\; \Con(\text{MSFS}) \;=\; \Con(\ZFC + 2\text{-inacc}).
 \]
 \end{corollary}
 
@@ -1367,7 +1401,7 @@ In a $2$-cartesian closed category $\cC$ with a weakly point-surjective $1$-morp
 Reference: Lawvere~\cite{Lawvere1969}; Yanofsky~\cite{Yanofsky2003} for $2$-categorical formulation.
 
 \begin{lemma}[Lawvere fixed-point, $(\infty, \infty)$-categorical]\label{lem:lawvere-inf}
-In an $(\infty, \infty)$-cartesian closed category $\cC$ with a coherently surjective Yoneda embedding $y : \cC \hookrightarrow 2\text{-}\mathrm{PSh}(\cC)$, every $f : Y \to Y$ has an $(\infty, \infty)$-coherent fixed point.
+Let $\cC$ be an $(\infty, \infty)$-cartesian closed category admitting an object $A$ and a $1$-morphism $e : A \to Y^A$ that is \emph{weakly point-surjective up to coherent homotopy} (every global point $1 \to Y^A$ factors through $e$ up to invertible higher cells). Then every $f : Y \to Y$ has an $(\infty, \infty)$-coherent fixed point.
 \end{lemma}
 
 This is obtained by extending Lemma~\ref{lem:lawvere-2} through the $\Theta_n$-space model of Rezk~\cite{Rezk2010}, passed to the limit $n \to \infty$ via the unicity theorem of Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021}. The $(\infty, \infty)$-coherent fixed point is the canonical limit of the compatible family of fixed points constructed at each finite $n$.
@@ -1383,10 +1417,12 @@ Reference: Lurie HTT~\cite{LurieHTT} \S 6.5.4 (``Whitehead's Theorem'' for $(\in
 \subsection{Bergner--Lurie Stabilization}
 
 \begin{theorem}[$(\infty, \infty)$-stabilization]\label{thm:bergner-lurie-stab}
-The inclusion $(\infty, \infty)\text{-}\Cat \hookrightarrow (\infty, \infty + 1)\text{-}\Cat$ is an equivalence of $(\infty, \infty)$-categories.
+Write $(\infty, \infty)\text{-}\Cat := \colim_{n < \infty} (\infty, n)\text{-}\Cat$ along the canonical inclusions, and define $(\infty, \infty + 1)\text{-}\Cat$ as the $(\infty, \infty)$-category of categories enriched in $(\infty, \infty)\text{-}\Cat$ (one further enrichment step). Then the canonical inclusion $(\infty, \infty)\text{-}\Cat \hookrightarrow (\infty, \infty + 1)\text{-}\Cat$ is an equivalence: the colimit is idempotent under enrichment.
 \end{theorem}
 
-Reference: Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021} (unicity of the theory of higher categories); Bergner--Rezk~\cite{BergnerRezk2013} (comparison of models); Ara--Maltsiniotis~\cite{AraMaltsiniotis2017} (globular/cubical comparison).
+\begin{proof}[Proof (assembly)]
+At each finite level, categories enriched in $(\infty, n)\text{-}\Cat$ are $(\infty, n+1)$-categories, uniquely up to equivalence by the unicity theorem of Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021} with the model comparisons of Bergner--Rezk~\cite{BergnerRezk2013}. Enrichment commutes with the filtered colimit over $n$, so $(\infty, \infty+1)\text{-}\Cat \simeq \colim_n (\infty, n+1)\text{-}\Cat = (\infty, \infty)\text{-}\Cat$; the globular model of Ara--Maltsiniotis~\cite{AraMaltsiniotis2017} realizes the same idempotence for $\omega$-categories. This ``unbounded-depth'' reading matches the convention fixed in (R5); no statement in the paper requires the alternative everywhere-non-invertible reading.
+\end{proof}
 
 \section{Paraconsistent Extension}\label{app:paraconsistent}
 
