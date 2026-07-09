@@ -1,0 +1,78 @@
+#!/usr/bin/env verum
+
+mount core.{Result, Maybe, Int, Bool, Text, List};
+mount core.io.path.{Path, PathBuf};
+mount core.io.fs.{current_dir};
+mount core.io.stdio.{println, eprintln};
+mount core.shell.{ShellError};
+mount core.shell.builtins.{path_exists};
+mount core.shell.script.{args as script_args};
+
+type Mode is BuildPdf | BuildArxiv | BuildZenodo | ShowHelp;
+type ParsedArgs is
+    | Help
+    | InvalidCombo  { reason: Text }
+    | UnknownFlags  { flags: List<Text> }
+    | Build         { mode: Mode };
+
+fn argv_contains(argv: &List<Text>, needle: &Text) -> Bool {
+    for a in argv { if a == needle { return true; } }
+    false
+}
+
+fn parse_args(argv: List<Text>) -> ParsedArgs {
+    if argv_contains(&argv, &"--help") || argv_contains(&argv, &"-h") {
+        return Help;
+    }
+    Build { mode: BuildPdf }
+}
+
+fn show_usage() {
+    println(&"usage");
+}
+
+fn resolve_root() -> Result<PathBuf, ShellError> {
+    let cwd = match current_dir() {
+        Ok(p)  => p,
+        Err(e) => return Err(ShellError.SpawnFailed {
+            command: "current_dir",
+            reason:  f"{e:?}",
+        }),
+    };
+    let mut here = cwd.clone();
+    let probe = Path.new(&"paper-en/paper.tex");
+    let mut steps: Int = 0;
+    while steps < 6 {
+        let candidate = here.as_path().join(&probe);
+        if path_exists(&candidate.as_path()) {
+            return Ok(here);
+        }
+        if !here.pop() { break; }
+        steps = steps + 1;
+    }
+    Err(ShellError.SpawnFailed {
+        command: "resolve_root",
+        reason:  f"unable to locate from cwd {cwd:?}",
+    })
+}
+
+async fn dispatch() -> Result<(), ShellError> {
+    let argv = script_args();
+    let parsed = parse_args(argv);
+    match parsed {
+        Help => { show_usage(); Ok(()) }
+        InvalidCombo { reason } => Err(ShellError.SpawnFailed { command: "argv", reason }),
+        UnknownFlags { flags } => Err(ShellError.SpawnFailed { command: "argv", reason: "uf" }),
+        Build { mode } => {
+            let _ = resolve_root()?;
+            Ok(())
+        }
+    }
+}
+
+let outcome = dispatch().await;
+let exit_code: Int = match outcome {
+    Ok(())  => 0,
+    Err(_)  => 1,
+};
+exit_code

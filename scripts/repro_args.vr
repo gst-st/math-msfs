@@ -1,0 +1,15 @@
+#!/usr/bin/env verum
+
+mount core.{Int, Text, List};
+mount core.io.stdio.{println};
+mount core.shell.script.{args as script_args};
+
+fn main() -> Int {
+    let argv = script_args();
+    println(&"got argv");
+    let n = argv.len();
+    println(&"got len");
+    n as Int
+}
+
+main()

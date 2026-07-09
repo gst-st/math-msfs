@@ -1,0 +1,41 @@
+#!/usr/bin/env verum
+
+mount core.{Int, Bool, Text, List};
+mount core.io.stdio.{println};
+mount core.shell.script.{args as script_args};
+
+type Mode is BuildPdf | BuildArxiv | BuildZenodo | ShowHelp;
+type ParsedArgs is
+    | Help
+    | InvalidCombo  { reason: Text }
+    | UnknownFlags  { flags: List<Text> }
+    | Build         { mode: Mode };
+
+fn argv_contains(argv: &List<Text>, needle: &Text) -> Bool {
+    for a in argv { if a == needle { return true; } }
+    false
+}
+
+fn parse_args(argv: List<Text>) -> ParsedArgs {
+    if argv_contains(&argv, &"--help") || argv_contains(&argv, &"-h") {
+        return Help;
+    }
+    Build { mode: BuildPdf }
+}
+
+fn classify(parsed: ParsedArgs) -> Int {
+    match parsed {
+        Help => 0,
+        InvalidCombo { reason: _ } => 1,
+        UnknownFlags { flags: _ } => 2,
+        Build { mode: _ } => 3,
+    }
+}
+
+fn main() -> Int {
+    let argv = script_args();
+    let parsed = parse_args(argv);
+    classify(parsed)
+}
+
+main()

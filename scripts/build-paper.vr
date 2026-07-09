@@ -43,10 +43,8 @@ mount core.io.fs.{
     set_current_dir,
 };
 mount core.io.stdio.{print, println, eprintln};
-mount core.shell.{
-    run, ShellError,
-    cp, mkdir_p, rm, rm_rf, path_exists, write_str, which,
-};
+mount core.shell.{ run, ShellError };
+mount core.shell.builtins.{ cp, mkdir_p, rm, rm_rf, path_exists, write_str, which };
 mount core.shell.script.{args as script_args};
 mount core.async.executor.{block_on};
 mount core.time.instant.{Instant};
@@ -55,7 +53,7 @@ mount core.time.instant.{Instant};
 // рендера TUI, а нам нужны цветные байты прямо в stdout. Раскрашиваем
 // строки через одну универсальную функцию ansi() — обёртку над SGR-кодом.
 fn ansi(code: &Text, body: &Text) -> Text {
-    let mut out = Text.with_capacity(body.len() + 12);
+    let mut out = "";
     out.push('\u{001b}'); out.push('[');
     out.push_str(code);
     out.push('m');
@@ -63,12 +61,12 @@ fn ansi(code: &Text, body: &Text) -> Text {
     out.push('\u{001b}'); out.push('['); out.push('0'); out.push('m');
     out
 }
-fn bold(s: &Text)   -> Text { ansi(&"1".into(),  s) }
-fn dim(s: &Text)    -> Text { ansi(&"2".into(),  s) }
-fn red(s: &Text)    -> Text { ansi(&"31".into(), s) }
-fn green(s: &Text)  -> Text { ansi(&"32".into(), s) }
-fn yellow(s: &Text) -> Text { ansi(&"33".into(), s) }
-fn cyan(s: &Text)   -> Text { ansi(&"36".into(), s) }
+fn bold(s: &Text)   -> Text { ansi(&"1",  s) }
+fn dim(s: &Text)    -> Text { ansi(&"2",  s) }
+fn red(s: &Text)    -> Text { ansi(&"31", s) }
+fn green(s: &Text)  -> Text { ansi(&"32", s) }
+fn yellow(s: &Text) -> Text { ansi(&"33", s) }
+fn cyan(s: &Text)   -> Text { ansi(&"36", s) }
 
 // =============================================================================
 // Типы документов
@@ -110,34 +108,34 @@ type PaperConfig is {
 
 fn msfs_config() -> PaperConfig {
     PaperConfig {
-        paper_dir:     "paper-en".into(),
-        output_name:   "msfs-paper".into(),
-        arxiv_tarball: "msfs-arxiv.tar.gz".into(),
-        short_label:   "MSFS / AFN-T".into(),
-        title: "The Moduli Space of Formal Systems: Classification, Stabilization, and a No-Go Theorem for Absolute Foundations".into(),
+        paper_dir:     "paper-en",
+        output_name:   "msfs-paper",
+        arxiv_tarball: "msfs-arxiv.tar.gz",
+        short_label:   "MSFS / AFN-T",
+        title: "The Moduli Space of Formal Systems: Classification, Stabilization, and a No-Go Theorem for Absolute Foundations",
         zenodo_abstract: msfs_abstract(),
         zenodo_keywords: [
-            "foundations of mathematics".into(),
-            "moduli space of formal systems".into(),
-            "no-go theorems".into(),
-            "categorical logic".into(),
-            "(∞, n)-categories".into(),
-            "higher topos theory".into(),
-            "classifying 2-stacks".into(),
-            "intensional type theory".into(),
-            "meta-classification".into(),
-            "univalent foundations".into(),
-            "∞-cosmoi".into(),
-            "cohesive higher topoi".into(),
-            "Lawvere fixed-point theorem".into(),
-            "display map categories".into(),
-            "bicategory of fractions".into(),
-            "Rich-metatheory".into(),
-            "AFN-T".into(),
+            "foundations of mathematics",
+            "moduli space of formal systems",
+            "no-go theorems",
+            "categorical logic",
+            "(∞, n)-categories",
+            "higher topos theory",
+            "classifying 2-stacks",
+            "intensional type theory",
+            "meta-classification",
+            "univalent foundations",
+            "∞-cosmoi",
+            "cohesive higher topoi",
+            "Lawvere fixed-point theorem",
+            "display map categories",
+            "bicategory of fractions",
+            "Rich-metatheory",
+            "AFN-T",
         ],
-        zenodo_notes: "Self-contained. Consistency strength: Con(ZFC + 2 inaccessibles). Source LaTeX and compiled PDF are included.".into(),
-        arxiv_primary: "math.LO".into(),
-        arxiv_cross:   ["math.CT".into(), "math.AG".into()],
+        zenodo_notes: "Self-contained. Consistency strength: Con(ZFC + 2 inaccessibles). Source LaTeX and compiled PDF are included.",
+        arxiv_primary: "math.LO",
+        arxiv_cross:   ["math.CT", "math.AG"],
     }
 }
 
@@ -146,7 +144,7 @@ fn msfs_abstract() -> Text {
 
 <p>Three bypass paths — universe polymorphism, reflective towers, intensional refinement through extensional collapse — are formally closed. Three pairwise-non-equivalent partial classifiers ($\infty$-cosmoi, Univalent Foundations, cohesive higher topoi) witness the structural plurality of the classifier stratum.</p>
 
-<p>Consistency strength: Con(ZFC + 2 inaccessibles). Bibliography is embedded in the source; no BibTeX run required.</p>""".into()
+<p>Consistency strength: Con(ZFC + 2 inaccessibles). Bibliography is embedded in the source; no BibTeX run required.</p>"""
 }
 
 const MAIN_TEX:        Text = "paper.tex";
@@ -162,12 +160,12 @@ fn resolve_root() -> Result<PathBuf, ShellError> {
     let cwd = match current_dir() {
         Ok(p)  => p,
         Err(e) => return Err(ShellError.SpawnFailed {
-            command: "current_dir".into(),
+            command: "current_dir",
             reason:  f"{e:?}",
         }),
     };
     let mut here = cwd.clone();
-    let probe = Path.new(&"paper-en/paper.tex".into());
+    let probe = Path.new(&"paper-en/paper.tex");
     let mut steps: Int = 0;
     while steps < 6 {
         let candidate = here.as_path().join(&probe);
@@ -178,7 +176,7 @@ fn resolve_root() -> Result<PathBuf, ShellError> {
         steps = steps + 1;
     }
     Err(ShellError.SpawnFailed {
-        command: "resolve_root".into(),
+        command: "resolve_root",
         reason:  f"unable to locate math-msfs/ from cwd {cwd:?} (probed paper-en/paper.tex up to 6 levels)",
     })
 }
@@ -196,16 +194,16 @@ type ParsedArgs is
     | Build         { mode: Mode };
 
 fn parse_args(argv: List<Text>) -> ParsedArgs {
-    if argv_contains(&argv, &"--help".into()) || argv_contains(&argv, &"-h".into()) {
+    if argv_contains(&argv, &"--help") || argv_contains(&argv, &"-h") {
         return Help;
     }
 
-    let flag_arxiv  = argv_contains(&argv, &"--arxiv".into());
-    let flag_zenodo = argv_contains(&argv, &"--zenodo".into());
+    let flag_arxiv  = argv_contains(&argv, &"--arxiv");
+    let flag_zenodo = argv_contains(&argv, &"--zenodo");
 
     if flag_arxiv && flag_zenodo {
         return InvalidCombo {
-            reason: "--arxiv и --zenodo нельзя сочетать в одном запуске.".into(),
+            reason: "--arxiv и --zenodo нельзя сочетать в одном запуске.",
         };
     }
 
@@ -226,18 +224,18 @@ fn parse_args(argv: List<Text>) -> ParsedArgs {
 }
 
 fn argv_contains(argv: &List<Text>, needle: &Text) -> Bool {
-    for a in argv.iter() { if a == needle { return true; } }
+    for a in argv { if a == needle { return true; } }
     false
 }
 
 fn collect_unknown(argv: &List<Text>) -> List<Text> {
     let known: List<Text> = [
-        "--arxiv".into(), "--zenodo".into(), "--help".into(), "-h".into(),
+        "--arxiv", "--zenodo", "--help", "-h",
     ];
     let mut out: List<Text> = [];
-    for a in argv.iter() {
+    for a in argv {
         let mut is_known = false;
-        for k in known.iter() { if a == k { is_known = true; break; } }
+        for k in known { if a == k { is_known = true; break; } }
         if !is_known { out.push(a.clone()); }
     }
     out
@@ -263,7 +261,7 @@ fn show_usage() {
 Примеры:
   verum scripts/build-paper.vr            → paper-en/{cfg.output_name}.pdf
   verum scripts/build-paper.vr --arxiv    → paper-en/{cfg.arxiv_tarball}
-  verum scripts/build-paper.vr --zenodo   → paper-en/zenodo/".trim().into());
+  verum scripts/build-paper.vr --zenodo   → paper-en/zenodo/".trim());
 }
 
 // =============================================================================
@@ -304,11 +302,11 @@ async fn run_step(
                 let stdout = r.stdout();
                 let stderr = r.stderr();
                 let fatal =
-                    stderr.contains(&"Fatal error".into())
-                        || stdout.contains(&"No pages of output".into())
-                        || stdout.contains(&"Emergency stop".into());
+                    stderr.contains(&"Fatal error")
+                        || stdout.contains(&"No pages of output")
+                        || stdout.contains(&"Emergency stop");
                 if fatal {
-                    eprintln(&f"\r  {red(&"❌".into())} {label} — сбой ({secs}s)");
+                    eprintln(&f"\r  {red(&"❌")} {label} — сбой ({secs}s)");
                     let trail = if stderr.len() > 500 {
                         stderr.slice(0, 500)
                     } else { stderr.clone() };
@@ -320,11 +318,11 @@ async fn run_step(
                     });
                 }
             }
-            println(&f"\r  {green(&"✅".into())} {label} ({secs}s)");
+            println(&f"\r  {green(&"✅")} {label} ({secs}s)");
             Ok(())
         }
         Err(e) => {
-            eprintln(&f"\r  {red(&"❌".into())} {label} — {e}");
+            eprintln(&f"\r  {red(&"❌")} {label} — {e}");
             Err(e)
         }
     }
@@ -343,14 +341,14 @@ fn check_prereqs(paper_dir: &Path) -> Result<(), ShellError> {
     let main_tex_path = paper_dir.join_str(&MAIN_TEX);
     if !path_exists(&main_tex_path.as_path()) {
         return Err(ShellError.SpawnFailed {
-            command: "check_prereqs".into(),
+            command: "check_prereqs",
             reason:  f"{MAIN_TEX} не найден в {paper_dir:?}",
         });
     }
-    if which(&"pdflatex".into()).is_none() {
+    if which(&"pdflatex").is_none() {
         return Err(ShellError.SpawnFailed {
-            command: "which pdflatex".into(),
-            reason:  "pdflatex не найден. Установите TeX Live (например, `brew install --cask mactex`)".into(),
+            command: "which pdflatex",
+            reason:  "pdflatex не найден. Установите TeX Live (например, `brew install --cask mactex`)",
         });
     }
     Ok(())
@@ -364,15 +362,15 @@ fn count_pages_from_log(paper_dir: &Path, jobname: &Text) -> Int {
         Ok(t)  => t,
         Err(_) => return 0,
     };
-    let marker: Text = "Output written on ".into();
+    let marker: Text = "Output written on ";
     match text.find(&marker) {
         Some(i) => {
             // После маркера ищем "(N pages"
             let tail: Text = text.slice(i, text.len());
-            match tail.find(&"(".into()) {
+            match tail.find(&"(") {
                 Some(open) => {
                     let after_paren: Text = tail.slice(open + 1, tail.len());
-                    match after_paren.find(&" pages".into()) {
+                    match after_paren.find(&" pages") {
                         Some(end) => {
                             let n_text: Text = after_paren.slice(0, end);
                             n_text.trim().parse_int().unwrap_or(0)
@@ -389,16 +387,16 @@ fn count_pages_from_log(paper_dir: &Path, jobname: &Text) -> Int {
 
 /// Очистить промежуточные файлы pdflatex; вернуть число удалённых.
 fn cleanup(paper_dir: &Path, cfg: &PaperConfig) -> Int {
-    let jobnames: List<Text> = [cfg.output_name.clone(), "paper".into()];
+    let jobnames: List<Text> = [cfg.output_name.clone(), "paper"];
     let exts: List<Text> = [
-        "aux".into(), "log".into(), "out".into(), "toc".into(),
-        "lof".into(), "lot".into(), "bbl".into(), "blg".into(),
-        "bcf".into(), "run.xml".into(), "fls".into(), "fdb_latexmk".into(),
-        "synctex.gz".into(), "nav".into(), "snm".into(), "vrb".into(),
+        "aux", "log", "out", "toc",
+        "lof", "lot", "bbl", "blg",
+        "bcf", "run.xml", "fls", "fdb_latexmk",
+        "synctex.gz", "nav", "snm", "vrb",
     ];
     let mut cleaned: Int = 0;
-    for job in jobnames.iter() {
-        for ext in exts.iter() {
+    for job in jobnames {
+        for ext in exts {
             let p = paper_dir.join_str(&f"{job}.{ext}");
             if path_exists(&p.as_path()) {
                 if rm(&p.as_path()).is_ok() { cleaned = cleaned + 1; }
@@ -414,7 +412,7 @@ fn cleanup(paper_dir: &Path, cfg: &PaperConfig) -> Int {
 
 async fn build_pdf(cfg: &PaperConfig, paper_dir: &Path) -> Result<PathBuf, ShellError> {
     println(&f"
-{bold(&"📄".into())} Сборка {bold(&cfg.short_label.clone())}");
+{bold(&"📄")} Сборка {bold(&cfg.short_label.clone())}");
     println(&f"  Источник: {paper_dir:?}/{MAIN_TEX}");
     println(&f"  Выход:    {paper_dir:?}/{cfg.output_name}.pdf
 ");
@@ -423,24 +421,24 @@ async fn build_pdf(cfg: &PaperConfig, paper_dir: &Path) -> Result<PathBuf, Shell
 
     // Три прохода pdflatex: aux/.toc → cross-refs → финализация.
     let labels: List<Text> = [
-        "Проход 1/3 (генерация .aux / .toc)".into(),
-        "Проход 2/3 (перекрёстные ссылки)".into(),
-        "Проход 3/3 (финализация cross-refs)".into(),
+        "Проход 1/3 (генерация .aux / .toc)",
+        "Проход 2/3 (перекрёстные ссылки)",
+        "Проход 3/3 (финализация cross-refs)",
     ];
-    for label in labels.iter() {
+    for label in labels {
         let args: List<Text> = [
-            "-interaction=nonstopmode".into(),
+            "-interaction=nonstopmode",
             f"-jobname={cfg.output_name}",
             MAIN_TEX.clone(),
         ];
-        run_step(&"pdflatex".into(), args, paper_dir, label).await?;
+        run_step(&"pdflatex", args, paper_dir, label).await?;
     }
 
     let pdf_path = paper_dir.join_str(&f"{cfg.output_name}.pdf");
     if !path_exists(&pdf_path.as_path()) {
         return Err(ShellError.SpawnFailed {
-            command: "build_pdf".into(),
-            reason:  "PDF не сгенерирован".into(),
+            command: "build_pdf",
+            reason:  "PDF не сгенерирован",
         });
     }
 
@@ -450,7 +448,7 @@ async fn build_pdf(cfg: &PaperConfig, paper_dir: &Path) -> Result<PathBuf, Shell
     let mb_frac  = ((size_bytes % (1024 * 1024)) * 10) / (1024 * 1024);
 
     println(&f"
-{green(&"✅".into())} PDF собран");
+{green(&"✅")} PDF собран");
     println(&f"   📄 {pdf_path:?}");
     println(&f"   📐 {pages} страниц, {mb_whole}.{mb_frac} MB");
 
@@ -470,7 +468,7 @@ fn file_size(p: &Path) -> Maybe<Int> {
 
 async fn build_arxiv(cfg: &PaperConfig, paper_dir: &Path) -> Result<(), ShellError> {
     println(&f"
-{bold(&"📦".into())} Упаковка arXiv-архива — {bold(&cfg.short_label.clone())}");
+{bold(&"📦")} Упаковка arXiv-архива — {bold(&cfg.short_label.clone())}");
     println(&f"  Источник: {paper_dir:?}/{MAIN_TEX}");
     println(&f"  Выход:    {paper_dir:?}/{cfg.arxiv_tarball}
 ");
@@ -479,16 +477,16 @@ async fn build_arxiv(cfg: &PaperConfig, paper_dir: &Path) -> Result<(), ShellErr
 
     // Контрольный прогон (три прохода) c jobname по умолчанию (`paper`).
     let labels: List<Text> = [
-        "Контрольный проход 1/3".into(),
-        "Контрольный проход 2/3".into(),
-        "Контрольный проход 3/3".into(),
+        "Контрольный проход 1/3",
+        "Контрольный проход 2/3",
+        "Контрольный проход 3/3",
     ];
-    for label in labels.iter() {
+    for label in labels {
         let args: List<Text> = [
-            "-interaction=nonstopmode".into(),
+            "-interaction=nonstopmode",
             MAIN_TEX.clone(),
         ];
-        run_step(&"pdflatex".into(), args, paper_dir, label).await?;
+        run_step(&"pdflatex", args, paper_dir, label).await?;
     }
 
     let tarball_path = paper_dir.join_str(&cfg.arxiv_tarball);
@@ -497,11 +495,11 @@ async fn build_arxiv(cfg: &PaperConfig, paper_dir: &Path) -> Result<(), ShellErr
     }
 
     let files: List<Text> = [MAIN_TEX.clone()];
-    for f in files.iter() {
+    for f in files {
         let p = paper_dir.join_str(f);
         if !path_exists(&p.as_path()) {
             return Err(ShellError.SpawnFailed {
-                command: "build_arxiv".into(),
+                command: "build_arxiv",
                 reason:  f"Отсутствует файл: {f}",
             });
         }
@@ -511,16 +509,16 @@ async fn build_arxiv(cfg: &PaperConfig, paper_dir: &Path) -> Result<(), ShellErr
     // tar -czf <tarball> <files...>  — запускаем В paper_dir, чтобы пути были
     // относительные (важно для arXiv-инжеста: распаковка не должна выходить
     // за пределы текущего каталога).
-    let mut tar_args: List<Text> = ["-czf".into(), cfg.arxiv_tarball.clone()];
-    for f in files.iter() { tar_args.push(f.clone()); }
-    run_step(&"tar".into(), tar_args, paper_dir, &"tar -czf".into()).await?;
+    let mut tar_args: List<Text> = ["-czf", cfg.arxiv_tarball.clone()];
+    for f in files { tar_args.push(f.clone()); }
+    run_step(&"tar", tar_args, paper_dir, &"tar -czf").await?;
 
     let tar_size = file_size(&tarball_path.as_path()).unwrap_or(0);
     let kb = tar_size / 1024;
-    println(&f"  {green(&"✅".into())} Создан {cfg.arxiv_tarball} ({kb} KB)");
+    println(&f"  {green(&"✅")} Создан {cfg.arxiv_tarball} ({kb} KB)");
 
     let cleaned = cleanup(paper_dir, cfg);
-    let main_pdf = paper_dir.join_str(&"paper.pdf".into());
+    let main_pdf = paper_dir.join_str(&"paper.pdf");
     if path_exists(&main_pdf.as_path()) {
         let _ = rm(&main_pdf.as_path());
     }
@@ -529,25 +527,25 @@ async fn build_arxiv(cfg: &PaperConfig, paper_dir: &Path) -> Result<(), ShellErr
     }
 
     println(&f"
-{green(&"✅".into())} arXiv-пакет готов");
+{green(&"✅")} arXiv-пакет готов");
     println(&f"   📦 {tarball_path:?}");
     println(&f"   📄 {files.len()} файлов, {kb} KB");
 
-    let cross = join_text(&cfg.arxiv_cross, &", ".into());
+    let cross = join_text(&cfg.arxiv_cross, &", ");
     println(&f"
-{bold(&"📋".into())} Чек-лист подачи на arXiv:");
+{bold(&"📋")} Чек-лист подачи на arXiv:");
     println(&f"   1. Загрузить {cfg.arxiv_tarball} на https://arxiv.org/submit");
     println(&f"   2. Основная категория: {cyan(&cfg.arxiv_primary.clone())}");
     println(&f"   3. Кросс-листинг: {cross}");
-    println(&"   4. Лицензия: CC BY 4.0 рекомендуется".into());
-    println(&"   5. Проверить arXiv-preview перед публикацией".into());
+    println(&"   4. Лицензия: CC BY 4.0 рекомендуется");
+    println(&"   5. Проверить arXiv-preview перед публикацией");
     Ok(())
 }
 
 fn join_text(items: &List<Text>, sep: &Text) -> Text {
-    let mut out = Text.new();
+    let mut out = "";
     let mut first = true;
-    for s in items.iter() {
+    for s in items {
         if !first { out.push_str(sep); }
         out.push_str(s);
         first = false;
@@ -561,7 +559,7 @@ fn join_text(items: &List<Text>, sep: &Text) -> Text {
 
 async fn build_zenodo(cfg: &PaperConfig, paper_dir: &Path) -> Result<(), ShellError> {
     println(&f"
-{bold(&"📦".into())} Сборка Zenodo-депозита — {bold(&cfg.short_label.clone())}");
+{bold(&"📦")} Сборка Zenodo-депозита — {bold(&cfg.short_label.clone())}");
     let zenodo_dir = paper_dir.join_str(&ZENODO_DIR_NAME);
     println(&f"  Источник: {paper_dir:?}/{MAIN_TEX}");
     println(&f"  Выход:    {zenodo_dir:?}/
@@ -570,11 +568,11 @@ async fn build_zenodo(cfg: &PaperConfig, paper_dir: &Path) -> Result<(), ShellEr
     let pdf_path = build_pdf(cfg, paper_dir).await?;
 
     let source_files: List<Text> = [MAIN_TEX.clone()];
-    for f in source_files.iter() {
+    for f in source_files {
         let p = paper_dir.join_str(f);
         if !path_exists(&p.as_path()) {
             return Err(ShellError.SpawnFailed {
-                command: "build_zenodo".into(),
+                command: "build_zenodo",
                 reason:  f"Отсутствует файл: {f}",
             });
         }
@@ -594,21 +592,21 @@ async fn build_zenodo(cfg: &PaperConfig, paper_dir: &Path) -> Result<(), ShellEr
     let source_tarball_path = zenodo_dir.as_path().join_str(&source_tarball_name);
     println(&f"
   ⏳ Создание архива исходников ({source_files.len()} файлов)...");
-    let mut tar_args: List<Text> = ["-czf".into(), source_tarball_path.to_text()];
-    for f in source_files.iter() { tar_args.push(f.clone()); }
-    run_step(&"tar".into(), tar_args, paper_dir, &"tar -czf (sources)".into()).await?;
+    let mut tar_args: List<Text> = ["-czf", source_tarball_path.to_text()];
+    for f in source_files { tar_args.push(f.clone()); }
+    run_step(&"tar", tar_args, paper_dir, &"tar -czf (sources)").await?;
     let source_tar_size = file_size(&source_tarball_path.as_path()).unwrap_or(0);
     let src_kb = source_tar_size / 1024;
-    println(&f"  {green(&"✅".into())} Создан {source_tarball_name} ({src_kb} KB)");
+    println(&f"  {green(&"✅")} Создан {source_tarball_name} ({src_kb} KB)");
 
     // metadata + README — оба файла пишутся напрямую через V-LLSI fs (no spawn).
-    let metadata_path = zenodo_dir.as_path().join_str(&"zenodo-metadata.json".into());
+    let metadata_path = zenodo_dir.as_path().join_str(&"zenodo-metadata.json");
     write_str(&metadata_path.as_path(), &build_zenodo_metadata(cfg))?;
-    println(&f"  {green(&"✅".into())} Записан zenodo-metadata.json");
+    println(&f"  {green(&"✅")} Записан zenodo-metadata.json");
 
-    let readme_path = zenodo_dir.as_path().join_str(&"README.md".into());
+    let readme_path = zenodo_dir.as_path().join_str(&"README.md");
     write_str(&readme_path.as_path(), &build_zenodo_readme(cfg))?;
-    println(&f"  {green(&"✅".into())} Записан README.md");
+    println(&f"  {green(&"✅")} Записан README.md");
 
     let cleaned = cleanup(paper_dir, cfg);
     if cleaned > 0 {
@@ -620,23 +618,23 @@ async fn build_zenodo(cfg: &PaperConfig, paper_dir: &Path) -> Result<(), ShellEr
     let pdf_mb_frac  = ((pdf_size % (1024 * 1024)) * 10) / (1024 * 1024);
 
     println(&f"
-{green(&"✅".into())} Zenodo-депозит готов");
+{green(&"✅")} Zenodo-депозит готов");
     println(&f"   📁 {zenodo_dir:?}/");
     println(&f"      {cfg.output_name}.pdf              ({pdf_mb_whole}.{pdf_mb_frac} MB — основной)");
     println(&f"      {source_tarball_name}   ({src_kb} KB — исходники)");
-    println(&"      zenodo-metadata.json        (поля формы / API)".into());
-    println(&"      README.md                   (инструкции рецензенту)".into());
+    println(&"      zenodo-metadata.json        (поля формы / API)");
+    println(&"      README.md                   (инструкции рецензенту)");
 
     println(&f"
-{bold(&"📋".into())} Чек-лист подачи на Zenodo:");
-    println(&"   1. https://zenodo.org/deposit/new".into());
-    println(&"   2. Загрузить оба файла:".into());
+{bold(&"📋")} Чек-лист подачи на Zenodo:");
+    println(&"   1. https://zenodo.org/deposit/new");
+    println(&"   2. Загрузить оба файла:");
     println(&f"        - {cfg.output_name}.pdf (main, viewable)");
     println(&f"        - {source_tarball_name} (source archive)");
-    println(&"   3. Скопировать поля из zenodo-metadata.json в форму".into());
-    println(&"   4. Upload type: Publication → Preprint".into());
-    println(&"   5. License: Creative Commons Attribution 4.0 International (CC-BY-4.0)".into());
-    println(&"   6. Publish → Zenodo немедленно присваивает постоянный DOI".into());
+    println(&"   3. Скопировать поля из zenodo-metadata.json в форму");
+    println(&"   4. Upload type: Publication → Preprint");
+    println(&"   5. License: Creative Commons Attribution 4.0 International (CC-BY-4.0)");
+    println(&"   6. Publish → Zenodo немедленно присваивает постоянный DOI");
     Ok(())
 }
 
@@ -652,45 +650,45 @@ fn build_zenodo_metadata(cfg: &PaperConfig) -> Text {
     let title = escape_json(&cfg.title);
     let descr = escape_json(&cfg.zenodo_abstract);
     let notes = escape_json(&cfg.zenodo_notes);
-    let mut out = Text.with_capacity(2048);
-    out.push_str(&"{\n".into());
-    out.push_str(&"  \"metadata\": {\n".into());
+    let mut out = "";
+    out.push_str(&"{\n");
+    out.push_str(&"  \"metadata\": {\n");
     out.push_str(&f"    \"title\": \"{title}\",\n");
-    out.push_str(&"    \"upload_type\": \"publication\",\n".into());
-    out.push_str(&"    \"publication_type\": \"preprint\",\n".into());
+    out.push_str(&"    \"upload_type\": \"publication\",\n");
+    out.push_str(&"    \"publication_type\": \"preprint\",\n");
     out.push_str(&f"    \"description\": \"{descr}\",\n");
-    out.push_str(&"    \"creators\": [\n".into());
-    out.push_str(&"      {\n".into());
-    out.push_str(&"        \"name\": \"Sereda, Max\",\n".into());
-    out.push_str(&"        \"affiliation\": \"Independent researcher\"\n".into());
-    out.push_str(&"      }\n".into());
-    out.push_str(&"    ],\n".into());
+    out.push_str(&"    \"creators\": [\n");
+    out.push_str(&"      {\n");
+    out.push_str(&"        \"name\": \"Sereda, Max\",\n");
+    out.push_str(&"        \"affiliation\": \"Independent researcher\"\n");
+    out.push_str(&"      }\n");
+    out.push_str(&"    ],\n");
     out.push_str(&f"    \"keywords\": {kw},\n");
-    out.push_str(&"    \"language\": \"eng\",\n".into());
-    out.push_str(&"    \"license\": \"CC-BY-4.0\",\n".into());
-    out.push_str(&"    \"access_right\": \"open\",\n".into());
-    out.push_str(&"    \"related_identifiers\": [\n".into());
-    out.push_str(&"      {\n".into());
-    out.push_str(&"        \"relation\": \"isDocumentedBy\",\n".into());
-    out.push_str(&"        \"identifier\": \"https://diakrisis.ai\",\n".into());
-    out.push_str(&"        \"scheme\": \"url\",\n".into());
-    out.push_str(&"        \"resource_type\": \"publication-other\"\n".into());
-    out.push_str(&"      }\n".into());
-    out.push_str(&"    ],\n".into());
-    out.push_str(&"    \"version\": \"1.0.0\",\n".into());
-    out.push_str(&"    \"communities\": [{ \"identifier\": \"mathematics\" }],\n".into());
+    out.push_str(&"    \"language\": \"eng\",\n");
+    out.push_str(&"    \"license\": \"CC-BY-4.0\",\n");
+    out.push_str(&"    \"access_right\": \"open\",\n");
+    out.push_str(&"    \"related_identifiers\": [\n");
+    out.push_str(&"      {\n");
+    out.push_str(&"        \"relation\": \"isDocumentedBy\",\n");
+    out.push_str(&"        \"identifier\": \"https://diakrisis.ai\",\n");
+    out.push_str(&"        \"scheme\": \"url\",\n");
+    out.push_str(&"        \"resource_type\": \"publication-other\"\n");
+    out.push_str(&"      }\n");
+    out.push_str(&"    ],\n");
+    out.push_str(&"    \"version\": \"1.0.0\",\n");
+    out.push_str(&"    \"communities\": [{ \"identifier\": \"mathematics\" }],\n");
     out.push_str(&f"    \"notes\": \"{notes}\"\n");
-    out.push_str(&"  }\n".into());
-    out.push_str(&"}\n".into());
+    out.push_str(&"  }\n");
+    out.push_str(&"}\n");
     out
 }
 
 fn json_string_array(items: &List<Text>) -> Text {
-    let mut out = Text.with_capacity(256);
+    let mut out = "";
     out.push('[');
     let mut first = true;
-    for s in items.iter() {
-        if !first { out.push_str(&", ".into()); }
+    for s in items {
+        if !first { out.push_str(&", "); }
         out.push('"');
         out.push_str(&escape_json(s));
         out.push('"');
@@ -701,14 +699,14 @@ fn json_string_array(items: &List<Text>) -> Text {
 }
 
 fn escape_json(s: &Text) -> Text {
-    let mut out = Text.with_capacity(s.len() + 16);
+    let mut out = "";
     for ch in s.chars() {
         match ch {
-            '\\' => out.push_str(&"\\\\".into()),
-            '"'  => out.push_str(&"\\\"".into()),
-            '\n' => out.push_str(&"\\n".into()),
-            '\r' => out.push_str(&"\\r".into()),
-            '\t' => out.push_str(&"\\t".into()),
+            '\\' => out.push_str(&"\\\\"),
+            '"'  => out.push_str(&"\\\""),
+            '\n' => out.push_str(&"\\n"),
+            '\r' => out.push_str(&"\\r"),
+            '\t' => out.push_str(&"\\t"),
             _    => out.push(ch),
         }
     }
@@ -762,17 +760,17 @@ async fn dispatch() -> Result<(), ShellError> {
         Help => { show_usage(); Ok(()) }
 
         InvalidCombo { reason } => {
-            eprintln(&f"{red(&"❌".into())} {reason}\n");
+            eprintln(&f"{red(&"❌")} {reason}\n");
             show_usage();
-            Err(ShellError.SpawnFailed { command: "argv".into(), reason })
+            Err(ShellError.SpawnFailed { command: "argv", reason })
         }
 
         UnknownFlags { flags } => {
-            let joined = join_text(&flags, &" ".into());
-            eprintln(&f"{red(&"❌".into())} Неизвестные аргументы: {joined}\n");
+            let joined = join_text(&flags, &" ");
+            eprintln(&f"{red(&"❌")} Неизвестные аргументы: {joined}\n");
             show_usage();
             Err(ShellError.SpawnFailed {
-                command: "argv".into(),
+                command: "argv",
                 reason:  f"unknown flags: {joined}",
             })
         }
@@ -809,7 +807,7 @@ let outcome = dispatch().await;
 let exit_code: Int = match outcome {
     Ok(())  => 0,
     Err(e)  => {
-        eprintln(&f"{red(&"❌".into())} {e}");
+        eprintln(&f"{red(&"❌")} {e}");
         1
     }
 };

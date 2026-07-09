@@ -1,0 +1,22 @@
+#!/usr/bin/env verum
+
+mount core.{Int, Bool, Text, List};
+mount core.shell.script.{args as script_args};
+
+fn argv_contains(argv: &List<Text>, needle: &Text) -> Bool {
+    for a in argv { if a == needle { return true; } }
+    false
+}
+
+fn main() -> Int {
+    let argv = script_args();
+    if argv_contains(&argv, &"--help") {
+        return 99;
+    }
+    if argv.len() == 0 {
+        return 0;
+    }
+    argv.len() as Int
+}
+
+main()

@@ -1,0 +1,22 @@
+#!/usr/bin/env verum
+
+mount core.{Result, Int, Text, Maybe};
+mount core.shell.{ShellError};
+mount core.io.stdio.{println};
+
+fn make_err() -> Result<Int, ShellError> {
+    let err: ShellError = ShellError.SpawnFailed {
+        command: "test_cmd",
+        reason:  "test_reason",
+    };
+    Err(err)
+}
+
+fn main() -> Int {
+    match make_err() {
+        Ok(_)  => { println(&"ok"); 0 }
+        Err(_) => { println(&"err"); 1 }
+    }
+}
+
+main()

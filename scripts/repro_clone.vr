@@ -1,0 +1,25 @@
+#!/usr/bin/env verum
+
+mount core.{Result, Maybe, Int, Bool, Text};
+mount core.io.path.{Path, PathBuf};
+mount core.io.fs.{current_dir};
+mount core.io.stdio.{println};
+
+fn step() -> Int {
+    let cwd: PathBuf = match current_dir() {
+        Ok(p)  => p,
+        Err(_) => return 1,
+    };
+    println(&"got cwd");
+    let cloned: PathBuf = cwd.clone();
+    println(&"cloned");
+    let p: Path = cloned.as_path();
+    println(&"as_path");
+    0
+}
+
+fn main() -> Int {
+    step()
+}
+
+main()
