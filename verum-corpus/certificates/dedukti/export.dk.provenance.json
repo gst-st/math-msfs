@@ -1,0 +1,807 @@
+{
+  "schema_version": 1,
+  "target_format": "dedukti",
+  "declaration_count": 80,
+  "declarations": [
+    {
+      "name": "msfs_lemma_A_1_kelly_2_categorical",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/categorical_preliminaries.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Lemma A.1 — Kelly 1982 §1-§2 (2-categorical infrastructure)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_lemma_A_2_lurie_htt",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/categorical_preliminaries.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Lemma A.2 — Lurie HTT 2009 (∞-categorical infrastructure)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_lemma_A_3_riehl_verity",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/categorical_preliminaries.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Lemma A.3 — Riehl–Verity 2022 (synthetic (∞,1)-category theory)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_lemma_A_4_pronk_bicat_fractions",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/categorical_preliminaries.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Lemma A.4 — Pronk 1996 Theorem 21 (bicategory of fractions)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_lemma_A_5_lawvere_fp",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/categorical_preliminaries.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Lemma A.5 — Lawvere 1969 (fixed-point theorem, 2-categorical)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_lemma_A_6_whitehead",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/categorical_preliminaries.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Lemma A.6 — Whitehead-type criterion for (∞,∞)-equivalences",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_A_7_bergner_lurie_stabilization",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/categorical_preliminaries.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem A.7 — Bergner–Lurie (∞,∞)-stabilization (CRITICAL forward ref)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_lemma_A_8_adamek_rosicky",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/categorical_preliminaries.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Lemma A.8 — Adámek–Rosický 1994 (accessible-categories infrastructure)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_appendix_A_categorical_preliminaries_full",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/categorical_preliminaries.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Appendix A — full categorical preliminaries aggregator",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_11_1_subsumption_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/no_go_subsumption.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §11.1 reduction — classical no-go rows (7) refine universal id_X template into row-specific witness",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_11_1_subsumption",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/no_go_subsumption.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 11.1 — subsumption of 7 classical no-go results under AFN-T α",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_11_1_subsumption_anchor",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/no_go_subsumption.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 11.1 — subsumption anchor (catalogue alias)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_5_1_afnt_alpha",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/afnt_alpha.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 5.1 — AFN-T α-part: ¬∃ X. (F_S) ∧ (Π_4) ∧ (Π_3-max)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_corollary_5_2_l_abs_empty",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/afnt_alpha.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Corollary 5.2 — L_Abs == ∅",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_definition_9_1_meta_cls",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/meta_classification.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Definition 9.1 — Meta_Cls –",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_definition_9_2_meta_cls_top",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/meta_classification.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Definition 9.2 — Meta_Cls^⊤ (Max-1)..(Max-4)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_9_3_meta_categoricity",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/meta_classification.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 9.3 — Meta-Categoricity (canonical (∞,∞)-equivalence)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_9_4_structural_multiplicity",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/meta_classification.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 9.4 — ≥3 pairwise non-2-equivalent meta-structures",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_corollary_9_5_plurality",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/meta_classification.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Corollary 9.5 — L_Cls is structurally plural",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_9_6_meta_classification_stabilization",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/meta_classification.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilisation",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_9_6c_meta_iteration_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/meta_classification.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §9.6 (c) reduction — meta-iteration depth k ≥ 1 stabilises in (∞,∞)-Cat via Theorem 9.6 (a)+(b)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_9_6c_no_l_abs_escalation",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/meta_classification.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 9.6 (c) — No L_Abs escalation via meta-iteration (reduces to Theorem 5.1)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_8_1_universe_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §8.1 reduction — universe polymorphism Morita-reduces to S_S^global section",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_8_2_reflective_tower_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §8.2 reduction — reflective tower bounded by Con(S) + κ_inacc, no new axis",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_corollary_8_8_intensional_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §8.8 reduction — intensional fibres gauge-collapse via Theorem 8.7's slice-locality",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_8_1_universe_polymorphism",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 8.1 — universe-polymorphism Morita-reduces to S_S^global",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_8_2_reflective_tower",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 8.2 — reflective tower bounded by Con(S) + κ_inacc",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_definition_8_3_display_class",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Definition 8.3 — display class (D1)-(D4)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_definition_8_4_display_2_category",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Definition 8.4 — display 2-category triple",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_definition_8_5_s_int",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Definition 8.5 — S_int 2-category structure",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_8_6_I_existence",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 8.6 — I existence with (I-1)..(I-4)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_8_7_slice_locality",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 8.7 — slice-locality of I",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_corollary_8_8_intensional_no_new_axis",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Corollary 8.8 — intensional refinement adds no new axis to AFN-T",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_proposition_grading_structural",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Proposition grading — the intensional grading is structural (a)+(b)+(c)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_corollary_grade_collapse",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/bypass_paths.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Corollary grade-collapse — extensionality is grade-blindness",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_proposition_2_2_iv_l_abs_empty",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/strata.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Proposition 2.2 (iv) — L_Abs == ∅",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_proposition_2_3_corollary_cls_not_in_l_abs",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/strata.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Proposition 2.3 corollary — Cls(L_Fnd) ≠ L_Abs",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_proposition_2_2_iii_clsmax_strict_above_abs",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/strata.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Proposition 2.2 (iii) — L_Cls_top ⊋ L_Abs (vacuous form)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_proposition_2_2_iii_fnd_strict_above_cls",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/strata.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Proposition 2.2 (iii) — L_Fnd ⊋ L_Cls",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_proposition_2_2_iii_cls_strict_above_clsmax",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/strata.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Proposition 2.2 (iii) — L_Cls ⊋ L_Cls_top",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_proposition_2_2_iii_clsmax_strict_above_abs_witness",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/strata.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Proposition 2.2 (iii) — L_Cls_top ⊋ L_Abs (typed-witness form)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_definition_10_1_E_category",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/ac_oc_duality.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Definition 10.1 — 2-category cE + α ⊣ ε adjoint pair",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_definition_10_2_S_S_E",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/ac_oc_duality.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Definition 10.2 — class cS_S^cE",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_lemma_10_3_enactment_syntax_semantics",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/ac_oc_duality.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Lemma 10.3 — enactment syntax-semantics",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_10_4_ac_oc_morita_duality",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/ac_oc_duality.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 10.4 — AC/OC Morita Duality",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_corollary_10_5_conservativity",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/ac_oc_duality.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Corollary 10.5 — Con(F ∪ E) = Con(F) = Con(ZFC + 2-inacc)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_10_7_dual_boundary_lemma",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/ac_oc_duality.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 10.7 — Dual Boundary Lemma (Diakrisis 109.T) — structural @theorem",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_corollary_10_8_l_abs_E_empty",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/ac_oc_duality.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Corollary 10.8 — L_Abs^cE = ∅",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_10_9_dual_five_axis",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/ac_oc_duality.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 10.9 — Dual five-axis absoluteness",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_7_1_horizontal_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §7.1 reduction — horizontal axis: L_Abs candidacy is R-S-uniform (Lemma 3.4 + id_X template ∈ (R1)-(R5))",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_7_2_vertical_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §7.2 reduction — vertical axis: L_Abs candidacy is n-uniform (Lambek–Scott levelwise + Barwick–Schommer-Pries at n=∞)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_7_3_meta_vertical_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §7.3 reduction — meta-vertical axis: meta-stratum collapses via (∞,∞+1)-Cat = (∞,∞)-Cat (Theorem A.7)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_7_4_lateral_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §7.4 reduction — lateral axis: alt-orderings Morita-reduce to (∞,n)-Cat",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_7_6_completeness_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §7.6 reduction — completeness axis: any LS-variation reduces to one of axes 7.1-7.4",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_7_1_horizontal",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 7.1 — horizontal axis: AFN-T uniform over R-S",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_7_2_vertical",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 7.2 — vertical axis: AFN-T uniform over n ∈ ℕ ∪ {∞}",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_7_3_meta_vertical",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 7.3 — meta-vertical axis: meta-iterations stabilise via Theorem A.7",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_7_4_lateral",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 7.4 — lateral axis: alt orderings reduce to (∞, n)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_definition_7_5_lawvere_scope",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Definition 7.5 — Lawvere-scope LS (anchor)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_7_6_completeness",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/five_axis.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 7.6 — completeness axis (within Lawvere-scope)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_consequence_univalent_foundations",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/consequences.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §12 — Univalent Foundations diagnostic: passes (F_S, Π_4 cond.); fails (Π_3-max)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_consequence_higher_topos",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/consequences.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §12 — Higher Topos Theory diagnostic: passes (F_S); fails (Π_3-max)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_consequence_cohesive",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/consequences.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §12 — Cohesive ∞-Topos diagnostic: passes (F_S); fails (Π_3-max)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_consequence_infinity_cosmoi",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/consequences.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §12 — ∞-Cosmoi diagnostic: passes (F_S); fails (Π_3-max)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_open_question_Q1_closed_in_diakrisis",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/consequences.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Q1 — closed in Diakrisis 103.T-106.T",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_open_question_Q2_open",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/consequences.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Q2 — completeness of meta-framework list — OPEN",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_open_question_Q3_closed_in_diakrisis",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/consequences.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Q3 — closed in Diakrisis 133.T",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_open_question_Q4_closed_in_diakrisis",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/consequences.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Q4 — closed in Diakrisis 134.T",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_open_question_Q5_closed_in_diakrisis",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/consequences.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Q5 — closed in Diakrisis 137.T",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_definition_B_1_paraconsistent_rich_s",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/paraconsistent.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Definition B.1 — Paraconsistent R-S with extractable classical kernel",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_B_2_paraconsistent_afnt",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/paraconsistent.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem B.2 — Paraconsistent AFN-T (transfer via classical kernel)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_6_1_afnt_beta",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/afnt_beta.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 6.1 — AFN-T β-part: transfinite-limit colimit lies in S_S^global, hence ¬Π_4",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_6_1_step_1_seed_witness",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/afnt_beta.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 6.1 Step 1 — each tower term has Lemma 3.4 witness; expose the seed anchor",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_6_1_step_2_diagram_s_indexed",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/afnt_beta.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 6.1 Step 2 — monotone tower → S-indexed diagram D: λ → cF",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_6_1_colim_in_s_s_global",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/afnt_beta.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 6.1 (operational, 3-step structural body) — colim ∈ S_S^global",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_proposition_6_2_proper_class_dichotomy",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/afnt_beta.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Proposition 6.2 — proper-class towers dichotomy (both branches close to ¬L_Abs)",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_proposition_6_3_trajectory_space",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/afnt_beta.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Proposition 6.3 — trajectory space lives in S_S^global",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_proposition_6_3_corollary",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/afnt_beta.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Proposition 6.3 (corollary) — trajectory-tower colimits in S_S^global",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_6_1_beta_tower_reduction",
+      "kind": "axiom",
+      "source_file": "src/theorems/msfs/afnt_beta.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS §6.1 reduction — transfinite-tower colimit lives in S_S^global, reduces to standard L_Abs candidate",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    },
+    {
+      "name": "msfs_theorem_6_1_operational_closure",
+      "kind": "theorem",
+      "source_file": "src/theorems/msfs/afnt_beta.vr",
+      "framework_name": "msfs",
+      "framework_citation": "MSFS Theorem 6.1 (operational closure) — no L_Abs via transfinite tower",
+      "discharge_strategy": "statement_only",
+      "obligation_hash": null,
+      "proof_term": null
+    }
+  ]
+}

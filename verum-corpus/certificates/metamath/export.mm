@@ -6,593 +6,244 @@ MetamathProofReplay when SmtCertificates are loaded; otherwise
 $c wff |- $.
 $v x y z $.
 
-$( ==== framework: diakrisis ==== $)
-$( axiom — diakrisis — Diakrisis 10.T — ⟪⟫ is a locally-small 2-category (Axi-1) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_10_T_locally_small $a wff diakrisis_theorem_10_T_locally_small $.
-
-$( axiom — diakrisis — Diakrisis 11.T — ⟪⟫ is internally closed (Cartesian closure on End) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_11_T_internal_closure $a wff diakrisis_theorem_11_T_internal_closure $.
-
-$( axiom — diakrisis — Diakrisis 12.T — ι: End(⟪⟫) → ⟪⟫ functor existence :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_12_T_iota_existence $a wff diakrisis_theorem_12_T_iota_existence $.
-
-$( axiom — diakrisis — Diakrisis 13.T — 𝖬 ∈ End(⟪⟫) carries 2-functor structure :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_13_T_M_2_functor $a wff diakrisis_theorem_13_T_M_2_functor $.
-
-$( axiom — diakrisis — Diakrisis 14.T — α_𝖬 := ι(𝖬) is the canonical M-representative :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_14_T_alpha_M_canonical $a wff diakrisis_theorem_14_T_alpha_M_canonical $.
-
-$( axiom — diakrisis — Diakrisis 14.T2 — α_𝖬 is Yoneda-non-representable in LP-models (Axi-8 grounding) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_14_T2_axi_8_witness $a wff diakrisis_theorem_14_T2_axi_8_witness $.
-
-$( axiom — diakrisis — Diakrisis 15.T — M's 2-natural-transformation laws (composition, identity) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_15_T_M_naturality $a wff diakrisis_theorem_15_T_M_naturality $.
-
-$( axiom — diakrisis — Diakrisis 16.T — ι is faithful (End-equivalence preserved) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_16_T_iota_faithful $a wff diakrisis_theorem_16_T_iota_faithful $.
-
-$( axiom — diakrisis — Diakrisis 16.T10 — round-trip ι ∘ representable ≃ id (Theorem 16.10 in MSFS) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_16_T10_round_trip $a wff diakrisis_theorem_16_T10_round_trip $.
-
-$( axiom — diakrisis — Diakrisis 17.T — ι is full up to gauge equivalence :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_17_T_iota_full_mod_gauge $a wff diakrisis_theorem_17_T_iota_full_mod_gauge $.
-
-$( axiom — diakrisis — Diakrisis 17.T1 — effect Kleisli + ι-image composition (T2.2 ground) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_17_T1_effect_kleisli $a wff diakrisis_theorem_17_T1_effect_kleisli $.
-
-$( axiom — diakrisis — Diakrisis 18.T — ι-image characterization (image as End-quotient) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_18_T_image_characterization $a wff diakrisis_theorem_18_T_image_characterization $.
-
-$( axiom — diakrisis — Diakrisis 19.T — ι is Yoneda-compatible on representable objects :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_19_T_yoneda_compatible $a wff diakrisis_theorem_19_T_yoneda_compatible $.
-
-$( axiom — diakrisis — Diakrisis 20.T — ι extends to (∞, n)-functor naturally :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_20_T_iota_infty_n_extension $a wff diakrisis_theorem_20_T_iota_infty_n_extension $.
-
-$( axiom — diakrisis — Diakrisis 21.T — ι preserves End-monoidal structure :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_21_T_iota_monoidal $a wff diakrisis_theorem_21_T_iota_monoidal $.
-
-$( axiom — diakrisis — Diakrisis 21.T2 — Theorem 131.T-precursor stack-model lemma :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_21_T2_stack_model_precursor $a wff diakrisis_theorem_21_T2_stack_model_precursor $.
-
-$( axiom — diakrisis — Diakrisis 22.T — ι-image stable under M-iteration (foundation for Fix(M)) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_22_T_image_M_stable $a wff diakrisis_theorem_22_T_image_M_stable $.
-
-$( axiom — diakrisis — Diakrisis 23.T — shape ∫: ⟪⟫ → S admits a left adjoint :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_23_T_shape_left_adjoint $a wff diakrisis_theorem_23_T_shape_left_adjoint $.
-
-$( axiom — diakrisis — Diakrisis 24.T — flat ♭ ⊣ sharp ♯ (cohesive triple-adjunction) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_24_T_flat_sharp_adjunction $a wff diakrisis_theorem_24_T_flat_sharp_adjunction $.
-
-$( axiom — diakrisis — Diakrisis 25.T — ♭ ∫ A ≃ ∫ A on crisp objects :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_25_T_crisp_collapse $a wff diakrisis_theorem_25_T_crisp_collapse $.
-
-$( axiom — diakrisis — Diakrisis 26.T — cohesive triple-adjunction grounds Schreiber DCCT :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_26_T_dcct_ground $a wff diakrisis_theorem_26_T_dcct_ground $.
-
-$( axiom — diakrisis — Diakrisis 27.T — Grothendieck fibration p: F → ⟪⟫ via M-image :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_27_T_grothendieck_fibration $a wff diakrisis_theorem_27_T_grothendieck_fibration $.
-
-$( axiom — diakrisis — Diakrisis 28.T — fibers as End-equivalence classes :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_28_T_fiber_equivalence_classes $a wff diakrisis_theorem_28_T_fiber_equivalence_classes $.
-
-$( axiom — diakrisis — Diakrisis 29.T — opfibration symmetry via M ⊣ A precursor :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_29_T_opfibration_symmetry $a wff diakrisis_theorem_29_T_opfibration_symmetry $.
-
-$( axiom — diakrisis — Diakrisis 30.T — pullback stability of M-image fibration :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_30_T_pullback_stability $a wff diakrisis_theorem_30_T_pullback_stability $.
-
-$( axiom — diakrisis — Diakrisis 31.T — gauge equivalence ≡ Morita (definition lemma) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_31_T_gauge_morita $a wff diakrisis_theorem_31_T_gauge_morita $.
-
-$( axiom — diakrisis — Diakrisis 32.T — gauge classes form a 2-quotient stack :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_32_T_gauge_quotient_stack $a wff diakrisis_theorem_32_T_gauge_quotient_stack $.
-
-$( axiom — diakrisis — Diakrisis 33.T — gauge respects M-iteration (M-stable equivalence) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_33_T_gauge_M_stability $a wff diakrisis_theorem_33_T_gauge_M_stability $.
-
-$( axiom — diakrisis — Diakrisis 34.T — Aut_2(⟪⟫) acts on gauge classes (precursor to Max-2) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_34_T_aut2_action $a wff diakrisis_theorem_34_T_aut2_action $.
-
-$( axiom — diakrisis — Diakrisis 35.T — M as Galois-connection lift to a modal □-operator :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_35_T_M_modal_box $a wff diakrisis_theorem_35_T_M_modal_box $.
-
-$( axiom — diakrisis — Diakrisis 36.T — A as ◇-operator dual to M (sublimation duality) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_36_T_A_modal_diamond $a wff diakrisis_theorem_36_T_A_modal_diamond $.
-
-$( axiom — diakrisis — Diakrisis 37.T — 4-2 modal-axiom completeness on ⟪⟫ :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_37_T_modal_axioms_complete $a wff diakrisis_theorem_37_T_modal_axioms_complete $.
-
-$( axiom — diakrisis — Diakrisis 38.T — modal-depth function `md` foundation (precursor to T-α) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_38_T_modal_depth_foundation $a wff diakrisis_theorem_38_T_modal_depth_foundation $.
-
-$( axiom — diakrisis — Diakrisis 39.T — M ⊣ A biadjunction precursor (operator-level) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_39_T_M_A_precursor $a wff diakrisis_theorem_39_T_M_A_precursor $.
-
-$( axiom — diakrisis — Diakrisis 40.T — unit η: id_⟪⟫ ⇒ A∘M existence :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_40_T_unit_eta $a wff diakrisis_theorem_40_T_unit_eta $.
-
-$( axiom — diakrisis — Diakrisis 41.T — counit ε: M∘A ⇒ id_E existence :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_41_T_counit_epsilon $a wff diakrisis_theorem_41_T_counit_epsilon $.
-
-$( axiom — diakrisis — Diakrisis 42.T — triangle identities on (η, ε) (precursor to 124.T) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_42_T_triangle_identities $a wff diakrisis_theorem_42_T_triangle_identities $.
-
-$( axiom — diakrisis — Diakrisis 43.T — Lambek-Scott Syn ⊣ Mod internal version :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_43_T_lambek_scott_internal $a wff diakrisis_theorem_43_T_lambek_scott_internal $.
-
-$( axiom — diakrisis — Diakrisis 44.T — Mod: ⟪⟫ → 2-Cat is accessible :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_44_T_mod_accessible $a wff diakrisis_theorem_44_T_mod_accessible $.
-
-$( axiom — diakrisis — Diakrisis 45.T — Mod respects gauge equivalence (Morita-invariant) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_45_T_mod_gauge_invariant $a wff diakrisis_theorem_45_T_mod_gauge_invariant $.
-
-$( axiom — diakrisis — Diakrisis 46.T — Mod-image cardinality bounded by κ_2 :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_46_T_mod_image_kappa_2 $a wff diakrisis_theorem_46_T_mod_image_kappa_2 $.
-
-$( axiom — diakrisis — Diakrisis 47.T — |⟪⟫ / ≃_2| ≤ κ_2 (size bound) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_47_T_carrier_size_bound $a wff diakrisis_theorem_47_T_carrier_size_bound $.
-
-$( axiom — diakrisis — Diakrisis 48.T — image(ρ) is U_2-small :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_48_T_rho_image_u_2_small $a wff diakrisis_theorem_48_T_rho_image_u_2_small $.
-
-$( axiom — diakrisis — Diakrisis 49.T — Fix(𝖬) cardinality ≤ κ_2 (M-stable closure) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_49_T_fix_M_size_bound $a wff diakrisis_theorem_49_T_fix_M_size_bound $.
-
-$( axiom — diakrisis — Diakrisis 50.T — Eff (Hyland) internal interpretation foundation :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_theorem_50_T_eff_internal $a wff diakrisis_theorem_50_T_eff_internal $.
-
-$( axiom — diakrisis — Diakrisis 107.T — relative consistency over ZFC + 2-inacc :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_theorem_107_T_relative_consistency $a wff diakrisis_theorem_107_T_relative_consistency $.
-
-$( axiom — diakrisis — Diakrisis 108.T — AC/OC Morita Duality (FLAGSHIP, M ⊣ A biadjunction) :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_theorem_108_T_ac_oc_morita_duality $a wff diakrisis_theorem_108_T_ac_oc_morita_duality $.
-
-$( axiom — diakrisis — Diakrisis 109.T — dual no-go for absolute practice (L_Abs^E ≡ ∅) :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_theorem_109_T_dual_no_go $a wff diakrisis_theorem_109_T_dual_no_go $.
-
-$( axiom — diakrisis — Diakrisis 110.T..120.T — Aктика supporting structural lemmata :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_theorems_110_to_120 $a wff diakrisis_theorems_110_to_120 $.
-
-$( axiom — diakrisis — Diakrisis 121.T..123.T — Aктика closure (activation + ε / α bridges) :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_theorems_121_to_123 $a wff diakrisis_theorems_121_to_123 $.
-
-$( axiom — diakrisis — Diakrisis 124.T — M ⊣ A biadjunction explicit unit/counit + triangle identities :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_theorem_124_T_biadjunction_witness $a wff diakrisis_theorem_124_T_biadjunction_witness $.
-
-$( axiom — diakrisis — Diakrisis 125.T — α + ε universal-pair characterization :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_theorem_125_T_universal_pair $a wff diakrisis_theorem_125_T_universal_pair $.
-
-$( axiom — diakrisis — Diakrisis 126.T — gauge_E preserves α-projection :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_theorem_126_T_gauge_alpha_projection $a wff diakrisis_theorem_126_T_gauge_alpha_projection $.
-
-$( axiom — diakrisis — Diakrisis 127.T — Aктика completeness within Lawvere-scope :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_theorem_127_T_actica_completeness $a wff diakrisis_theorem_127_T_actica_completeness $.
-
-$( axiom — diakrisis — Diakrisis 138.T — kernel of the dual gauge surjection :: theorems/diakrisis/12_actic/actica_138_to_141.vr $)
-ax-diakrisis_theorem_138_T_dual_gauge_kernel $a wff diakrisis_theorem_138_T_dual_gauge_kernel $.
-
-$( axiom — diakrisis — Diakrisis 139.T — initiality of dual primitive in Meta_Cls^⊤,E :: theorems/diakrisis/12_actic/actica_138_to_141.vr $)
-ax-diakrisis_theorem_139_T_dual_primitive_initial $a wff diakrisis_theorem_139_T_dual_primitive_initial $.
-
-$( axiom — diakrisis — Diakrisis 140.T — (∞,∞)-invariant for canonical-primitive (VVA-4 foundation) :: theorems/diakrisis/12_actic/actica_138_to_141.vr $)
-ax-diakrisis_theorem_140_T_infty_infty_invariant $a wff diakrisis_theorem_140_T_infty_infty_invariant $.
-
-$( axiom — diakrisis — Diakrisis 141.T — constructive autopoiesis (BHK / VVA-5 foundation) :: theorems/diakrisis/12_actic/actica_138_to_141.vr $)
-ax-diakrisis_theorem_141_T_constructive_autopoiesis $a wff diakrisis_theorem_141_T_constructive_autopoiesis $.
-
-$( theorem — diakrisis — Diakrisis 55.T — horizontal absoluteness over R-S :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-th-diakrisis_theorem_55_T_horizontal $p wff diakrisis_theorem_55_T_horizontal $= ? $.
-
-$( theorem — diakrisis — Diakrisis 59.T.1 — vertical absoluteness over n ∈ ℕ ∪ {∞} :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-th-diakrisis_theorem_59_T_1_vertical $p wff diakrisis_theorem_59_T_1_vertical $= ? $.
-
-$( theorem — diakrisis — Diakrisis 69.T — meta-vertical via Fix(𝖬) :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-th-diakrisis_theorem_69_T_meta_vertical $p wff diakrisis_theorem_69_T_meta_vertical $= ? $.
-
-$( theorem — diakrisis — Diakrisis 84.T — lateral over alternative categorical orderings :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-th-diakrisis_theorem_84_T_lateral $p wff diakrisis_theorem_84_T_lateral $= ? $.
-
-$( theorem — diakrisis — Diakrisis 87.T — completeness within Lawvere-scope :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-th-diakrisis_theorem_87_T_completeness $p wff diakrisis_theorem_87_T_completeness $= ? $.
-
-$( theorem — diakrisis — Diakrisis 98.T — universe-polymorphism bypass closure :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-th-diakrisis_theorem_98_T_universe_polymorphism $p wff diakrisis_theorem_98_T_universe_polymorphism $= ? $.
-
-$( theorem — diakrisis — Diakrisis 99.T — reflective-tower bypass closure (Rathjen-Feferman bound) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-th-diakrisis_theorem_99_T_reflective_tower $p wff diakrisis_theorem_99_T_reflective_tower $= ? $.
-
-$( axiom — diakrisis — Diakrisis 100.T — I: F^op → S_int existence (display 2-categories) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-ax-diakrisis_theorem_100_T_I_existence $a wff diakrisis_theorem_100_T_I_existence $.
-
-$( axiom — diakrisis — Diakrisis 101.T — slice-locality of I (gauge-quotient) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-ax-diakrisis_theorem_101_T_slice_locality $a wff diakrisis_theorem_101_T_slice_locality $.
-
-$( theorem — diakrisis — Diakrisis 102.T — intensional refinement adds no new axis :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-th-diakrisis_theorem_102_T_intensional_no_new_axis $p wff diakrisis_theorem_102_T_intensional_no_new_axis $= ? $.
-
-$( axiom — diakrisis — Diakrisis Axi-0 — ⟪⟫ ≠ ∅ (non-emptiness of the articulation 2-category) :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_axi_0_non_empty $a wff diakrisis_axi_0_non_empty $.
-
-$( axiom — diakrisis — Diakrisis Axi-1 — ⟪⟫ is locally-small + internally-closed 2-category :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_axi_1_internal_closure $a wff diakrisis_axi_1_internal_closure $.
-
-$( axiom — diakrisis — Diakrisis Axi-2 — 𝖬 is a 2-functor with internal representative α_𝖬 = ι(𝖬) :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_axi_2_M_is_2_functor $a wff diakrisis_axi_2_M_is_2_functor $.
-
-$( axiom — diakrisis — Diakrisis Axi-3 — ∃ distinguished α_math ∈ ⟪⟫ (canonical mathematical articulation) :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_axi_3_alpha_math_exists $a wff diakrisis_axi_3_alpha_math_exists $.
-
-$( axiom — diakrisis — Diakrisis Axi-4 — ρ via internal hom; 𝖬 is λ-accessible (Adámek-Rosický 1994) :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_axi_4_rho_internal_hom $a wff diakrisis_axi_4_rho_internal_hom $.
-
-$( axiom — diakrisis — Diakrisis Axi-5 — ρ is non-trivial (distinguishes articulations) :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_axi_5_rho_nontrivial $a wff diakrisis_axi_5_rho_nontrivial $.
-
-$( axiom — diakrisis — Diakrisis Axi-6 — ρ ∘ 𝖬 ≄ ρ (𝖬 visible through ρ) :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_axi_6_rho_M_non_commute $a wff diakrisis_axi_6_rho_M_non_commute $.
-
-$( axiom — diakrisis — Diakrisis Axi-7 (M-5w) — self-articulability via α_𝖬 = ι(𝖬) :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_axi_7_self_articulability $a wff diakrisis_axi_7_self_articulability $.
-
-$( axiom — diakrisis — Diakrisis Axi-8 — α_𝖬 non-Yoneda-representable in any LP-model :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_axi_8_alpha_M_non_LP_representable $a wff diakrisis_axi_8_alpha_M_non_LP_representable $.
-
-$( axiom — diakrisis — Diakrisis Axi-9 — AC/OC duality premise (108.T): canonical M ⊣ A biadjunction :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_axi_9_ac_oc_biadjunction_premise $a wff diakrisis_axi_9_ac_oc_biadjunction_premise $.
-
-$( axiom — diakrisis — Diakrisis T-α — depth function α-rank: Ord(⟪⟫) → Ord :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_T_alpha_depth_function $a wff diakrisis_T_alpha_depth_function $.
-
-$( axiom — diakrisis — Diakrisis T-2f* — comprehension-by-predicate strict-rank stratification :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_T_2f_star_comprehension_stratification $a wff diakrisis_T_2f_star_comprehension_stratification $.
-
-$( axiom — diakrisis — Diakrisis T-2f** — transfinite-stratification extension of T-2f* :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
-ax-diakrisis_T_2f_star_star $a wff diakrisis_T_2f_star_star $.
-
-$( axiom — diakrisis — Diakrisis 136.T — T-2f*** transfinite stratification (md^ω, ordinals < ε_0) :: theorems/diakrisis/research_extensions/research_136_137_142.vr $)
-ax-diakrisis_theorem_136_T_t_2f_star_star_star $a wff diakrisis_theorem_136_T_t_2f_star_star_star $.
-
-$( axiom — diakrisis — Diakrisis 137.T — Weak-AFN-T over Bounded-arithmetic sub-stack (V_0/V_1/S^1_2/V_NP/V_PH/IΔ_0) :: theorems/diakrisis/research_extensions/research_136_137_142.vr $)
-ax-diakrisis_theorem_137_T_weak_afnt $a wff diakrisis_theorem_137_T_weak_afnt $.
-
-$( axiom — diakrisis — Diakrisis 142.T — Eastern non-classical traditions (paraconsistent / dialethic / many-valued) :: theorems/diakrisis/research_extensions/research_136_137_142.vr $)
-ax-diakrisis_theorem_142_T_eastern_non_classical $a wff diakrisis_theorem_142_T_eastern_non_classical $.
-
-$( axiom — diakrisis — Diakrisis 18.T1 — α-cert ⟺ ε-cert duality (operational coherence foundation) :: theorems/diakrisis/research_extensions/operational_coherence.vr $)
-ax-diakrisis_theorem_18_T1_alpha_epsilon_duality $a wff diakrisis_theorem_18_T1_alpha_epsilon_duality $.
-
-$( axiom — diakrisis — Diakrisis 18.T2 — finitely-axiomatised α/ε decidability in single-exponential time :: theorems/diakrisis/research_extensions/operational_coherence.vr $)
-ax-diakrisis_theorem_18_T2_finite_decidability $a wff diakrisis_theorem_18_T2_finite_decidability $.
-
-$( axiom — diakrisis — Diakrisis 18.T3 — corpus-wide coherence 100% on finitely-axiomatised theorems :: theorems/diakrisis/research_extensions/operational_coherence.vr $)
-ax-diakrisis_theorem_18_T3_corpus_coherence $a wff diakrisis_theorem_18_T3_corpus_coherence $.
-
-$( axiom — diakrisis — Diakrisis uhm.T1 — α_uhm ∈ L_Cls (universal-articulation instantiation) :: theorems/diakrisis/research_extensions/uhm_articulation.vr $)
-ax-diakrisis_theorem_uhm_T1_in_l_cls $a wff diakrisis_theorem_uhm_T1_in_l_cls $.
-
-$( axiom — diakrisis — Diakrisis uhm.T2 — ε(α_uhm) = ω · 3 + 1 (Path-B supremum ε) :: theorems/diakrisis/research_extensions/uhm_articulation.vr $)
-ax-diakrisis_theorem_uhm_T2_epsilon_omega3_plus_1 $a wff diakrisis_theorem_uhm_T2_epsilon_omega3_plus_1 $.
-
-$( axiom — diakrisis — Diakrisis uhm.T3 — UHM as Path-B baseline (every Path-B theorem cites it) :: theorems/diakrisis/research_extensions/uhm_articulation.vr $)
-ax-diakrisis_theorem_uhm_T3_path_b_baseline $a wff diakrisis_theorem_uhm_T3_path_b_baseline $.
-
-$( axiom — diakrisis — Diakrisis uhm.T4 — UHM ∈ L_Cls^⊤ via Diakrisis 106.T :: theorems/diakrisis/research_extensions/uhm_articulation.vr $)
-ax-diakrisis_theorem_uhm_T4_in_l_cls_top $a wff diakrisis_theorem_uhm_T4_in_l_cls_top $.
-
-$( axiom — diakrisis — Diakrisis uhm — noesis-corpus 223 Path-B theorems anchor :: theorems/diakrisis/research_extensions/uhm_articulation.vr $)
-ax-diakrisis_uhm_noesis_223_path_b_anchor $a wff diakrisis_uhm_noesis_223_path_b_anchor $.
-
-$( axiom — diakrisis — Diakrisis 103.T — universal articulation existence (Q1 closure) :: theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr $)
-ax-diakrisis_theorem_103_T_universal_articulation $a wff diakrisis_theorem_103_T_universal_articulation $.
-
-$( axiom — diakrisis — Diakrisis 104.T — uniqueness of α_universal up to canonical (∞,∞)-equiv :: theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr $)
-ax-diakrisis_theorem_104_T_uniqueness $a wff diakrisis_theorem_104_T_uniqueness $.
-
-$( axiom — diakrisis — Diakrisis 105.T — Yanofsky paradox-immunity (T-2f* + Axi-7) :: theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr $)
-ax-diakrisis_theorem_105_T_yanofsky_immunity $a wff diakrisis_theorem_105_T_yanofsky_immunity $.
-
-$( axiom — diakrisis — Diakrisis 106.T — Diakrisis ∈ L_Cls^⊤ (witness via 103.T+104.T+105.T) :: theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr $)
-ax-diakrisis_theorem_106_T_diakrisis_in_l_cls_top $a wff diakrisis_theorem_106_T_diakrisis_in_l_cls_top $.
-
-$( axiom — diakrisis — Diakrisis 128.T — exhaustiveness of (universe-poly | reflective | intensional) bypasses :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_theorem_128_T_bypass_exhaustive $a wff diakrisis_theorem_128_T_bypass_exhaustive $.
-
-$( axiom — diakrisis — Diakrisis 129.T — Lawvere-scope index combinatorial inventory :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_theorem_129_T_lawvere_scope_inventory $a wff diakrisis_theorem_129_T_lawvere_scope_inventory $.
-
-$( axiom — diakrisis — Diakrisis 130.T — Axi-9 biadjunction completeness over LS :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_theorem_130_T_axi_9_completeness $a wff diakrisis_theorem_130_T_axi_9_completeness $.
-
-$( axiom — diakrisis — Diakrisis 131.T — stack-model exists in ZFC + 2-inacc :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_theorem_131_T_stack_model $a wff diakrisis_theorem_131_T_stack_model $.
-
-$( axiom — diakrisis — Diakrisis 132.T — universal-articulation existence precursor :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_theorem_132_T_universal_precursor $a wff diakrisis_theorem_132_T_universal_precursor $.
-
-$( axiom — diakrisis — Diakrisis 133.T — Q3 closure (bypass-path exhaustiveness) :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_theorem_133_T_q3_closure $a wff diakrisis_theorem_133_T_q3_closure $.
-
-$( axiom — diakrisis — Diakrisis 134.T — Q4 closure (ZFC + 2-inacc tightness) :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_theorem_134_T_q4_closure $a wff diakrisis_theorem_134_T_q4_closure $.
-
-$( axiom — diakrisis — Diakrisis 135.T — Q5 closure (weak-stratum sub-stack) :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_theorem_135_T_q5_closure $a wff diakrisis_theorem_135_T_q5_closure $.
-
 $( ==== framework: msfs ==== $)
-$( theorem — msfs — MSFS Theorem 7.1 — horizontal axis: AFN-T uniform over R-S :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-th-msfs_theorem_7_1_horizontal $p wff msfs_theorem_7_1_horizontal $= ? $.
-
-$( theorem — msfs — MSFS Theorem 7.2 — vertical axis: AFN-T uniform over n ∈ ℕ ∪ {∞} :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-th-msfs_theorem_7_2_vertical $p wff msfs_theorem_7_2_vertical $= ? $.
-
-$( theorem — msfs — MSFS Theorem 7.3 — meta-vertical axis: meta-iterations stabilise via Theorem A.7 :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-th-msfs_theorem_7_3_meta_vertical $p wff msfs_theorem_7_3_meta_vertical $= ? $.
-
-$( theorem — msfs — MSFS Theorem 7.4 — lateral axis: alt orderings reduce to (∞, n) :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-th-msfs_theorem_7_4_lateral $p wff msfs_theorem_7_4_lateral $= ? $.
-
-$( axiom — msfs — MSFS Definition 7.5 — Lawvere-scope LS :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-ax-msfs_definition_7_5_lawvere_scope $a wff msfs_definition_7_5_lawvere_scope $.
-
-$( theorem — msfs — MSFS Theorem 7.6 — completeness axis (within Lawvere-scope) :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-th-msfs_theorem_7_6_completeness $p wff msfs_theorem_7_6_completeness $= ? $.
-
-$( axiom — msfs — MSFS Theorem 5.1 — AFN-T α-part: ¬∃ X. (F_S) ∧ (Π_4) ∧ (Π_3-max) :: theorems/msfs/05_afnt_alpha/theorem_5_1.vr $)
-ax-msfs_theorem_5_1_afnt_alpha $a wff msfs_theorem_5_1_afnt_alpha $.
-
-$( theorem — msfs — MSFS Corollary 5.2 — L_Abs == ∅ (AFN-T α-part headline) :: theorems/msfs/05_afnt_alpha/theorem_5_1.vr $)
-th-msfs_corollary_5_2_l_abs_empty $p wff msfs_corollary_5_2_l_abs_empty $= ? $.
-
-$( axiom — msfs — MSFS Theorem 5.1 — proof template (Lemma 3.4 + id_X equivalence onto image) :: theorems/msfs/05_afnt_alpha/theorem_5_1.vr $)
-ax-msfs_theorem_5_1_proof_template $a wff msfs_theorem_5_1_proof_template $.
-
-$( axiom — msfs — MSFS Theorem 6.1 — AFN-T β-part: transfinite-limit colimit lies in S_S^global, hence ¬Π_4 :: theorems/msfs/06_afnt_beta/theorem_6_1.vr $)
-ax-msfs_theorem_6_1_afnt_beta $a wff msfs_theorem_6_1_afnt_beta $.
-
-$( axiom — msfs — MSFS Theorem 6.1 (operational) — colim ∈ S_S^global :: theorems/msfs/06_afnt_beta/theorem_6_1.vr $)
-ax-msfs_theorem_6_1_colim_in_s_s_global $a wff msfs_theorem_6_1_colim_in_s_s_global $.
-
-$( axiom — msfs — MSFS Proposition 6.2 — proper-class towers dichotomy (both branches close to ¬L_Abs) :: theorems/msfs/06_afnt_beta/theorem_6_1.vr $)
-ax-msfs_proposition_6_2_proper_class_dichotomy $a wff msfs_proposition_6_2_proper_class_dichotomy $.
-
-$( axiom — msfs — MSFS Proposition 6.3 — trajectory space lives in S_S^global :: theorems/msfs/06_afnt_beta/theorem_6_1.vr $)
-ax-msfs_proposition_6_3_trajectory_space $a wff msfs_proposition_6_3_trajectory_space $.
-
-$( axiom — msfs — MSFS Proposition 6.3 (corollary) — trajectory-tower colimits in S_S^global :: theorems/msfs/06_afnt_beta/theorem_6_1.vr $)
-ax-msfs_proposition_6_3_corollary $a wff msfs_proposition_6_3_corollary $.
-
-$( theorem — msfs — MSFS Theorem 6.1 (operational closure) — no L_Abs via transfinite tower :: theorems/msfs/06_afnt_beta/theorem_6_1.vr $)
-th-msfs_theorem_6_1_operational_closure $p wff msfs_theorem_6_1_operational_closure $= ? $.
-
-$( theorem — msfs — MSFS Theorem 8.1 — universe-polymorphism Morita-reduces to S_S^global :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-th-msfs_theorem_8_1_universe_polymorphism $p wff msfs_theorem_8_1_universe_polymorphism $= ? $.
-
-$( theorem — msfs — MSFS Theorem 8.2 — reflective tower bounded by Con(S) + κ_inacc :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-th-msfs_theorem_8_2_reflective_tower $p wff msfs_theorem_8_2_reflective_tower $= ? $.
-
-$( axiom — msfs — MSFS Definition 8.3 — display class :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-ax-msfs_definition_8_3_display_class $a wff msfs_definition_8_3_display_class $.
-
-$( axiom — msfs — MSFS Definition 8.4 — display 2-category :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-ax-msfs_definition_8_4_display_2_category $a wff msfs_definition_8_4_display_2_category $.
-
-$( axiom — msfs — MSFS Definition 8.5 — S_int :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-ax-msfs_definition_8_5_s_int $a wff msfs_definition_8_5_s_int $.
-
-$( axiom — msfs — MSFS Theorem 8.6 — existence of intensional-refinement functor I : F^op → S_int :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-ax-msfs_theorem_8_6_I_existence $a wff msfs_theorem_8_6_I_existence $.
-
-$( axiom — msfs — MSFS Theorem 8.7 — slice-locality of I via gauge-quotient :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-ax-msfs_theorem_8_7_slice_locality $a wff msfs_theorem_8_7_slice_locality $.
-
-$( theorem — msfs — MSFS Corollary 8.8 — intensional refinement adds no new axis to AFN-T :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-th-msfs_corollary_8_8_intensional_no_new_axis $p wff msfs_corollary_8_8_intensional_no_new_axis $= ? $.
-
-$( axiom — msfs — MSFS Stage M.4 — L_Abs Conditions (§4) anchor :: theorems/msfs/04_l_abs_conditions/definitions_4_1_to_4_4.vr $)
-ax-msfs_stage_m_4_anchor $a wff msfs_stage_m_4_anchor $.
-
-$( axiom — msfs — MSFS Definition 10.1 — 2-category cE + α ⊣ ε adjoint pair :: theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr $)
-ax-msfs_definition_10_1_E_category $a wff msfs_definition_10_1_E_category $.
-
-$( axiom — msfs — MSFS Definition 10.2 — class cS_S^cE :: theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr $)
-ax-msfs_definition_10_2_S_S_E $a wff msfs_definition_10_2_S_S_E $.
-
-$( axiom — msfs — MSFS Lemma 10.3 — enactment syntax–semantics (componentwise via Kan ext + AR adjoint) :: theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr $)
-ax-msfs_lemma_10_3_enactment_syntax_semantics $a wff msfs_lemma_10_3_enactment_syntax_semantics $.
-
-$( axiom — msfs — MSFS Theorem 10.4 — AC/OC Morita Duality (FLAGSHIP) :: theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr $)
-ax-msfs_theorem_10_4_ac_oc_morita_duality $a wff msfs_theorem_10_4_ac_oc_morita_duality $.
-
-$( axiom — msfs — MSFS Corollary 10.5 — Con(F ∪ E) = Con(F) = Con(ZFC + 2-inacc) :: theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr $)
-ax-msfs_corollary_10_5_conservativity $a wff msfs_corollary_10_5_conservativity $.
-
-$( axiom — msfs — MSFS Theorem 10.7 — Dual Boundary Lemma (Diakrisis 109.T) :: theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr $)
-ax-msfs_theorem_10_7_dual_boundary_lemma $a wff msfs_theorem_10_7_dual_boundary_lemma $.
-
-$( axiom — msfs — MSFS Corollary 10.8 — L_Abs^cE = ∅ :: theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr $)
-ax-msfs_corollary_10_8_l_abs_E_empty $a wff msfs_corollary_10_8_l_abs_E_empty $.
-
-$( axiom — msfs — MSFS Theorem 10.9 — Dual five-axis absoluteness :: theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr $)
-ax-msfs_theorem_10_9_dual_five_axis $a wff msfs_theorem_10_9_dual_five_axis $.
-
-$( axiom — msfs — MSFS §12 — Univalent Foundations diagnostic: passes (F_S, Π_4 cond.); fails (Π_3-max) :: theorems/msfs/12_consequences/diagnostics_and_open_q.vr $)
-ax-msfs_consequence_univalent_foundations $a wff msfs_consequence_univalent_foundations $.
-
-$( axiom — msfs — MSFS §12 — Higher Topos Theory diagnostic :: theorems/msfs/12_consequences/diagnostics_and_open_q.vr $)
-ax-msfs_consequence_higher_topos $a wff msfs_consequence_higher_topos $.
-
-$( axiom — msfs — MSFS §12 — Cohesive ∞-Topos diagnostic :: theorems/msfs/12_consequences/diagnostics_and_open_q.vr $)
-ax-msfs_consequence_cohesive $a wff msfs_consequence_cohesive $.
-
-$( axiom — msfs — MSFS §12 — ∞-Cosmoi diagnostic :: theorems/msfs/12_consequences/diagnostics_and_open_q.vr $)
-ax-msfs_consequence_infinity_cosmoi $a wff msfs_consequence_infinity_cosmoi $.
-
-$( axiom — msfs — MSFS Q1 — closed in Diakrisis 103.T-106.T :: theorems/msfs/12_consequences/diagnostics_and_open_q.vr $)
-ax-msfs_open_question_Q1_closed_in_diakrisis $a wff msfs_open_question_Q1_closed_in_diakrisis $.
-
-$( axiom — msfs — MSFS Q2 — completeness of meta-framework list — OPEN :: theorems/msfs/12_consequences/diagnostics_and_open_q.vr $)
-ax-msfs_open_question_Q2_open $a wff msfs_open_question_Q2_open $.
-
-$( axiom — msfs — MSFS Q3 — closed in Diakrisis 133.T :: theorems/msfs/12_consequences/diagnostics_and_open_q.vr $)
-ax-msfs_open_question_Q3_closed_in_diakrisis $a wff msfs_open_question_Q3_closed_in_diakrisis $.
-
-$( axiom — msfs — MSFS Q4 — closed in Diakrisis 134.T :: theorems/msfs/12_consequences/diagnostics_and_open_q.vr $)
-ax-msfs_open_question_Q4_closed_in_diakrisis $a wff msfs_open_question_Q4_closed_in_diakrisis $.
-
-$( axiom — msfs — MSFS Q5 — closed in Diakrisis 137.T :: theorems/msfs/12_consequences/diagnostics_and_open_q.vr $)
-ax-msfs_open_question_Q5_closed_in_diakrisis $a wff msfs_open_question_Q5_closed_in_diakrisis $.
-
-$( axiom — msfs — MSFS Definition B.1 — Paraconsistent R-S with extractable classical kernel :: theorems/msfs/appendix_b/theorem_B_2.vr $)
-ax-msfs_definition_B_1_paraconsistent_rich_s $a wff msfs_definition_B_1_paraconsistent_rich_s $.
-
-$( axiom — msfs — MSFS Theorem B.2 — Paraconsistent AFN-T (transfer via classical kernel) :: theorems/msfs/appendix_b/theorem_B_2.vr $)
-ax-msfs_theorem_B_2_paraconsistent_afnt $a wff msfs_theorem_B_2_paraconsistent_afnt $.
-
-$( theorem — msfs — MSFS Theorem 11.1 — subsumption of 7 classical no-go results under AFN-T α :: theorems/msfs/11_no_go_series/theorem_11_1.vr $)
-th-msfs_theorem_11_1_subsumption $p wff msfs_theorem_11_1_subsumption $= ? $.
-
-$( axiom — msfs — MSFS Theorem 11.1 — subsumption anchor (catalogue alias) :: theorems/msfs/11_no_go_series/theorem_11_1.vr $)
-ax-msfs_theorem_11_1_subsumption_anchor $a wff msfs_theorem_11_1_subsumption_anchor $.
-
-$( axiom — msfs — MSFS Stage M.1 — Conventions and Notation (§1) anchor :: theorems/msfs/01_introduction/conventions.vr $)
-ax-msfs_stage_m_1_anchor $a wff msfs_stage_m_1_anchor $.
-
-$( axiom — msfs — MSFS Definition 9.1 — Meta_Cls (M1)–(M5) :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
-ax-msfs_definition_9_1_meta_cls $a wff msfs_definition_9_1_meta_cls $.
-
-$( axiom — msfs — MSFS Definition 9.2 — Meta_Cls^⊤ (Max-1)..(Max-4) :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
-ax-msfs_definition_9_2_meta_cls_top $a wff msfs_definition_9_2_meta_cls_top $.
-
-$( axiom — msfs — MSFS Theorem 9.3 — Meta-Categoricity (canonical (∞,∞)-equivalence) :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
-ax-msfs_theorem_9_3_meta_categoricity $a wff msfs_theorem_9_3_meta_categoricity $.
-
-$( axiom — msfs — MSFS Theorem 9.4 — ≥3 pairwise non-2-equivalent meta-structures :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
-ax-msfs_theorem_9_4_structural_multiplicity $a wff msfs_theorem_9_4_structural_multiplicity $.
-
-$( axiom — msfs — MSFS Corollary 9.5 — L_Cls is structurally plural :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
-ax-msfs_corollary_9_5_plurality $a wff msfs_corollary_9_5_plurality $.
-
-$( axiom — msfs — MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilization (theory idempotent, set-theoretic ascends) :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
-ax-msfs_theorem_9_6_meta_classification_stabilization $a wff msfs_theorem_9_6_meta_classification_stabilization $.
-
-$( theorem — msfs — MSFS Theorem 9.6 (c) — No L_Abs escalation via meta-iteration (reduces to Theorem 5.1) :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
-th-msfs_theorem_9_6c_no_l_abs_escalation $p wff msfs_theorem_9_6c_no_l_abs_escalation $= ? $.
-
-$( axiom — msfs — MSFS Stage M.3 — Reasonable Rich-Metatheories + Lemma 3.4 (§3) anchor :: theorems/msfs/03_rich_s/lemma_3_4_anchor.vr $)
-ax-msfs_stage_m_3_anchor $a wff msfs_stage_m_3_anchor $.
-
-$( axiom — msfs — MSFS Lemma A.1 — Kelly 1982 §1-§2 (2-categorical infrastructure) :: theorems/msfs/appendix_a/categorical_preliminaries.vr $)
+$( axiom — msfs — MSFS Lemma A.1 — Kelly 1982 §1-§2 (2-categorical infrastructure) :: src/theorems/msfs/categorical_preliminaries.vr $)
 ax-msfs_lemma_A_1_kelly_2_categorical $a wff msfs_lemma_A_1_kelly_2_categorical $.
 
-$( axiom — msfs — MSFS Lemma A.2 — Lurie HTT 2009 (∞-categorical infrastructure) :: theorems/msfs/appendix_a/categorical_preliminaries.vr $)
+$( axiom — msfs — MSFS Lemma A.2 — Lurie HTT 2009 (∞-categorical infrastructure) :: src/theorems/msfs/categorical_preliminaries.vr $)
 ax-msfs_lemma_A_2_lurie_htt $a wff msfs_lemma_A_2_lurie_htt $.
 
-$( axiom — msfs — MSFS Lemma A.3 — Riehl–Verity 2022 (synthetic (∞,1)-category theory) :: theorems/msfs/appendix_a/categorical_preliminaries.vr $)
+$( axiom — msfs — MSFS Lemma A.3 — Riehl–Verity 2022 (synthetic (∞,1)-category theory) :: src/theorems/msfs/categorical_preliminaries.vr $)
 ax-msfs_lemma_A_3_riehl_verity $a wff msfs_lemma_A_3_riehl_verity $.
 
-$( axiom — msfs — MSFS Lemma A.4 — Pronk 1996 Theorem 21 (bicategory of fractions) :: theorems/msfs/appendix_a/categorical_preliminaries.vr $)
+$( axiom — msfs — MSFS Lemma A.4 — Pronk 1996 Theorem 21 (bicategory of fractions) :: src/theorems/msfs/categorical_preliminaries.vr $)
 ax-msfs_lemma_A_4_pronk_bicat_fractions $a wff msfs_lemma_A_4_pronk_bicat_fractions $.
 
-$( axiom — msfs — MSFS Lemma A.5 — Lawvere 1969 (fixed-point theorem, 2-categorical) :: theorems/msfs/appendix_a/categorical_preliminaries.vr $)
+$( axiom — msfs — MSFS Lemma A.5 — Lawvere 1969 (fixed-point theorem, 2-categorical) :: src/theorems/msfs/categorical_preliminaries.vr $)
 ax-msfs_lemma_A_5_lawvere_fp $a wff msfs_lemma_A_5_lawvere_fp $.
 
-$( axiom — msfs — MSFS Lemma A.6 — Whitehead-type criterion for (∞,∞)-equivalences :: theorems/msfs/appendix_a/categorical_preliminaries.vr $)
+$( axiom — msfs — MSFS Lemma A.6 — Whitehead-type criterion for (∞,∞)-equivalences :: src/theorems/msfs/categorical_preliminaries.vr $)
 ax-msfs_lemma_A_6_whitehead $a wff msfs_lemma_A_6_whitehead $.
 
-$( axiom — msfs — MSFS Theorem A.7 — Bergner–Lurie (∞,∞)-stabilization (CRITICAL forward ref) :: theorems/msfs/appendix_a/categorical_preliminaries.vr $)
+$( axiom — msfs — MSFS Theorem A.7 — Bergner–Lurie (∞,∞)-stabilization (CRITICAL forward ref) :: src/theorems/msfs/categorical_preliminaries.vr $)
 ax-msfs_theorem_A_7_bergner_lurie_stabilization $a wff msfs_theorem_A_7_bergner_lurie_stabilization $.
 
-$( axiom — msfs — MSFS Lemma A.8 — Adámek–Rosický 1994 (accessible-categories infrastructure) :: theorems/msfs/appendix_a/categorical_preliminaries.vr $)
+$( axiom — msfs — MSFS Lemma A.8 — Adámek–Rosický 1994 (accessible-categories infrastructure) :: src/theorems/msfs/categorical_preliminaries.vr $)
 ax-msfs_lemma_A_8_adamek_rosicky $a wff msfs_lemma_A_8_adamek_rosicky $.
 
-$( axiom — msfs — MSFS Stage M.2 — Stratified Hierarchy (§2) anchor :: theorems/msfs/02_strata/proposition_2_2_2_3.vr $)
-ax-msfs_stage_m_2_anchor $a wff msfs_stage_m_2_anchor $.
+$( theorem — msfs — MSFS Appendix A — full categorical preliminaries aggregator :: src/theorems/msfs/categorical_preliminaries.vr $)
+th-msfs_appendix_A_categorical_preliminaries_full $p wff msfs_appendix_A_categorical_preliminaries_full $= ? $.
 
-$( axiom — msfs — Diakrisis 16.T10 grounds Verum K-Round-Trip (round-trip canonicalization) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_16_T10_kernel_K_round_trip_ground $a wff diakrisis_16_T10_kernel_K_round_trip_ground $.
+$( axiom — msfs — MSFS §11.1 reduction — classical no-go rows (7) refine universal id_X template into row-specific witness :: src/theorems/msfs/no_go_subsumption.vr $)
+ax-msfs_theorem_11_1_subsumption_reduction $a wff msfs_theorem_11_1_subsumption_reduction $.
 
-$( axiom — msfs — Diakrisis 50.T grounds MSFS Theorem 8.6 step I-3 (Eff τ-invariant) :: theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr $)
-ax-diakrisis_50_T_msfs_8_6_i_3_ground $a wff diakrisis_50_T_msfs_8_6_i_3_ground $.
+$( theorem — msfs — MSFS Theorem 11.1 — subsumption of 7 classical no-go results under AFN-T α :: src/theorems/msfs/no_go_subsumption.vr $)
+th-msfs_theorem_11_1_subsumption $p wff msfs_theorem_11_1_subsumption $= ? $.
 
-$( axiom — msfs — Diakrisis 108.T = MSFS Theorem 10.4 (AC/OC Morita Duality) :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_108_T_msfs_10_4_correspondence $a wff diakrisis_108_T_msfs_10_4_correspondence $.
+$( axiom — msfs — MSFS Theorem 11.1 — subsumption anchor (catalogue alias) :: src/theorems/msfs/no_go_subsumption.vr $)
+ax-msfs_theorem_11_1_subsumption_anchor $a wff msfs_theorem_11_1_subsumption_anchor $.
 
-$( axiom — msfs — Diakrisis 109.T = MSFS Theorem 10.7 (Dual Boundary Lemma) :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_109_T_msfs_10_7_correspondence $a wff diakrisis_109_T_msfs_10_7_correspondence $.
+$( theorem — msfs — MSFS Theorem 5.1 — AFN-T α-part: ¬∃ X. (F_S) ∧ (Π_4) ∧ (Π_3-max) :: src/theorems/msfs/afnt_alpha.vr $)
+th-msfs_theorem_5_1_afnt_alpha $p wff msfs_theorem_5_1_afnt_alpha $= ? $.
 
-$( axiom — msfs — Diakrisis 124.T = MSFS Theorem 10.4 step-c (biadjunction lift to (∞,∞)) :: theorems/diakrisis/12_actic/actica_107_to_127.vr $)
-ax-diakrisis_124_T_msfs_10_4_step_c_correspondence $a wff diakrisis_124_T_msfs_10_4_step_c_correspondence $.
+$( theorem — msfs — MSFS Corollary 5.2 — L_Abs == ∅ :: src/theorems/msfs/afnt_alpha.vr $)
+th-msfs_corollary_5_2_l_abs_empty $p wff msfs_corollary_5_2_l_abs_empty $( apply: msfs_theorem_5_1_afnt_alpha $) $= ? $.
 
-$( axiom — msfs — Diakrisis 55.T = MSFS Theorem 7.1 (horizontal axis) :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-ax-diakrisis_55_T_msfs_7_1_correspondence $a wff diakrisis_55_T_msfs_7_1_correspondence $.
+$( theorem — msfs — MSFS Definition 9.1 — Meta_Cls – :: src/theorems/msfs/meta_classification.vr $)
+th-msfs_definition_9_1_meta_cls $p wff msfs_definition_9_1_meta_cls $= ? $.
 
-$( axiom — msfs — Diakrisis 59.T.1 = MSFS Theorem 7.2 (vertical axis) :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-ax-diakrisis_59_T_1_msfs_7_2_correspondence $a wff diakrisis_59_T_1_msfs_7_2_correspondence $.
+$( theorem — msfs — MSFS Definition 9.2 — Meta_Cls^⊤ (Max-1)..(Max-4) :: src/theorems/msfs/meta_classification.vr $)
+th-msfs_definition_9_2_meta_cls_top $p wff msfs_definition_9_2_meta_cls_top $= ? $.
 
-$( axiom — msfs — Diakrisis 69.T = MSFS Theorem 7.3 (meta-vertical axis) :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-ax-diakrisis_69_T_msfs_7_3_correspondence $a wff diakrisis_69_T_msfs_7_3_correspondence $.
+$( theorem — msfs — MSFS Theorem 9.3 — Meta-Categoricity (canonical (∞,∞)-equivalence) :: src/theorems/msfs/meta_classification.vr $)
+th-msfs_theorem_9_3_meta_categoricity $p wff msfs_theorem_9_3_meta_categoricity $= ? $.
 
-$( axiom — msfs — Diakrisis 84.T = MSFS Theorem 7.4 (lateral axis) :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-ax-diakrisis_84_T_msfs_7_4_correspondence $a wff diakrisis_84_T_msfs_7_4_correspondence $.
+$( theorem — msfs — MSFS Theorem 9.4 — ≥3 pairwise non-2-equivalent meta-structures :: src/theorems/msfs/meta_classification.vr $)
+th-msfs_theorem_9_4_structural_multiplicity $p wff msfs_theorem_9_4_structural_multiplicity $= ? $.
 
-$( axiom — msfs — Diakrisis 87.T = MSFS Theorem 7.6 (completeness axis) :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-ax-diakrisis_87_T_msfs_7_6_correspondence $a wff diakrisis_87_T_msfs_7_6_correspondence $.
+$( theorem — msfs — MSFS Corollary 9.5 — L_Cls is structurally plural :: src/theorems/msfs/meta_classification.vr $)
+th-msfs_corollary_9_5_plurality $p wff msfs_corollary_9_5_plurality $= ? $.
 
-$( axiom — msfs — Diakrisis 98.T = MSFS Theorem 8.1 (universe polymorphism) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-ax-diakrisis_98_T_msfs_8_1_correspondence $a wff diakrisis_98_T_msfs_8_1_correspondence $.
+$( theorem — msfs — MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilisation :: src/theorems/msfs/meta_classification.vr $)
+th-msfs_theorem_9_6_meta_classification_stabilization $p wff msfs_theorem_9_6_meta_classification_stabilization $= ? $.
 
-$( axiom — msfs — Diakrisis 99.T = MSFS Theorem 8.2 (reflective tower) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-ax-diakrisis_99_T_msfs_8_2_correspondence $a wff diakrisis_99_T_msfs_8_2_correspondence $.
+$( axiom — msfs — MSFS §9.6 (c) reduction — meta-iteration depth k ≥ 1 stabilises in (∞,∞)-Cat via Theorem 9.6 (a)+(b) :: src/theorems/msfs/meta_classification.vr $)
+ax-msfs_theorem_9_6c_meta_iteration_reduction $a wff msfs_theorem_9_6c_meta_iteration_reduction $.
 
-$( axiom — msfs — Diakrisis 100.T = MSFS Theorem 8.6 (I-existence) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-ax-diakrisis_100_T_msfs_8_6_correspondence $a wff diakrisis_100_T_msfs_8_6_correspondence $.
+$( theorem — msfs — MSFS Theorem 9.6 (c) — No L_Abs escalation via meta-iteration (reduces to Theorem 5.1) :: src/theorems/msfs/meta_classification.vr $)
+th-msfs_theorem_9_6c_no_l_abs_escalation $p wff msfs_theorem_9_6c_no_l_abs_escalation $= ? $.
 
-$( axiom — msfs — Diakrisis 101.T = MSFS Theorem 8.7 (slice-locality) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-ax-diakrisis_101_T_msfs_8_7_correspondence $a wff diakrisis_101_T_msfs_8_7_correspondence $.
+$( axiom — msfs — MSFS §8.1 reduction — universe polymorphism Morita-reduces to S_S^global section :: src/theorems/msfs/bypass_paths.vr $)
+ax-msfs_theorem_8_1_universe_reduction $a wff msfs_theorem_8_1_universe_reduction $.
 
-$( axiom — msfs — Diakrisis 102.T = MSFS Corollary 8.8 (intensional refinement) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-ax-diakrisis_102_T_msfs_8_8_correspondence $a wff diakrisis_102_T_msfs_8_8_correspondence $.
+$( axiom — msfs — MSFS §8.2 reduction — reflective tower bounded by Con(S) + κ_inacc, no new axis :: src/theorems/msfs/bypass_paths.vr $)
+ax-msfs_theorem_8_2_reflective_tower_reduction $a wff msfs_theorem_8_2_reflective_tower_reduction $.
 
-$( axiom — msfs — Diakrisis 136.T grounds Verum K-Refine-omega (VVA-7 ordinal-valued depth) :: theorems/diakrisis/research_extensions/research_136_137_142.vr $)
-ax-diakrisis_136_T_kernel_K_refine_omega_ground $a wff diakrisis_136_T_kernel_K_refine_omega_ground $.
+$( axiom — msfs — MSFS §8.8 reduction — intensional fibres gauge-collapse via Theorem 8.7's slice-locality :: src/theorems/msfs/bypass_paths.vr $)
+ax-msfs_corollary_8_8_intensional_reduction $a wff msfs_corollary_8_8_intensional_reduction $.
 
-$( axiom — msfs — Diakrisis 137.T closes MSFS Q5 + grounds VVA-8 (complexity-typed strategy) :: theorems/diakrisis/research_extensions/research_136_137_142.vr $)
-ax-diakrisis_137_T_msfs_q5_kernel_vva_8_ground $a wff diakrisis_137_T_msfs_q5_kernel_vva_8_ground $.
+$( theorem — msfs — MSFS Theorem 8.1 — universe-polymorphism Morita-reduces to S_S^global :: src/theorems/msfs/bypass_paths.vr $)
+th-msfs_theorem_8_1_universe_polymorphism $p wff msfs_theorem_8_1_universe_polymorphism $= ? $.
 
-$( axiom — msfs — Diakrisis 142.T = MSFS Theorem B.2 (paraconsistent AFN-T transfer) :: theorems/diakrisis/research_extensions/research_136_137_142.vr $)
-ax-diakrisis_142_T_msfs_b_2_correspondence $a wff diakrisis_142_T_msfs_b_2_correspondence $.
+$( theorem — msfs — MSFS Theorem 8.2 — reflective tower bounded by Con(S) + κ_inacc :: src/theorems/msfs/bypass_paths.vr $)
+th-msfs_theorem_8_2_reflective_tower $p wff msfs_theorem_8_2_reflective_tower $= ? $.
 
-$( axiom — msfs — Diakrisis 18.T1 grounds @verify(coherent) — Axi-9 biadjunction premise :: theorems/diakrisis/research_extensions/operational_coherence.vr $)
-ax-diakrisis_18_T1_verum_coherent_ground $a wff diakrisis_18_T1_verum_coherent_ground $.
+$( axiom — msfs — MSFS Definition 8.3 — display class (D1)-(D4) :: src/theorems/msfs/bypass_paths.vr $)
+ax-msfs_definition_8_3_display_class $a wff msfs_definition_8_3_display_class $.
 
-$( axiom — msfs — Diakrisis 18.T3 closes audit-reports/coherent.json acceptance gate :: theorems/diakrisis/research_extensions/operational_coherence.vr $)
-ax-diakrisis_18_T3_audit_coherent_gate $a wff diakrisis_18_T3_audit_coherent_gate $.
+$( axiom — msfs — MSFS Definition 8.4 — display 2-category triple :: src/theorems/msfs/bypass_paths.vr $)
+ax-msfs_definition_8_4_display_2_category $a wff msfs_definition_8_4_display_2_category $.
 
-$( axiom — msfs — UHM = explicit Diakrisis-side witness for L_Cls^⊤ ≠ ∅ (paired with Diakrisis 106.T) :: theorems/diakrisis/research_extensions/uhm_articulation.vr $)
-ax-diakrisis_uhm_msfs_l_cls_top_witness $a wff diakrisis_uhm_msfs_l_cls_top_witness $.
+$( axiom — msfs — MSFS Definition 8.5 — S_int 2-category structure :: src/theorems/msfs/bypass_paths.vr $)
+ax-msfs_definition_8_5_s_int $a wff msfs_definition_8_5_s_int $.
 
-$( axiom — msfs — Diakrisis 103.T closes MSFS Q1 — existence of maximal meta-framework :: theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr $)
-ax-diakrisis_103_T_msfs_q1_closure $a wff diakrisis_103_T_msfs_q1_closure $.
+$( axiom — msfs — MSFS Theorem 8.6 — I existence with (I-1)..(I-4) :: src/theorems/msfs/bypass_paths.vr $)
+ax-msfs_theorem_8_6_I_existence $a wff msfs_theorem_8_6_I_existence $.
 
-$( axiom — msfs — Diakrisis 104.T = MSFS Theorem 9.3 (Meta-Categoricity) :: theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr $)
-ax-diakrisis_104_T_msfs_9_3_correspondence $a wff diakrisis_104_T_msfs_9_3_correspondence $.
+$( axiom — msfs — MSFS Theorem 8.7 — slice-locality of I :: src/theorems/msfs/bypass_paths.vr $)
+ax-msfs_theorem_8_7_slice_locality $a wff msfs_theorem_8_7_slice_locality $.
 
-$( axiom — msfs — Diakrisis 105.T grounds Verum K-Refine (Yanofsky paradox-immunity) :: theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr $)
-ax-diakrisis_105_T_kernel_K_refine_ground $a wff diakrisis_105_T_kernel_K_refine_ground $.
+$( theorem — msfs — MSFS Corollary 8.8 — intensional refinement adds no new axis to AFN-T :: src/theorems/msfs/bypass_paths.vr $)
+th-msfs_corollary_8_8_intensional_no_new_axis $p wff msfs_corollary_8_8_intensional_no_new_axis $= ? $.
 
-$( axiom — msfs — Diakrisis 106.T proves L_Cls^⊤ ≠ ∅ via Diakrisis itself :: theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr $)
-ax-diakrisis_106_T_l_cls_top_nonempty $a wff diakrisis_106_T_l_cls_top_nonempty $.
+$( axiom — msfs — MSFS Proposition grading — the intensional grading is structural (a)+(b)+(c) :: src/theorems/msfs/bypass_paths.vr $)
+ax-msfs_proposition_grading_structural $a wff msfs_proposition_grading_structural $.
 
-$( axiom — msfs — Diakrisis 131.T grounds Verum K-Universe-Ascent (Drake-reflection retract) :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_131_T_kernel_K_universe_ascent_ground $a wff diakrisis_131_T_kernel_K_universe_ascent_ground $.
+$( theorem — msfs — MSFS Corollary grade-collapse — extensionality is grade-blindness :: src/theorems/msfs/bypass_paths.vr $)
+th-msfs_corollary_grade_collapse $p wff msfs_corollary_grade_collapse $( apply: msfs_proposition_grading_structural $) $= ? $.
 
-$( axiom — msfs — Diakrisis 133.T closes MSFS Q3 (bypass-path exhaustiveness) :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_133_T_msfs_q3_closure $a wff diakrisis_133_T_msfs_q3_closure $.
+$( theorem — msfs — MSFS Proposition 2.2 (iv) — L_Abs == ∅ :: src/theorems/msfs/strata.vr $)
+th-msfs_proposition_2_2_iv_l_abs_empty $p wff msfs_proposition_2_2_iv_l_abs_empty $( apply: msfs_corollary_5_2_l_abs_empty $) $= ? $.
 
-$( axiom — msfs — Diakrisis 134.T closes MSFS Q4 (consistency-strength minimality) :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_134_T_msfs_q4_closure $a wff diakrisis_134_T_msfs_q4_closure $.
+$( theorem — msfs — MSFS Proposition 2.3 corollary — Cls(L_Fnd) ≠ L_Abs :: src/theorems/msfs/strata.vr $)
+th-msfs_proposition_2_3_corollary_cls_not_in_l_abs $p wff msfs_proposition_2_3_corollary_cls_not_in_l_abs $( apply: msfs_proposition_2_2_iv_l_abs_empty $) $= ? $.
 
-$( axiom — msfs — Diakrisis 135.T closes MSFS Q5 (sub-stack of weak R-S) :: theorems/diakrisis/06_limits_maximality/open_q_closures.vr $)
-ax-diakrisis_135_T_msfs_q5_closure $a wff diakrisis_135_T_msfs_q5_closure $.
+$( theorem — msfs — MSFS Proposition 2.2 (iii) — L_Cls_top ⊋ L_Abs (vacuous form) :: src/theorems/msfs/strata.vr $)
+th-msfs_proposition_2_2_iii_clsmax_strict_above_abs $p wff msfs_proposition_2_2_iii_clsmax_strict_above_abs $( apply: msfs_proposition_2_2_iv_l_abs_empty $) $= ? $.
+
+$( theorem — msfs — MSFS Proposition 2.2 (iii) — L_Fnd ⊋ L_Cls :: src/theorems/msfs/strata.vr $)
+th-msfs_proposition_2_2_iii_fnd_strict_above_cls $p wff msfs_proposition_2_2_iii_fnd_strict_above_cls $( apply: msfs_proper_inclusion_fnd_cls $) $= ? $.
+
+$( theorem — msfs — MSFS Proposition 2.2 (iii) — L_Cls ⊋ L_Cls_top :: src/theorems/msfs/strata.vr $)
+th-msfs_proposition_2_2_iii_cls_strict_above_clsmax $p wff msfs_proposition_2_2_iii_cls_strict_above_clsmax $( apply: msfs_proper_inclusion_cls_clsmax $) $= ? $.
+
+$( theorem — msfs — MSFS Proposition 2.2 (iii) — L_Cls_top ⊋ L_Abs (typed-witness form) :: src/theorems/msfs/strata.vr $)
+th-msfs_proposition_2_2_iii_clsmax_strict_above_abs_witness $p wff msfs_proposition_2_2_iii_clsmax_strict_above_abs_witness $( apply: msfs_proper_inclusion_clsmax_abs $) $= ? $.
+
+$( axiom — msfs — MSFS Definition 10.1 — 2-category cE + α ⊣ ε adjoint pair :: src/theorems/msfs/ac_oc_duality.vr $)
+ax-msfs_definition_10_1_E_category $a wff msfs_definition_10_1_E_category $.
+
+$( axiom — msfs — MSFS Definition 10.2 — class cS_S^cE :: src/theorems/msfs/ac_oc_duality.vr $)
+ax-msfs_definition_10_2_S_S_E $a wff msfs_definition_10_2_S_S_E $.
+
+$( axiom — msfs — MSFS Lemma 10.3 — enactment syntax-semantics :: src/theorems/msfs/ac_oc_duality.vr $)
+ax-msfs_lemma_10_3_enactment_syntax_semantics $a wff msfs_lemma_10_3_enactment_syntax_semantics $.
+
+$( theorem — msfs — MSFS Theorem 10.4 — AC/OC Morita Duality :: src/theorems/msfs/ac_oc_duality.vr $)
+th-msfs_theorem_10_4_ac_oc_morita_duality $p wff msfs_theorem_10_4_ac_oc_morita_duality $= ? $.
+
+$( theorem — msfs — MSFS Corollary 10.5 — Con(F ∪ E) = Con(F) = Con(ZFC + 2-inacc) :: src/theorems/msfs/ac_oc_duality.vr $)
+th-msfs_corollary_10_5_conservativity $p wff msfs_corollary_10_5_conservativity $= ? $.
+
+$( theorem — msfs — MSFS Theorem 10.7 — Dual Boundary Lemma (Diakrisis 109.T) — structural @theorem :: src/theorems/msfs/ac_oc_duality.vr $)
+th-msfs_theorem_10_7_dual_boundary_lemma $p wff msfs_theorem_10_7_dual_boundary_lemma $= ? $.
+
+$( theorem — msfs — MSFS Corollary 10.8 — L_Abs^cE = ∅ :: src/theorems/msfs/ac_oc_duality.vr $)
+th-msfs_corollary_10_8_l_abs_E_empty $p wff msfs_corollary_10_8_l_abs_E_empty $= ? $.
+
+$( theorem — msfs — MSFS Theorem 10.9 — Dual five-axis absoluteness :: src/theorems/msfs/ac_oc_duality.vr $)
+th-msfs_theorem_10_9_dual_five_axis $p wff msfs_theorem_10_9_dual_five_axis $= ? $.
+
+$( axiom — msfs — MSFS §7.1 reduction — horizontal axis: L_Abs candidacy is R-S-uniform (Lemma 3.4 + id_X template ∈ (R1)-(R5)) :: src/theorems/msfs/five_axis.vr $)
+ax-msfs_theorem_7_1_horizontal_reduction $a wff msfs_theorem_7_1_horizontal_reduction $.
+
+$( axiom — msfs — MSFS §7.2 reduction — vertical axis: L_Abs candidacy is n-uniform (Lambek–Scott levelwise + Barwick–Schommer-Pries at n=∞) :: src/theorems/msfs/five_axis.vr $)
+ax-msfs_theorem_7_2_vertical_reduction $a wff msfs_theorem_7_2_vertical_reduction $.
+
+$( axiom — msfs — MSFS §7.3 reduction — meta-vertical axis: meta-stratum collapses via (∞,∞+1)-Cat = (∞,∞)-Cat (Theorem A.7) :: src/theorems/msfs/five_axis.vr $)
+ax-msfs_theorem_7_3_meta_vertical_reduction $a wff msfs_theorem_7_3_meta_vertical_reduction $.
+
+$( axiom — msfs — MSFS §7.4 reduction — lateral axis: alt-orderings Morita-reduce to (∞,n)-Cat :: src/theorems/msfs/five_axis.vr $)
+ax-msfs_theorem_7_4_lateral_reduction $a wff msfs_theorem_7_4_lateral_reduction $.
+
+$( axiom — msfs — MSFS §7.6 reduction — completeness axis: any LS-variation reduces to one of axes 7.1-7.4 :: src/theorems/msfs/five_axis.vr $)
+ax-msfs_theorem_7_6_completeness_reduction $a wff msfs_theorem_7_6_completeness_reduction $.
+
+$( theorem — msfs — MSFS Theorem 7.1 — horizontal axis: AFN-T uniform over R-S :: src/theorems/msfs/five_axis.vr $)
+th-msfs_theorem_7_1_horizontal $p wff msfs_theorem_7_1_horizontal $= ? $.
+
+$( theorem — msfs — MSFS Theorem 7.2 — vertical axis: AFN-T uniform over n ∈ ℕ ∪ {∞} :: src/theorems/msfs/five_axis.vr $)
+th-msfs_theorem_7_2_vertical $p wff msfs_theorem_7_2_vertical $= ? $.
+
+$( theorem — msfs — MSFS Theorem 7.3 — meta-vertical axis: meta-iterations stabilise via Theorem A.7 :: src/theorems/msfs/five_axis.vr $)
+th-msfs_theorem_7_3_meta_vertical $p wff msfs_theorem_7_3_meta_vertical $= ? $.
+
+$( theorem — msfs — MSFS Theorem 7.4 — lateral axis: alt orderings reduce to (∞, n) :: src/theorems/msfs/five_axis.vr $)
+th-msfs_theorem_7_4_lateral $p wff msfs_theorem_7_4_lateral $= ? $.
+
+$( axiom — msfs — MSFS Definition 7.5 — Lawvere-scope LS (anchor) :: src/theorems/msfs/five_axis.vr $)
+ax-msfs_definition_7_5_lawvere_scope $a wff msfs_definition_7_5_lawvere_scope $.
+
+$( theorem — msfs — MSFS Theorem 7.6 — completeness axis (within Lawvere-scope) :: src/theorems/msfs/five_axis.vr $)
+th-msfs_theorem_7_6_completeness $p wff msfs_theorem_7_6_completeness $= ? $.
+
+$( theorem — msfs — MSFS §12 — Univalent Foundations diagnostic: passes (F_S, Π_4 cond.); fails (Π_3-max) :: src/theorems/msfs/consequences.vr $)
+th-msfs_consequence_univalent_foundations $p wff msfs_consequence_univalent_foundations $( apply: msfs_theorem_5_1_afnt_alpha $) $= ? $.
+
+$( theorem — msfs — MSFS §12 — Higher Topos Theory diagnostic: passes (F_S); fails (Π_3-max) :: src/theorems/msfs/consequences.vr $)
+th-msfs_consequence_higher_topos $p wff msfs_consequence_higher_topos $( apply: msfs_theorem_5_1_afnt_alpha $) $= ? $.
+
+$( theorem — msfs — MSFS §12 — Cohesive ∞-Topos diagnostic: passes (F_S); fails (Π_3-max) :: src/theorems/msfs/consequences.vr $)
+th-msfs_consequence_cohesive $p wff msfs_consequence_cohesive $( apply: msfs_theorem_5_1_afnt_alpha $) $= ? $.
+
+$( theorem — msfs — MSFS §12 — ∞-Cosmoi diagnostic: passes (F_S); fails (Π_3-max) :: src/theorems/msfs/consequences.vr $)
+th-msfs_consequence_infinity_cosmoi $p wff msfs_consequence_infinity_cosmoi $( apply: msfs_theorem_5_1_afnt_alpha $) $= ? $.
+
+$( axiom — msfs — MSFS Q1 — closed in Diakrisis 103.T-106.T :: src/theorems/msfs/consequences.vr $)
+ax-msfs_open_question_Q1_closed_in_diakrisis $a wff msfs_open_question_Q1_closed_in_diakrisis $.
+
+$( axiom — msfs — MSFS Q2 — completeness of meta-framework list — OPEN :: src/theorems/msfs/consequences.vr $)
+ax-msfs_open_question_Q2_open $a wff msfs_open_question_Q2_open $.
+
+$( axiom — msfs — MSFS Q3 — closed in Diakrisis 133.T :: src/theorems/msfs/consequences.vr $)
+ax-msfs_open_question_Q3_closed_in_diakrisis $a wff msfs_open_question_Q3_closed_in_diakrisis $.
+
+$( axiom — msfs — MSFS Q4 — closed in Diakrisis 134.T :: src/theorems/msfs/consequences.vr $)
+ax-msfs_open_question_Q4_closed_in_diakrisis $a wff msfs_open_question_Q4_closed_in_diakrisis $.
+
+$( axiom — msfs — MSFS Q5 — closed in Diakrisis 137.T :: src/theorems/msfs/consequences.vr $)
+ax-msfs_open_question_Q5_closed_in_diakrisis $a wff msfs_open_question_Q5_closed_in_diakrisis $.
+
+$( axiom — msfs — MSFS Definition B.1 — Paraconsistent R-S with extractable classical kernel :: src/theorems/msfs/paraconsistent.vr $)
+ax-msfs_definition_B_1_paraconsistent_rich_s $a wff msfs_definition_B_1_paraconsistent_rich_s $.
+
+$( axiom — msfs — MSFS Theorem B.2 — Paraconsistent AFN-T (transfer via classical kernel) :: src/theorems/msfs/paraconsistent.vr $)
+ax-msfs_theorem_B_2_paraconsistent_afnt $a wff msfs_theorem_B_2_paraconsistent_afnt $.
+
+$( axiom — msfs — MSFS Theorem 6.1 — AFN-T β-part: transfinite-limit colimit lies in S_S^global, hence ¬Π_4 :: src/theorems/msfs/afnt_beta.vr $)
+ax-msfs_theorem_6_1_afnt_beta $a wff msfs_theorem_6_1_afnt_beta $.
+
+$( axiom — msfs — MSFS Theorem 6.1 Step 1 — each tower term has Lemma 3.4 witness; expose the seed anchor :: src/theorems/msfs/afnt_beta.vr $)
+ax-msfs_theorem_6_1_step_1_seed_witness $a wff msfs_theorem_6_1_step_1_seed_witness $.
+
+$( axiom — msfs — MSFS Theorem 6.1 Step 2 — monotone tower → S-indexed diagram D: λ → cF :: src/theorems/msfs/afnt_beta.vr $)
+ax-msfs_theorem_6_1_step_2_diagram_s_indexed $a wff msfs_theorem_6_1_step_2_diagram_s_indexed $.
+
+$( theorem — msfs — MSFS Theorem 6.1 (operational, 3-step structural body) — colim ∈ S_S^global :: src/theorems/msfs/afnt_beta.vr $)
+th-msfs_theorem_6_1_colim_in_s_s_global $p wff msfs_theorem_6_1_colim_in_s_s_global $= ? $.
+
+$( axiom — msfs — MSFS Proposition 6.2 — proper-class towers dichotomy (both branches close to ¬L_Abs) :: src/theorems/msfs/afnt_beta.vr $)
+ax-msfs_proposition_6_2_proper_class_dichotomy $a wff msfs_proposition_6_2_proper_class_dichotomy $.
+
+$( axiom — msfs — MSFS Proposition 6.3 — trajectory space lives in S_S^global :: src/theorems/msfs/afnt_beta.vr $)
+ax-msfs_proposition_6_3_trajectory_space $a wff msfs_proposition_6_3_trajectory_space $.
+
+$( axiom — msfs — MSFS Proposition 6.3 (corollary) — trajectory-tower colimits in S_S^global :: src/theorems/msfs/afnt_beta.vr $)
+ax-msfs_proposition_6_3_corollary $a wff msfs_proposition_6_3_corollary $.
+
+$( axiom — msfs — MSFS §6.1 reduction — transfinite-tower colimit lives in S_S^global, reduces to standard L_Abs candidate :: src/theorems/msfs/afnt_beta.vr $)
+ax-msfs_theorem_6_1_beta_tower_reduction $a wff msfs_theorem_6_1_beta_tower_reduction $.
+
+$( theorem — msfs — MSFS Theorem 6.1 (operational closure) — no L_Abs via transfinite tower :: src/theorems/msfs/afnt_beta.vr $)
+th-msfs_theorem_6_1_operational_closure $p wff msfs_theorem_6_1_operational_closure $= ? $.
 
