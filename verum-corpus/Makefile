@@ -28,6 +28,10 @@ VERUM           ?= verum
 # embedded/stale snapshots and the corpus silently drops out of check.
 export VERUM_STDLIB_PATH ?= $(abspath $(CURDIR)/../../verum-lang/verum/core)
 export VERUM_CORE_PATH ?= $(abspath $(CURDIR)/../../verum-lang/verum/core)
+#   VERUM_STDLIB_ROOT — the audit subsystem's stdlib walker (apply-graph,
+#       framework-footprint, …): without it every stdlib-side axiom shows
+#       up as an `unresolved` apply-graph leaf and L4 verdicts are noise.
+export VERUM_STDLIB_ROOT ?= $(abspath $(CURDIR)/../../verum-lang/verum/core)
 PYTHON          ?= python3
 AUDIT_DIR       ?= audit-reports
 JSON_FORMAT     := --format json
@@ -95,7 +99,7 @@ audit-msfs-summary:
 	@echo ""
 	@$(VERUM) audit --ar-roadmap
 	@echo ""
-	@$(VERUM) audit --self-recognition
+	@$(VERUM) audit --kernel-soundness
 
 # -- Generic audits ----------------------------------------------------------
 
@@ -144,8 +148,11 @@ audit-ar-roadmap:
 
 .PHONY: audit-self-recognition
 audit-self-recognition:
-	@$(VERUM) audit --self-recognition $(JSON_FORMAT) > $(AUDIT_DIR)/self-recognition.json
-	@$(VERUM) audit --self-recognition | tail -5
+	@# CLI drift note (2026-07-10): `--self-recognition` was removed from
+	@# `verum audit`; `--kernel-soundness` is the current trusted-base
+	@# surface (Rust-rule roster vs .vr corpus + Coq/Lean re-check files).
+	@$(VERUM) audit --kernel-soundness $(JSON_FORMAT) > $(AUDIT_DIR)/self-recognition.json
+	@$(VERUM) audit --kernel-soundness | tail -5
 
 .PHONY: audit-cross-format
 audit-cross-format:
@@ -207,13 +214,15 @@ test: smoke integration
 # -----------------------------------------------------------------------------
 .PHONY: export
 export:
-	@echo "▶ exporting Coq / Lean / Agda / Dedukti / Metamath certificates"
-	@$(VERUM) export --to coq      --output certificates/coq/
-	@$(VERUM) export --to lean     --output certificates/lean/
-	@$(VERUM) export --to agda     --output certificates/agda/
-	@$(VERUM) export --to dedukti  --output certificates/dedukti/
-	@$(VERUM) export --to metamath --output certificates/metamath/
-	@echo "  ✔ all 5 formats emitted"
+	@# CLI drift note (2026-07-10): `--to agda` was removed from `verum
+	@# export`, and --output now takes a FILE path (defaults to
+	@# certificates/<format>/export.<ext>) rather than a directory.
+	@echo "▶ exporting Coq / Lean / Dedukti / Metamath certificates"
+	@$(VERUM) export --to coq      --with-provenance
+	@$(VERUM) export --to lean     --with-provenance
+	@$(VERUM) export --to dedukti  --with-provenance
+	@$(VERUM) export --to metamath --with-provenance
+	@echo "  ✔ all 4 formats emitted (agda dropped with CLI support)"
 
 # -----------------------------------------------------------------------------
 # Cleanup

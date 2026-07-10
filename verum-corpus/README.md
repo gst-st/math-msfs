@@ -4,7 +4,7 @@ Machine-verified formalization of:
 
 - **MSFS** — *The Moduli Space of Formal Systems: Classification, Stabilization, and a No-Go Theorem for Absolute Foundations*, A. Sereda 2026 ([Zenodo](https://zenodo.org/records/19755781), source [`paper-en/paper.tex`](../paper-en/paper.tex)) — 44 pages (post-audit 2026-07), 65 structural results (21 def, 7 lemma, 20 thm, 9 cor, 6 prop, 2 conv).
 
-Written in [Verum](https://github.com/verum-lang/verum), a foundation-neutral proof assistant.  Every theorem is checked by Verum's trusted kernel and exported to Lean / Coq / Agda / Dedukti / Metamath for independent re-checking.
+Written in [Verum](https://github.com/verum-lang/verum), a foundation-neutral proof assistant.  Every theorem is checked by Verum's trusted kernel and exported to Coq / Lean 4 / Dedukti / Metamath for independent re-checking (agda export dropped with CLI support, 2026-07-10; cross-format hard gate = Coq + Lean4 + Dedukti, all live-tool verified).
 
 The corpus is **self-contained modulo ZFC + 2 strongly inaccessible cardinals**: the kernel-side invariant `verum_kernel::mechanisation_roadmap::msfs_self_contained()` returns `true`, and the Verum-language theorem `core.math.frameworks.msfs.self_containment.msfs_self_containment_theorem` discharges the same property at `verum check` time.  No external preprint is referenced.
 
@@ -100,15 +100,15 @@ Five audits specific to the MSFS verification programme.
 |:---------------------------------|:-----------------------------------------------------------------|
 | `verum audit --htt-roadmap`      | Per-section coverage of Lurie HTT (2009) — 15/15 in-scope @ 100% |
 | `verum audit --ar-roadmap`       | Per-section coverage of Adámek-Rosický 1994 — 4/4 @ 100%         |
-| `verum audit --self-recognition` | 7 kernel rules ↔ ZFC + 2-inacc decomposition                     |
+| `verum audit --kernel-soundness` | kernel rule roster ↔ .vr corpus + Coq/Lean re-check (ex --self-recognition) |
 | `verum audit --cross-format`     | Coq / Lean 4 / Isabelle / Dedukti CI hard gate                   |
 | `verum audit --kernel-intrinsics`| Enumerate the kernel intrinsic dispatcher entries                |
 
 Sample output:
 
 ```console
-$ verum audit --self-recognition
-         --> Kernel self-recognition vs. ZFC + 2 inaccessibles
+$ verum audit --kernel-soundness
+         --> Kernel-soundness corpus check (ex self-recognition)
 
   Rule           ZFC ax    Inacc   Citation
   ─────────────  ────────  ──────  ────────────────────────────────────────
@@ -154,7 +154,7 @@ All audits emit JSON into `audit-reports/<name>.json` for tooling consumption an
 | `audit-hygiene-strict`      | `hygiene-strict.json`        | NO-19 articulation hygiene                        |
 | `audit-htt-roadmap`         | `htt-roadmap.json`           | HTT mechanisation status                          |
 | `audit-ar-roadmap`          | `ar-roadmap.json`            | AR 1994 mechanisation status                      |
-| `audit-self-recognition`    | `self-recognition.json`      | Kernel rules ↔ ZFC + 2-inacc                      |
+| `audit-self-recognition`    | `self-recognition.json`      | Kernel-soundness (CLI: --kernel-soundness)        |
 | `audit-cross-format`        | `cross-format.json`          | 4-format CI gate                                  |
 | `audit-kernel-intrinsics`   | `kernel-intrinsics.json`     | Kernel intrinsic dispatch table                   |
 

@@ -1,30 +1,30 @@
 {
-  "_comment": "MSFS proof-honesty baseline (schema v2). The native `verum audit --proof-honesty` classifier distinguishes structural vs tautological axiom-only @theorems. The CI gate re-runs the audit and refuses to merge any commit that REGRESSES below these counts.",
+  "_comment": "MSFS proof-honesty baseline (schema v3, 2026-07-10). Matches the live `verum audit --proof-honesty` classifier, which emits a COMBINED theorem_axiom_only counter (audit schema_version 1). The v2 structural/tautological split relied on a classifier the current CLI does not implement; its enforcement did not disappear — the forbidden classes (axiom `ensures true`, theorems discharged solely by such axioms, theorems with `ensures true`) are now checked textually by tests/integration/proof_honesty_gate.sh itself, corpus-side, independent of CLI classifier churn.",
   "_audit_command": "verum audit --proof-honesty",
-  "_baseline_date": "2026-04-29",
-  "_baseline_iteration": "MSFS-only baseline (msfs_self_containment_theorem invariant active)",
-  "schema_version": 2,
+  "_baseline_date": "2026-07-10",
+  "_baseline_iteration": "post-wiring baseline: corpus GREEN under verum check (17 modules), Intensional Grading block included",
+  "schema_version": 3,
   "totals_min": {
     "_invariant": "running totals must satisfy: total[k] >= totals_min[k] for monotone metrics, total[k] <= totals_max[k] for the trivial counters.",
-    "theorem_multi_step":             16,
-    "theorem_axiom_only_structural":  13
+    "theorem_multi_step":  16,
+    "theorem_axiom_only":  21
   },
   "totals_max": {
-    "axiom_placeholder":              53,
+    "axiom_placeholder":              43,
     "theorem_no_proof_body":           0,
-    "theorem_trivial_true":            0,
-    "theorem_axiom_only_tautological": 0
+    "theorem_trivial_true":            0
   },
   "by_lineage_min": {
     "msfs": {
-      "theorem_multi_step":            16,
-      "theorem_axiom_only_structural": 13
+      "theorem_multi_step": 16,
+      "theorem_axiom_only": 21
     }
   },
   "by_lineage_max": {
     "msfs": {
-      "axiom_placeholder":              53,
-      "theorem_axiom_only_tautological": 0
+      "axiom_placeholder": 43,
+      "theorem_no_proof_body": 0,
+      "theorem_trivial_true": 0
     }
   }
 }

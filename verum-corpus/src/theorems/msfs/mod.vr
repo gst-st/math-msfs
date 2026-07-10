@@ -39,8 +39,9 @@
 // `core.math.frameworks.msfs.self_containment.msfs_self_containment_theorem`
 // (host stdlib) certifies that no MSFS proof body in this aggregator
 // transitively depends on anything outside ZFC + 2 strongly inaccessible
-// cardinals. Run `verum audit --self-recognition` to inspect the
-// trusted-base decomposition.
+// cardinals. Run `verum audit --kernel-soundness` to inspect the
+// trusted-base decomposition (CLI drift 2026-07-10: the former
+// `--self-recognition` flag was removed).
 // =============================================================================
 
 @arch_module(
