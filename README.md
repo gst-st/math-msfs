@@ -2,48 +2,36 @@
 
 *The Moduli Space of Formal Systems: Classification, Stabilization, and a No-Go Theorem for Absolute Foundations.*
 
+Max Sereda, 2026 · [Zenodo DOI 10.5281/zenodo.19755781](https://doi.org/10.5281/zenodo.19755781) · 44 pages · 65 structural results (21 definitions, 7 lemmas, 20 theorems, 9 corollaries, 6 propositions, 2 conventions) · every result machine-checked in the [Verum corpus](./verum-corpus/)
+
+## The question this work changes
+
+For over a century the foundational debate has been shaped by one question: *which formal system is the correct foundation of mathematics?* Set theorists, type theorists, category theorists and constructivists each held a candidate; none could win, because — as it turns out — the question itself was aimed at an empty target.
+
+MSFS replaces the question. Instead of asking *which foundation is correct*, it asks:
+
+> **What is the structure of the space of all coherent foundations — and where is its edge?**
+
+This is the same move Riemann made with geometry: stop asking *which geometry is true* and study the space of all geometries. Once the move is made, both halves of the new question receive formal answers: four theorems describe the **interior** of the space, and one boundary theorem (AFN-T) proves that its would-be summit — the *absolute* foundation — **does not exist**.
+
+Concretely: the totality of formal foundations is treated as a single categorical object, the moduli space $\mathfrak{M}$ — the classifying $(\infty, 2)$-stack whose points are Morita-equivalence classes of *Rich foundations* (formal theories satisfying conditions (R1)–(R5)) and whose morphisms are faithful interpretations and provable natural equivalences. Disputes about interpretability stop being philosophy and become morphisms.
+
 ## Historical position
 
-For over a century, the foundations of mathematics have accommodated a growing plurality of formal systems — Zermelo–Fraenkel set theory (1908–1922), von Neumann–Bernays–Gödel class theory (1925–1940), Lawvere's Elementary Theory of the Category of Sets (1964), Martin-Löf type theory (1984), the Calculus of Inductive Constructions (1988), Homotopy Type Theory (2005+), cubical HoTT (2015+), $(\infty, 1)$-topos theory (Lurie 2009), noncommutative geometry (Connes 1994), cohesive higher topos theory (Schreiber 2013), and more. Each is formally coherent; each interprets substantial fragments of classical mathematics; none has privileged status.
+The plurality is real: Zermelo–Fraenkel set theory (1908–1922), von Neumann–Bernays–Gödel class theory (1925–1940), Lawvere's ETCS (1964), Martin-Löf type theory (1984), the Calculus of Inductive Constructions (1988), Homotopy Type Theory (2005+), cubical HoTT (2015+), $(\infty, 1)$-topos theory (Lurie 2009), noncommutative geometry (Connes 1994), cohesive higher topos theory (Schreiber 2013). Each is formally coherent; each interprets substantial fragments of classical mathematics; none has privileged status.
 
-Parallel to this plurality, a line of structural impossibility results has accumulated: **Cantor 1891** (absolute infinity), **Russell 1903** (universal class), **Gödel 1931** (incompleteness), **Tarski 1936** (undefinability of truth), **Lawvere 1969** (fixed-point diagonal in cartesian-closed categories), **Feferman 2013** / **Ernst 2015** (unlimited category theory). Each closes one specific route to an absolute foundation; together they sketch a pattern without naming it.
+Parallel to this plurality, a line of structural impossibility results accumulated: **Cantor 1891** (absolute infinity), **Russell 1903** (universal class), **Gödel 1931** (incompleteness), **Tarski 1936** (undefinability of truth), **Lawvere 1969** (fixed-point diagonal), **Feferman 2013 / Ernst 2015** (unlimited category theory). Each closes one specific route to an absolute foundation; together they sketch a pattern **without naming it**.
 
-MSFS takes the next step. It treats the totality of formal foundations as a single categorical object — the $(\infty, n)$-categorical moduli space $\mathfrak{M}$ — studies its structure directly, and exhibits the classical no-go results as specializations of one structural obstruction at the outer boundary.
+MSFS names the pattern: the classical no-go results are specializations of **one structural obstruction at the outer boundary of $\mathfrak{M}$**.
 
-This reframes the foundational question. The subject of study is no longer *"which foundation is the correct one?"* but *"what is the structure of the space of all coherent foundations, and where is its edge?"* Both questions receive formal answers.
+## The picture: a library, its catalogues, and an empty floor
 
-## Fundamental claims
+The space of foundations is stratified — not by *strength*, but by **role**:
 
-MSFS establishes four structural results about the interior of $\mathfrak{M}$ and one boundary corollary about its exterior.
-
-### Interior structure
-
-1. **Plurality at the classifier stratum $\mathcal{L}_{\mathrm{Cls}}$.** The $\infty$-cosmoi of Riehl–Verity, the Univalent Foundations programme of Voevodsky, and the cohesive higher-topos framework of Schreiber are pairwise non-$2$-equivalent partial classifiers. Each organizes a strict sub-stack of $\mathfrak{M}$. The plurality of foundations at $\mathcal{L}_{\mathrm{Fnd}}$ lifts, consistently, to a genuine plurality of ways of classifying them.
-
-2. **Conditional categoricity at the maximal sub-class $\mathcal{L}_{\mathrm{Cls}}^{\top}$.** Any two classifiers that satisfy the maximality conditions (full classification, gauge-fullness, depth-stratification, intensional completeness) over the same Rich-metatheory are $(\infty, \infty)$-equivalent. The equivalence is canonical, via Grothendieck–Lurie straightening with joint faithfulness of the extensional and intensional classification functors.
-
-3. **Slice-local intensional refinement.** The display-$2$-class functor $\mathbf{I}: \mathcal{F}^{\mathrm{op}} \to \mathcal{S}_{\mathrm{int}}$ has slice-locality over $\mathfrak{M}$: intensional distinctions invisible to extensional Morita equivalence — the MLTT / ETT gap, HoTT / cubical HoTT split, proof-term-level variance between Coq and Agda — live in the fibre over a *single* point of $\mathfrak{M}$. The separation is detected via Hyland's effective topos $\mathrm{Eff}$ through a computability invariant $\tau$.
-
-4. **Theory-level meta-stabilization with universe-ascent.** Iterated meta-classification reproduces the *same* $(\infty, \infty)$-theory at every step (Barwick–Schommer-Pries unicity), while its set-theoretic instantiation genuinely ascends the Grothendieck-universe hierarchy $\kappa_1 < \kappa_2 < \cdots$. The theory is invariant; the size is not. This distinguishes theory-level equivalence from set-level identity and closes the concern that meta-classification could escalate beyond the stratum it classifies.
-
-### Exterior boundary — Absolute Foundation No-Go Theorem
-
-**AFN-T.** The syntax–semantics adjunction underlying a Rich-metatheory $S$ forces the stratum $\mathcal{L}_{\mathrm{Abs}}$ — objects simultaneously formally definable $(F_S)$, non-reducible $(\Pi_{4, S, n})$, and maximally generative $(\Pi_{3\text{-max}, S, n})$ — to be empty. Equivalently: $\mathfrak{M}$ has no maximal point.
-
-The result is uniform across all Rich-metatheories $S$, all categorical levels $n \in \mathbb{N} \cup \{\infty\}$, all meta-theoretic iterations, and all alternative categorical orderings — **five-axis absoluteness**.
-
-AFN-T subsumes the classical series under one frame:
-
-| Classical result | Specialization |
-|---|---|
-| Cantor 1891 — absolute infinity | $\mathcal{L}_{\mathrm{Abs}}$ restricted to cardinal-hierarchy maximality |
-| Russell 1903 — universal class | $\mathcal{L}_{\mathrm{Abs}}$ at first-order $S = \mathrm{ZF}$ without restriction |
-| Gödel 1931 — incompleteness | $\Pi_{4}$ via proof-theoretic non-reducibility |
-| Tarski 1936 — undefinability of truth | $(F_S)$ blocked for the truth predicate |
-| Lawvere 1969 — fixed-point diagonal | $\mathcal{L}_{\mathrm{Abs}}$ at $n = 1$ in any cartesian-closed $\mathcal{F}$ |
-| Ernst 2015 — unlimited category theory | $\mathcal{L}_{\mathrm{Abs}}$ at $n = 1$ under Feferman's (R1)–(R3) |
-
-## The four formal strata
+- **Foundations** ($\mathcal{L}_{\mathrm{Fnd}}$) *write the books*: ZFC, HoTT, CIC generate mathematics from their axioms.
+- **Classifiers** ($\mathcal{L}_{\mathrm{Cls}}$) *are the catalogues*: meta-frameworks (∞-cosmoi, Univalent Foundations, the cohesive framework) that organize the foundations without writing a single book — classification is parametric, never generative.
+- **Maximal classifiers** ($\mathcal{L}_{\mathrm{Cls}}^{\top}$) would be *the catalogue of all catalogues, with no gaps and no blindness*: full classification, gauge-fullness, depth-stratification, intensional completeness.
+- **The absolute** ($\mathcal{L}_{\mathrm{Abs}}$) would be *a book that is simultaneously the complete catalogue and the printing press* — formally definable, irreducible, and maximally generative at once. **This floor of the library is empty.** That is AFN-T.
 
 ```mermaid
 flowchart LR
@@ -60,7 +48,7 @@ flowchart LR
  TOP -- "Gen (vertical meta)" --> ABS
 ```
 
-The strata are cut out by *type-distinct* condition packages — first-order (R1)–(R5) on formal systems vs. 2-categorical (M1)–(M5) on classifiers — so the only genuine inclusion in the diagram is $\mathcal{L}_{\mathrm{Cls}}^{\top} \subsetneq \mathcal{L}_{\mathrm{Cls}}$; an object may carry both structures (Univalent Foundations lies in $\mathcal{L}_{\mathrm{Cls}}$ while its underlying HoTT lies in $\mathcal{L}_{\mathrm{Fnd}}$).
+**A precision that matters.** The strata are cut out by *type-distinct* condition packages — first-order (R1)–(R5) on formal systems vs. 2-categorical (M1)–(M5) on classifiers — so the only genuine inclusion in the diagram is $\mathcal{L}_{\mathrm{Cls}}^{\top} \subsetneq \mathcal{L}_{\mathrm{Cls}}$. There is **no** inclusion between $\mathcal{L}_{\mathrm{Fnd}}$ and $\mathcal{L}_{\mathrm{Cls}}$: an object may carry both structures — Univalent Foundations lies in $\mathcal{L}_{\mathrm{Cls}}$ while its underlying HoTT lies in $\mathcal{L}_{\mathrm{Fnd}}$ — the way an author may also curate a catalogue, without books becoming catalogues. Reading the diagram as a "ladder of strength" (PA < ZFC < ZFC + large cardinals ⇒ higher strata) is a category error: strength ladders live *inside* $\mathcal{L}_{\mathrm{Fnd}}$.
 
 | Stratum | Conditions | Representatives |
 |---|---|---|
@@ -71,25 +59,86 @@ The strata are cut out by *type-distinct* condition packages — first-order (R1
 
 Transitions: $\mathrm{Cls}$ (horizontal, classifying) lifts $\mathcal{L}_{\mathrm{Fnd}}$ to $\mathcal{L}_{\mathrm{Cls}}$; maximality sharpens $\mathcal{L}_{\mathrm{Cls}}$ to $\mathcal{L}_{\mathrm{Cls}}^{\top}$; $\mathrm{Gen}$ (vertical, generative) targets $\mathcal{L}_{\mathrm{Abs}}$, whose image is empty.
 
+## What is proved
+
+Four structural results about the interior of $\mathfrak{M}$, one boundary theorem about its exterior.
+
+1. **The catalogues genuinely disagree — plurality at $\mathcal{L}_{\mathrm{Cls}}$.** The $\infty$-cosmoi of Riehl–Verity, the Univalent Foundations programme of Voevodsky, and the cohesive higher-topos framework of Schreiber are pairwise non-$2$-equivalent *partial* classifiers: each organizes a strict sub-stack of $\mathfrak{M}$, none sees everything. The plurality of foundations lifts, consistently, to a genuine plurality of ways of classifying them.
+
+2. **But a complete catalogue, if it exists, is unique — conditional categoricity at $\mathcal{L}_{\mathrm{Cls}}^{\top}$.** Any two classifiers satisfying the maximality conditions (full classification, gauge-fullness, depth-stratification, intensional completeness) over the same Rich-metatheory are $(\infty, \infty)$-equivalent, canonically, via Grothendieck–Lurie straightening with joint faithfulness of the extensional and intensional classification functors.
+
+3. **Fine print does not tear the map — slice-local intensional refinement.** Intensional distinctions invisible to extensional Morita equivalence — the MLTT / ETT gap, the HoTT / cubical HoTT split, proof-term-level variance between Coq and Agda — live in the fibre over a *single* point of $\mathfrak{M}$, detected via Hyland's effective topos through a computability invariant $\tau$. The base $\mathfrak{M}$ stays intact under intensional refinement.
+
+4. **Cataloguing the catalogues never spawns a new kind of catalogue — meta-stabilization with universe-ascent.** Iterated meta-classification reproduces the *same* $(\infty, \infty)$-theory at every step (Barwick–Schommer-Pries unicity), while its set-theoretic instantiation genuinely ascends the Grothendieck-universe hierarchy $\kappa_1 < \kappa_2 < \cdots$. Theory is invariant; size is not.
+
+**AFN-T (the boundary).** The syntax–semantics adjunction underlying a Rich-metatheory $S$ forces $\mathcal{L}_{\mathrm{Abs}}$ — objects simultaneously formally definable $(F_S)$, non-reducible $(\Pi_{4, S, n})$, and maximally generative $(\Pi_{3\text{-max}, S, n})$ — to be empty. Equivalently: **$\mathfrak{M}$ has no maximal point.** The proof core is a three-line Russell-style identity argument: already the *pair* $(F_S) \wedge (\Pi_4)$ is structurally self-contradictory; the β-part closes the transfinite escape — the limit of any tower of approximations stays Morita-reducible and never acquires irreducibility.
+
+### Five-axis absoluteness
+
+The no-go is not a one-off: it holds **uniformly along five escape axes** $(S, n, \mu, \xi, \pi)$ —
+
+| Axis | Uniform over |
+|---|---|
+| Horizontal | every Rich-metatheory $S \in \mathcal{RS}$ |
+| Vertical | every categorical level $n \in \mathbb{N} \cup \{\infty\}$ |
+| Meta-vertical | every meta-classification iteration ($\mu$-closure of vertical) |
+| Lateral | every alternative categorical ordering (reduces to vertical) |
+| Completeness | within $\mathcal{LS}$, conditional on Lawvere-scope (subsumes horizontal) |
+
+— so there is no metatheory to switch to, no categorical dimension to climb, no meta-level to retreat to, and no reordering trick that revives an absolute foundation. (Honest note: the *logically independent* core is the horizontal and vertical pair; the other three axes are proved as its closures.)
+
+### The no-go tradition, unified
+
+| Classical result | Specialization of AFN-T |
+|---|---|
+| Cantor 1891 — absolute infinity | $\mathcal{L}_{\mathrm{Abs}}$ restricted to cardinal-hierarchy maximality |
+| Russell 1903 — universal class | $\mathcal{L}_{\mathrm{Abs}}$ at first-order $S = \mathrm{ZF}$ without restriction |
+| Gödel 1931 — incompleteness | $\Pi_{4}$ via proof-theoretic non-reducibility |
+| Tarski 1936 — undefinability of truth | $(F_S)$ blocked for the truth predicate |
+| Lawvere 1969 — fixed-point diagonal | $\mathcal{L}_{\mathrm{Abs}}$ at $n = 1$ in any cartesian-closed $\mathcal{F}$ |
+| Ernst 2015 — unlimited category theory | $\mathcal{L}_{\mathrm{Abs}}$ at $n = 1$ under Feferman's (R1)–(R3) |
+
+Three classical **bypass hopes** — universe polymorphism, reflective towers bounded by one inaccessible, intensional refinement through extensional collapse — are formally closed: each stays within the classification instead of escaping it.
+
+## What becomes definable that was not
+
+1. **The no-go pattern gets a name.** Cantor, Russell, Gödel, Tarski, Lawvere, Ernst spent a century as an unnamed family resemblance. AFN-T is the single law of the edge of which they are readings at different maximality aspects — the move Lawvere's fixed-point theorem made for diagonal arguments, one floor higher.
+
+2. **"Classifier" becomes a type, distinct from "foundation".** Before MSFS, "∞-cosmoi vs. Univalent Foundations vs. cohesive theory" sounded like rival claims to one throne. The (M1)–(M5) conditions make *classifier* a precise, different kind of object — and the rivalry becomes a theorem: three partial classifiers, pairwise non-equivalent, each blind to part of the space. The distinction is subtle enough that informal retellings routinely collapse it back into a "ladder of strength"; the formal conditions are what keeps it standing.
+
+3. **"No absolute foundation" becomes a quantified statement.** Instead of a slogan, an exact triple of conditions, five explicit uniformity axes, and an eight-entry Assumption Register (A1)–(A8) against which any claimed "limit foundation" can be audited entry-by-entry. The compatible ceiling of ambition is maximality *within* $\mathcal{L}_{\mathrm{Cls}}^{\top}$-type strata — never membership in $\mathcal{L}_{\mathrm{Abs}}$.
+
+4. **The intensional/extensional divide gets an address.** MLTT/ETT and HoTT/cubical differences stop being an argument against Morita classification and become fibre data over single points — the moduli base survives the fine print.
+
+## Honest boundaries
+
+Stated in the paper itself (Assumption Register, §1.3) and worth repeating here:
+
+- **The impossibility is definitional in nature.** AFN-T forecloses exactly the triple $(F_S) \wedge (\Pi_4) \wedge (\Pi_{3\text{-max}})$; the philosophical reading "no absolute foundation exists" is faithful *to the extent the triple captures the intended notion* (register entry A3: interpretive adequacy). The five-axis analysis hardens the reading axis-by-axis but does not eliminate its interpretive character.
+- **The α-core is classical.** After twelve documented audit rounds the α-part reduced to a three-line Russell-style identity argument. The novelty is the **uniformity frame** — five axes, all levels, all metatheories — and the interior theorems (meta-categoricity, slice-locality, stabilization), not the contradiction mechanism itself.
+- **Deep pillars are cited, not re-proved.** $(\infty, \infty)$-stabilization, Barwick–Schommer-Pries unicity, Grothendieck–Lurie straightening enter as literature; the machine-checked corpus verifies the argument structure built on them.
+- **$\mathcal{L}_{\mathrm{Cls}}^{\top}$ is conjectural.** Meta-categoricity is conditional ("if non-empty"); the canonical candidate $\mathbf{F}_S^*$ is constructed inside the proof.
+- **Status: preprint.** Zenodo-published, internally audited (the 12-round α-audit chronicle is public), machine-verified — not yet externally refereed.
+
 ## Consequences for the foundational landscape
 
 1. **The search for an absolute foundation is over — as a specific formal question.** The question *"is there a mathematical object that simultaneously admits a formal definition, irreducibility, and maximal generativity?"* now has a definitive negative answer, uniform across Rich-metatheories and categorical levels.
 
-2. **Pluralism is genuine and measurable.** The coexistence of ZFC, HoTT, CIC, NCG, ∞-topos theory and cohesive foundations is not a temporary state to be resolved, but a structural feature of $\mathfrak{M}$. Each foundation occupies a coordinate position. Relations between them — interpretations, Morita equivalences, gauge transformations — are morphisms in $\mathfrak{M}$.
+2. **Pluralism is genuine and measurable.** The coexistence of ZFC, HoTT, CIC, NCG, ∞-topos theory and cohesive foundations is not a temporary state to be resolved, but a structural feature of $\mathfrak{M}$. Each foundation occupies a coordinate position; relations between them — interpretations, Morita equivalences, gauge transformations — are morphisms in $\mathfrak{M}$.
 
 3. **Meta-frameworks have a taxonomy.** $\infty$-cosmoi, Univalent Foundations, and cohesive higher topos theory are not competing claims to the same role; they are distinct *partial* classifiers, each organizing a genuinely different sub-stack of $\mathfrak{M}$.
 
-4. **The intensional / extensional divide is localized.** Differences between type theories that are invisible to extensional Morita equivalence (MLTT vs ETT, HoTT vs cubical HoTT) do not fragment the moduli space; they appear as fibre data over single points. The base $\mathfrak{M}$ remains intact under intensional refinement.
+4. **The intensional / extensional divide is localized.** Differences invisible to extensional Morita equivalence appear as fibre data over single points; the base $\mathfrak{M}$ remains intact under intensional refinement.
 
-5. **Meta-classification does not escalate.** Iterating the meta-classification operation produces a tower that stabilizes at the theory level while ascending cleanly through the Grothendieck-universe hierarchy. No proliferation of genuinely new meta-meta-strata is possible; size grows but theory does not.
+5. **Meta-classification does not escalate.** The tower stabilizes at the theory level while ascending cleanly through the Grothendieck-universe hierarchy: size grows, theory does not.
 
-6. **Three classical bypass paths are closed.** Universe polymorphism, reflective towers bounded by one inaccessible cardinal, and intensional refinement through extensional collapse — each historically proposed as a way around structural no-go results — are formally shown to remain within the classification and not to escape it.
+6. **Three classical bypass paths are closed** — universe polymorphism, reflective towers, intensional refinement through extensional collapse — formally, not rhetorically.
 
-7. **The no-go tradition is unified.** Cantor, Russell, Gödel, Tarski, Lawvere, and Ernst become readings of one structural law at different maximality aspects. The isolated impression their results left behind in the twentieth century becomes, here, a single pattern.
+7. **The no-go tradition is unified.** The isolated impression the classical results left behind in the twentieth century becomes, here, a single pattern.
 
 ## Machine verification — the Verum corpus
 
-MSFS is not only a paper.  Every theorem, lemma, and corollary has a companion machine-checked formal proof in the **Verum MSFS Corpus** at [`verum-corpus/`](./verum-corpus/).  The corpus is **self-contained modulo ZFC + 2 strongly inaccessible cardinals** and ships its own README + tutorial with the verification pipeline, audit catalogue, paper-to-corpus map, and reproducibility instructions.
+MSFS is not only a paper. Every theorem, lemma, and corollary has a companion machine-checked formal proof in the **Verum MSFS Corpus** at [`verum-corpus/`](./verum-corpus/). The corpus is **self-contained modulo ZFC + 2 strongly inaccessible cardinals** and ships its own README + tutorial with the verification pipeline, audit catalogue, paper-to-corpus map, and reproducibility instructions.
 
 The trusted boundary is exactly:
 
@@ -97,7 +146,7 @@ The trusted boundary is exactly:
 - two strongly inaccessible cardinals $\kappa_1 < \kappa_2$,
 - the Verum trusted kernel (`crates/verum_kernel/`).
 
-Nothing else is admitted.  The boundary is enforced by the kernel-side invariant `verum_kernel::mechanisation_roadmap::msfs_self_contained()` and by the corpus-side Verum-language theorem `msfs_self_containment_theorem`; both are re-checked on every build.
+Nothing else is admitted. The boundary is enforced by the kernel-side invariant `verum_kernel::mechanisation_roadmap::msfs_self_contained()` and by the corpus-side Verum-language theorem `msfs_self_containment_theorem`; both are re-checked on every build.
 
 Run `verum audit --bundle` inside `verum-corpus/` for the one-command L4-readiness verdict.
 
@@ -168,6 +217,7 @@ MSFS is the self-contained formal core of the **Diakrisis** meta-structural math
 ```
 Sereda, M. (2026). The Moduli Space of Formal Systems: Classification,
 Stabilization, and a No-Go Theorem for Absolute Foundations.
+Zenodo. https://doi.org/10.5281/zenodo.19755781
 ```
 
 BibTeX:
@@ -177,7 +227,9 @@ BibTeX:
   author = {Sereda, Max},
   title  = {The Moduli Space of Formal Systems: Classification,
             Stabilization, and a No-Go Theorem for Absolute Foundations},
-  year   = {2026}
+  year   = {2026},
+  doi    = {10.5281/zenodo.19755781},
+  url    = {https://doi.org/10.5281/zenodo.19755781}
 }
 ```
 

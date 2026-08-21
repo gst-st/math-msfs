@@ -2,7 +2,7 @@
 
 Machine-verified formalization of:
 
-- **MSFS** — *The Moduli Space of Formal Systems: Classification, Stabilization, and a No-Go Theorem for Absolute Foundations*, A. Sereda 2026 ([Zenodo](https://zenodo.org/records/19755781), source [`paper-en/paper.tex`](../paper-en/paper.tex)) — 44 pages (post-audit 2026-07), 65 structural results (21 def, 7 lemma, 20 thm, 9 cor, 6 prop, 2 conv).
+- **MSFS** — *The Moduli Space of Formal Systems: Classification, Stabilization, and a No-Go Theorem for Absolute Foundations*, M. Sereda 2026 ([Zenodo](https://zenodo.org/records/19755781), source [`paper-en/paper.tex`](../paper-en/paper.tex)) — 44 pages (post-audit 2026-07), 65 structural results (21 def, 7 lemma, 20 thm, 9 cor, 6 prop, 2 conv).
 
 Written in [Verum](https://github.com/verum-lang/verum), a foundation-neutral proof assistant.  Every theorem is checked by Verum's trusted kernel and exported to Coq / Lean 4 / Dedukti / Metamath for independent re-checking (agda export dropped with CLI support, 2026-07-10; cross-format hard gate = Coq + Lean4 + Dedukti, all live-tool verified).
 

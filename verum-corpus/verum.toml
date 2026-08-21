@@ -1,7 +1,7 @@
 [cog]
 name = "verum-corpus"
 version = "0.1.0"
-authors = ["A. Sereda"]
+authors = ["Max Sereda"]
 license = "CC-BY-4.0"
 description = "Machine verification of the MSFS preprint (Sereda 2026), self-contained modulo ZFC + 2 inaccessibles"
 keywords = ["msfs", "afn-t", "moduli-space", "no-go-theorem", "categorical-foundations"]
