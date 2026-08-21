@@ -4,15 +4,11 @@
  *
  * Поддерживаемые документы:
  *   msfs   — MSFS / AFN-T (paper-en/paper.tex, по умолчанию)
- *   verum  — Verum × MSFS integration (verum/en/paper.tex)
  *
  * Использование:
  *   bun scripts/build-paper.ts                         PDF → paper-en/msfs-paper.pdf
- *   bun scripts/build-paper.ts --paper verum           PDF → verum/en/verum-msfs-paper.pdf
  *   bun scripts/build-paper.ts --arxiv                 arXiv-тарболл MSFS
- *   bun scripts/build-paper.ts --paper verum --arxiv   arXiv-тарболл Verum
  *   bun scripts/build-paper.ts --zenodo                Zenodo-каталог MSFS
- *   bun scripts/build-paper.ts --paper verum --zenodo  Zenodo-каталог Verum
  *   bun scripts/build-paper.ts --help                  Справка
  *
  * Конвейер: три прохода pdflatex (aux/toc → cross-refs → финализация).
@@ -104,64 +100,8 @@ embedded in the source; no BibTeX run required.</p>
   arxivCross: ["math.CT", "math.AG"],
 };
 
-const VERUM_CONFIG: PaperConfig = {
-  paperDir: "verum/en",
-  outputName: "verum-msfs-paper",
-  arxivTarball: "verum-msfs-arxiv.tar.gz",
-  shortLabel: "Verum × MSFS",
-  title:
-    "Verum as a Native Instance of the Moduli Space of Formal Systems: Compiler-Integrated Verification Structurally Grounded in AFN-T",
-  zenodoAbstract: `
-<p>The proof assistant Verum is analysed as a concrete computable
-instance of the $(\\infty, n)$-categorical moduli space $\\mathfrak{M}$
-of Rich-foundations classified by the MSFS programme. Four structural
-correspondences are established: (i) the <code>@framework(name,
-citation)</code> axiom mechanism realises the $\\mathcal{L}_{Fnd}$
-stratum with explicit bibliographic coordinate; (ii)
-<code>protocol</code>-based abstraction instantiates the classifier
-stratum $\\mathcal{L}_{Cls}$ with explicit (M1)–(M5) data; (iii) the
-LCF-style trusted kernel embodies T-2f* depth-stratification and
-inherits universal paradox-immunity via the Yanofsky-reducibility
-theorem; (iv) the nine-strategy <code>@verify(...)</code> dispatch
-ladder refines the ν-invariant of Diakrisis in an operational-cost
-gradient.</p>
-
-<p>The 223-theorem UHM proof corpus is shown to stratify exactly into
-MSFS levels. A competitive analysis establishes that no extant proof
-assistant (Coq, Lean, Agda, Isabelle, F*, Dafny, Liquid Haskell, Mizar,
-Metamath) satisfies all four MSFS correspondences. The gap is
-structural, not engineering: Verum's architecture was composed after
-MSFS, with the correspondences as explicit design desiderata.</p>
-`.trim(),
-  zenodoKeywords: [
-    "proof assistants",
-    "Verum",
-    "verifiable systems programming",
-    "compiler-integrated verification",
-    "refinement types",
-    "dependent types",
-    "cubical type theory",
-    "SMT-based verification",
-    "LCF-style kernel",
-    "framework axioms",
-    "moduli space of formal systems",
-    "MSFS",
-    "AFN-T",
-    "intensional type theory",
-    "MLTT / ETT separation",
-    "gradual verification",
-    "paradox-immunity",
-  ],
-  zenodoNotes:
-    "Companion paper to MSFS. Establishes four correspondence theorems " +
-    "between Verum language mechanisms and MSFS strata.",
-  arxivPrimary: "cs.LO",
-  arxivCross: ["cs.PL", "math.LO", "math.CT"],
-};
-
 const PAPERS: Record<string, PaperConfig> = {
   msfs: MSFS_CONFIG,
-  verum: VERUM_CONFIG,
 };
 
 const MAIN_TEX = "paper.tex";
@@ -183,7 +123,7 @@ const paperIdx = args.indexOf("--paper");
 if (paperIdx !== -1) {
   const val = args[paperIdx + 1];
   if (!val || val.startsWith("--")) {
-    console.error("❌ --paper требует аргумент: msfs | verum\n");
+    console.error("❌ --paper требует аргумент: msfs\n");
     process.exit(2);
   }
   paperChoice = val;
@@ -213,14 +153,12 @@ const PAPER_DIR = path.join(ROOT, CONFIG.paperDir);
 
 function showUsage(): void {
   const msfsName = MSFS_CONFIG.outputName;
-  const verumName = VERUM_CONFIG.outputName;
   console.log(
     `
 Использование: bun scripts/build-paper.ts [параметры]
 
 Выбор документа:
   --paper msfs      MSFS / AFN-T (paper-en/)   [по умолчанию]
-  --paper verum     Verum × MSFS (verum/en/)
 
 Режимы:
   (без флага)       Собрать PDF
@@ -230,8 +168,7 @@ function showUsage(): void {
 
 Примеры:
   bun scripts/build-paper.ts                         → paper-en/${msfsName}.pdf
-  bun scripts/build-paper.ts --paper verum           → verum/en/${verumName}.pdf
-  bun scripts/build-paper.ts --paper verum --arxiv   → verum/en/${VERUM_CONFIG.arxivTarball}
+  bun scripts/build-paper.ts --arxiv                 → paper-en/${MSFS_CONFIG.arxivTarball}
   bun scripts/build-paper.ts --zenodo                → paper-en/zenodo/
 `.trim(),
   );

@@ -45,11 +45,22 @@ AFN-T subsumes the classical series under one frame:
 
 ## The four formal strata
 
+```mermaid
+flowchart LR
+ classDef fnd fill:#bbdefb,stroke:#1976d2,color:#000
+ classDef cls fill:#c8e6c9,stroke:#388e3c,color:#000
+ classDef top fill:#fff9c4,stroke:#fbc02d,color:#000
+ classDef abs fill:#ffccbc,stroke:#e64a19,color:#000,stroke-dasharray:5 5
+ FND["𝓛_Fnd — Rich-foundations<br/>(R1)–(R5)"]:::fnd
+ CLS["𝓛_Cls — classifiers<br/>(M1)–(M5)"]:::cls
+ TOP["𝓛_Cls^⊤ — maximal<br/>(Max-1)–(Max-4)"]:::top
+ ABS["𝓛_Abs = ∅<br/>(F_S) ∧ (Π_4) ∧ (Π_3-max)"]:::abs
+ FND -- "Cls (horizontal meta)" --> CLS
+ CLS -- "⊋ strict inclusion" --> TOP
+ TOP -- "Gen (vertical meta)" --> ABS
 ```
-𝓛_Fnd  ⊊  𝓛_Cls  ⊋  𝓛_Cls^⊤                  𝓛_Abs = ∅
- │          │          │                              │
-(R1)–(R5) (M1)–(M5) (Max-1)–(Max-4)     (F_S) ∧ (Π_4) ∧ (Π_3-max)
-```
+
+The strata are cut out by *type-distinct* condition packages — first-order (R1)–(R5) on formal systems vs. 2-categorical (M1)–(M5) on classifiers — so the only genuine inclusion in the diagram is $\mathcal{L}_{\mathrm{Cls}}^{\top} \subsetneq \mathcal{L}_{\mathrm{Cls}}$; an object may carry both structures (Univalent Foundations lies in $\mathcal{L}_{\mathrm{Cls}}$ while its underlying HoTT lies in $\mathcal{L}_{\mathrm{Fnd}}$).
 
 | Stratum | Conditions | Representatives |
 |---|---|---|
@@ -101,9 +112,11 @@ No foundation is privileged. The argument is stated inside $\mathrm{ZFC} + 2\tex
 ```
 math-msfs/
 ├── paper-en/
-│   ├── paper.tex           LaTeX source (English)
-│   └── paper-mini.tex      Minimal variant for fast iteration
-├── paper-ru/               Russian 1-to-1 translation (in progress)
+│   ├── paper.tex           LaTeX source (English); builds to msfs-paper.pdf
+│   ├── paper-mini.tex      Minimal variant for fast iteration
+│   └── zenodo/             Zenodo deposit package
+├── paper-ru/               Russian translation (main results; full 1-to-1 in progress)
+├── verum-corpus/           Machine-checked formalization (Verum); own README + TUTORIAL
 ├── scripts/
 │   └── build-paper.ts      Build / arXiv / Zenodo packaging (Bun)
 ├── .gitignore
@@ -119,7 +132,7 @@ Requires TeX Live 2023+ (`pdflatex`) and [Bun](https://bun.sh) for the build scr
 # Compile PDF → paper-en/msfs-paper.pdf
 bun scripts/build-paper.ts
 
-# Package arXiv tarball → paper-en/afn-t-arxiv.tar.gz
+# Package arXiv tarball → paper-en/msfs-arxiv.tar.gz
 bun scripts/build-paper.ts --arxiv
 
 # Package Zenodo deposit → paper-en/zenodo/
