@@ -164,7 +164,7 @@ math-msfs/
 │   ├── paper.tex           LaTeX source (English); builds to msfs-paper.pdf
 │   ├── paper-mini.tex      Minimal variant for fast iteration
 │   └── zenodo/             Zenodo deposit package
-├── paper-ru/               Russian 1-to-1 translation (complete: all 65 results with full proofs)
+├── paper-ru/               Russian 1-to-1 translation (complete: all 65 results with full proofs); builds to msfs-paper-ru.pdf
 ├── verum-corpus/           Machine-checked formalization (Verum); own README + TUTORIAL
 ├── scripts/
 │   └── build-paper.ts      Build / arXiv / Zenodo packaging (Bun)
@@ -180,6 +180,9 @@ Requires TeX Live 2023+ (`pdflatex`) and [Bun](https://bun.sh) for the build scr
 ```bash
 # Compile PDF → paper-en/msfs-paper.pdf
 bun scripts/build-paper.ts
+
+# Compile the Russian 1-to-1 PDF → paper-ru/msfs-paper-ru.pdf
+bun scripts/build-paper.ts --paper msfs-ru
 
 # Package arXiv tarball → paper-en/msfs-arxiv.tar.gz
 bun scripts/build-paper.ts --arxiv
