@@ -72,9 +72,8 @@ mount lib.theorems.msfs.strata.{
     msfs_proposition_2_2_iv_l_abs_empty,
     msfs_proposition_2_3_corollary_cls_not_in_l_abs,
     msfs_proposition_2_2_iii_clsmax_strict_above_abs,
-    msfs_proposition_2_2_iii_fnd_strict_above_cls,
+    msfs_proposition_2_3_no_horizontal_collapse,
     msfs_proposition_2_2_iii_cls_strict_above_clsmax,
-    msfs_proposition_2_2_iii_clsmax_strict_above_abs_witness,
 };
 
 // Section §5 — AFN-T α-part (Theorem 5.1, Corollary 5.2)

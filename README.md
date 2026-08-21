@@ -164,7 +164,7 @@ math-msfs/
 │   ├── paper.tex           LaTeX source (English); builds to msfs-paper.pdf
 │   ├── paper-mini.tex      Minimal variant for fast iteration
 │   └── zenodo/             Zenodo deposit package
-├── paper-ru/               Russian translation (main results; full 1-to-1 in progress)
+├── paper-ru/               Russian 1-to-1 translation (complete: all 65 results with full proofs)
 ├── verum-corpus/           Machine-checked formalization (Verum); own README + TUTORIAL
 ├── scripts/
 │   └── build-paper.ts      Build / arXiv / Zenodo packaging (Bun)

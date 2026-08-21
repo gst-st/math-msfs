@@ -22,9 +22,7 @@ mount core.math.strata.{
     Stratum,
     StrictInclusionWitness,
     msfs_strata_class_definable,
-    msfs_proper_inclusion_fnd_cls,
     msfs_proper_inclusion_cls_clsmax,
-    msfs_proper_inclusion_clsmax_abs,
     msfs_L_abs_empty,
     msfs_no_horizontal_collapse,
     msfs_cls_not_in_l_abs,
@@ -109,25 +107,36 @@ public theorem msfs_proposition_2_2_iii_clsmax_strict_above_abs(
         apply msfs_proposition_2_2_iv_l_abs_empty(candidate);
     };
 
-/// **MSFS Proposition 2.2 (iii) — L_Fnd ⊋ L_Cls.**
+// REMOVED (ontology audit 2026-08): the former theorem
+// `msfs_proposition_2_2_iii_fnd_strict_above_cls` claimed the strict
+// inclusion L_Fnd ⊋ L_Cls via the stdlib axiom
+// `msfs_proper_inclusion_fnd_cls`. The paper asserts NO such inclusion:
+// Proposition 2.2 (ii) makes (R1)-(R5) and (M1)-(M5) type-distinct
+// condition packages (UF ∈ L_Cls while its underlying HoTT ∈ L_Fnd),
+// and Prop 2.2 (iii) proves exactly ONE inclusion, L_Cls_top ⊊ L_Cls.
+// The axiom was deleted from the stdlib accordingly. What the paper
+// DOES assert about the Fnd/Cls relation is Proposition 2.3
+// (non-collapse of the horizontal meta), derived below.
+
+/// **MSFS Proposition 2.3 — non-collapse of the horizontal meta.**
 ///
-/// Witnessed by an exhibitor (canonically: AffineLogic + ! satisfying
-/// R1–R5 but failing M3 accessibility) that inhabits L_Fnd without
-/// inhabiting L_Cls. The kernel re-checks the witness's two flags
-/// through the parameterised axiom.
+/// `Cls(L_Fnd)` neither embeds into `L_Fnd` nor coincides with
+/// `L_Abs`: the classifier stratum is a distinct stratum, labelled
+/// `L_Cls`. At the Stratum carrier this is the tag-level inequality
+/// L_Fnd ≠ L_Cls, re-checked by the kernel through the stdlib axiom.
 @verify(certified)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Proposition 2.2 (iii) — L_Fnd ⊋ L_Cls")
-public theorem msfs_proposition_2_2_iii_fnd_strict_above_cls(
-    w: &StrictInclusionWitness,
+@framework(msfs, "MSFS Proposition 2.3 — non-collapse of the horizontal meta")
+public theorem msfs_proposition_2_3_no_horizontal_collapse(
+    source_stratum: Stratum,
+    target_stratum: Stratum,
 )
-    requires w.outer_stratum_tag().eq("L_Fnd")
-          && w.inner_stratum_tag().eq("L_Cls")
-    ensures  w.exhibitor_in_outer_stratum()
-          && w.exhibitor_not_in_inner_stratum()
+    requires source_stratum == Stratum.L_Fnd
+          && target_stratum == Stratum.L_Cls
+    ensures  source_stratum != target_stratum
     proof {
-        apply msfs_proper_inclusion_fnd_cls(w);
+        apply msfs_no_horizontal_collapse(source_stratum, target_stratum);
     };
 
 /// **MSFS Proposition 2.2 (iii) — L_Cls ⊋ L_Cls_top.**
@@ -150,24 +159,11 @@ public theorem msfs_proposition_2_2_iii_cls_strict_above_clsmax(
         apply msfs_proper_inclusion_cls_clsmax(w);
     };
 
-/// **MSFS Proposition 2.2 (iii) — L_Cls_top ⊋ L_Abs (typed-witness form).**
-///
-/// Companion to the candidate-based vacuous form: callers carrying a
-/// generic `&StrictInclusionWitness` with the right tags invoke this
-/// theorem; callers with an L_Abs candidate use the vacuous form
-/// (any L_Abs candidate trivially witnesses strict inclusion via
-/// emptiness).
-@verify(certified)
-@accessibility(omega_1)
-@enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Proposition 2.2 (iii) — L_Cls_top ⊋ L_Abs (typed-witness form)")
-public theorem msfs_proposition_2_2_iii_clsmax_strict_above_abs_witness(
-    w: &StrictInclusionWitness,
-)
-    requires w.outer_stratum_tag().eq("L_Cls_top")
-          && w.inner_stratum_tag().eq("L_Abs")
-    ensures  w.exhibitor_in_outer_stratum()
-          && w.exhibitor_not_in_inner_stratum()
-    proof {
-        apply msfs_proper_inclusion_clsmax_abs(w);
-    };
+// REMOVED (ontology audit 2026-08): the former typed-witness theorem
+// `msfs_proposition_2_2_iii_clsmax_strict_above_abs_witness` applied
+// the stdlib axiom `msfs_proper_inclusion_clsmax_abs`, which was
+// deleted as vacuous: "L_Cls_top ⊋ L_Abs" carries no content beyond
+// L_Abs = ∅ (Prop 2.2 (iv)), which the candidate-based theorem
+// `msfs_proposition_2_2_iii_clsmax_strict_above_abs` above already
+// derives from Corollary 5.2. Do not restore a separate witness form:
+// it would re-introduce an axiom whose entire content is emptiness.
