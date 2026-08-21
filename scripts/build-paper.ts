@@ -3,10 +3,12 @@
  * build-paper.ts — Сборка PDF и упаковка для серверов препринтов.
  *
  * Поддерживаемые документы:
- *   msfs   — MSFS / AFN-T (paper-en/paper.tex, по умолчанию)
+ *   msfs      — MSFS / AFN-T, английский (paper-en/paper.tex, по умолчанию)
+ *   msfs-ru   — MSFS / AFN-T, русский 1:1 (paper-ru/paper.tex)
  *
  * Использование:
  *   bun scripts/build-paper.ts                         PDF → paper-en/msfs-paper.pdf
+ *   bun scripts/build-paper.ts --paper msfs-ru         PDF → paper-ru/msfs-paper-ru.pdf
  *   bun scripts/build-paper.ts --arxiv                 arXiv-тарболл MSFS
  *   bun scripts/build-paper.ts --zenodo                Zenodo-каталог MSFS
  *   bun scripts/build-paper.ts --help                  Справка
@@ -100,8 +102,38 @@ embedded in the source; no BibTeX run required.</p>
   arxivCross: ["math.CT", "math.AG"],
 };
 
+const MSFS_RU_CONFIG: PaperConfig = {
+  paperDir: "paper-ru",
+  outputName: "msfs-paper-ru",
+  arxivTarball: "msfs-arxiv-ru.tar.gz",
+  shortLabel: "MSFS / AFN-T (RU)",
+  title:
+    "Пространство модулей формальных систем: Классификация, стабилизация и no-go-теорема для абсолютных оснований",
+  zenodoAbstract: `
+<p>Русский 1:1-перевод препринта MSFS: изучается $(\\infty, n)$-категорное
+пространство модулей формальных систем $\\mathfrak{M}$; четыре структурные
+теоремы о его интерьере и граничная теорема AFN-T (страта абсолютных
+оснований пуста, равномерно по пяти осям). Все 65 результатов с полными
+доказательствами; метки синхронизированы с английским оригиналом.</p>
+`.trim(),
+  zenodoKeywords: [
+    "moduli space of formal systems",
+    "MSFS",
+    "AFN-T",
+    "no-go theorems",
+    "categorical logic",
+    "Russian translation",
+  ],
+  zenodoNotes:
+    "Russian 1-to-1 translation of the MSFS preprint. " +
+    "Labels are byte-identical to the English original.",
+  arxivPrimary: "math.LO",
+  arxivCross: ["math.CT"],
+};
+
 const PAPERS: Record<string, PaperConfig> = {
   msfs: MSFS_CONFIG,
+  "msfs-ru": MSFS_RU_CONFIG,
 };
 
 const MAIN_TEX = "paper.tex";
@@ -123,7 +155,7 @@ const paperIdx = args.indexOf("--paper");
 if (paperIdx !== -1) {
   const val = args[paperIdx + 1];
   if (!val || val.startsWith("--")) {
-    console.error("❌ --paper требует аргумент: msfs\n");
+    console.error("❌ --paper требует аргумент: msfs | msfs-ru\n");
     process.exit(2);
   }
   paperChoice = val;
@@ -158,7 +190,8 @@ function showUsage(): void {
 Использование: bun scripts/build-paper.ts [параметры]
 
 Выбор документа:
-  --paper msfs      MSFS / AFN-T (paper-en/)   [по умолчанию]
+  --paper msfs      MSFS / AFN-T, английский (paper-en/)   [по умолчанию]
+  --paper msfs-ru   MSFS / AFN-T, русский 1:1 (paper-ru/)
 
 Режимы:
   (без флага)       Собрать PDF
@@ -168,6 +201,7 @@ function showUsage(): void {
 
 Примеры:
   bun scripts/build-paper.ts                         → paper-en/${msfsName}.pdf
+  bun scripts/build-paper.ts --paper msfs-ru         → paper-ru/msfs-paper-ru.pdf
   bun scripts/build-paper.ts --arxiv                 → paper-en/${MSFS_CONFIG.arxivTarball}
   bun scripts/build-paper.ts --zenodo                → paper-en/zenodo/
 `.trim(),

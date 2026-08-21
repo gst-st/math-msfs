@@ -45,15 +45,15 @@ paper-ru/*.nav
 paper-ru/*.snm
 paper-ru/*.vrb
 
-# Compiled PDFs and packaged outputs (regenerable)
-paper-en/msfs-paper.pdf
+# Packaged outputs (regenerable). The FINAL compiled PDFs
+# (paper-en/msfs-paper.pdf, paper-ru/msfs-paper-ru.pdf) are TRACKED
+# deliverables — rebuild via scripts/build-paper.ts; do not re-ignore them.
 paper-en/paper.pdf
 paper-en/msfs-arxiv.tar.gz
 paper-en/zenodo/
 
-paper-ru/msfs-paper.pdf
 paper-ru/paper.pdf
-paper-ru/msfs-arxiv.tar.gz
+paper-ru/msfs-arxiv-ru.tar.gz
 paper-ru/zenodo/
 
 # Verum companion paper — regenerable PDFs
